@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file plugins/themes/default/BootstrapThreeThemePlugin.inc.php
+ *
+ * Copyright (c) 2014-2016 Simon Fraser University Library
+ * Copyright (c) 2003-2016 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class BootstrapThreeThemePlugin
+ * @ingroup plugins_themes_bootstrap3
+ *
+ * @brief Default theme
+ */
+
+import('lib.pkp.classes.plugins.ThemePlugin');
+class BootstrapThreeThemePlugin extends ThemePlugin {
+
+	/**
+	 * Get the name of the settings file to be installed on new journal
+	 * creation.
+	 * @return string
+	 */
+	function getContextSpecificPluginSettingsFile() {
+		error_log( 'hello' );
+		return $this->getPluginPath() . '/settings.xml';
+	}
+
+	/**
+	 * Get the name of the settings file to be installed site-wide when
+	 * OJS is installed.
+	 * @return string
+	 */
+	function getInstallSitePluginSettingsFile() {
+		return $this->getPluginPath() . '/settings.xml';
+	}
+
+	/**
+	 * Get the display name of this plugin
+	 * @return string
+	 */
+	function getDisplayName() {
+		error_log( 'hmm' );
+		return __('plugins.themes.default.name');
+	}
+
+	/**
+	 * Get the description of this plugin
+	 * @return string
+	 */
+	function getDescription() {
+		return __('plugins.themes.default.description');
+	}
+
+	/**
+	 * @see ThemePlugin::getLessStylesheet
+	 */
+	function getLessStylesheet() {
+		return 'styles/index.less';
+	}
+}
