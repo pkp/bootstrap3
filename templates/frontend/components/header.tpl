@@ -41,6 +41,14 @@
 	</script>
 	<div class="pkp_structure_page">
 
+    <div id="accessibility-nav" role="navigation">
+        <ul>
+          <li><a href="#main-navigation"></a></li>
+          <li><a href="#main-content"></a></li>
+          <li><a href="#sidebar"></a></li>
+        </ul>
+    </div>
+
 		{* Header *}
 		<header class="pkp_structure_head navbar navbar-default navbar-fixed-top" id="headerNavigationContainer" role="banner">
 			<div class="pkp_head_wrapper container-fluid">
