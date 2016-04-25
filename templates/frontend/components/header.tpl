@@ -41,13 +41,16 @@
 	</script>
 	<div class="pkp_structure_page">
 
-    <div id="accessibility-nav" role="navigation">
-        <ul>
-          <li><a href="#main-navigation"></a></li>
-          <li><a href="#main-content"></a></li>
-          <li><a href="#sidebar"></a></li>
-        </ul>
-    </div>
+	    <nav id="accessibility-nav" class="sr-only" role="navigation" aria-labelled-by="accessible-menu-label">
+			<h2 id="accessible-menu-label">
+				{translate|escape key="plugins.themes.bootstrap3.accessible_menu.label"}
+			</h2>
+	        <ul>
+	          <li><a href="#main-navigation">{translate|escape key="plugins.themes.bootstrap3.accessible_menu.main_navigation"}</a></li>
+	          <li><a href="#main-content">{translate|escape key="plugins.themes.bootstrap3.accessible_menu.main_content"}</a></li>
+	          <li><a href="#sidebar">{translate|escape key="plugins.themes.bootstrap3.accessible_menu.sidebar"}</a></li>
+	        </ul>
+	    </nav>
 
 		{* Header *}
 		<header class="navbar navbar-default" id="headerNavigationContainer" role="banner">
