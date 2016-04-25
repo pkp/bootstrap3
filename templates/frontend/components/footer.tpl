@@ -18,7 +18,7 @@
 	{if empty($isFullWidth)}
 		{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
 		{if $leftSidebarCode}
-			<aside class="pkp_structure_sidebar left col-xs-12 col-sm-2 col-md-4" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
+			<aside id="sidebar" class="pkp_structure_sidebar left col-xs-12 col-sm-2 col-md-4" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
 				{$leftSidebarCode}
 			</aside><!-- pkp_sidebar.left -->
 		{/if}
