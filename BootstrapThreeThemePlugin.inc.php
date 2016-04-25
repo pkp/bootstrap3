@@ -22,7 +22,6 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getContextSpecificPluginSettingsFile() {
-		error_log( 'hello' );
 		return $this->getPluginPath() . '/settings.xml';
 	}
 
@@ -40,7 +39,6 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDisplayName() {
-		error_log( 'hmm' );
 		return __('plugins.themes.default.name');
 	}
 
