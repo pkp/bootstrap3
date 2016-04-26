@@ -40,7 +40,7 @@
 
 	{* Display a message if no current issue exists *}
 	{if !$issue}
-		<div class="alert alert-warning">
+		<div class="alert alert-warning" role="alert">
 			{include file="frontend/components/breadcrumbs_issue.tpl" currentTitleKey="current.noCurrentIssue"}
 			{include file="frontend/components/notification.tpl" type="warning" messageKey="current.noCurrentIssueDesc"}
 		</div>
