@@ -53,7 +53,7 @@
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
-		<span class="pkp_screen_reader">
+		<span class="sr-only">
 			{if $purchaseArticleEnabled}
 				{translate key="reader.subscriptionOrFeeAccess"}
 			{else}
