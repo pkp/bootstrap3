@@ -11,6 +11,15 @@
 
 @import "../bootstrap/less/bootstrap.less";
 
+// @import "../bootstrap-themes/superhero/variables.less";
+// @import "../bootstrap-themes/superhero/bootswatch.less";
+
+// @import "../bootstrap-themes/yeti/variables.less";
+// @import "../bootstrap-themes/yeti/bootswatch.less";
+
+@import "../bootstrap-themes/readable/variables.less";
+@import "../bootstrap-themes/readable/bootswatch.less";
+
 // Collapse margins on the site name in the header
 .navbar-header .site-name {
     margin: 0;
@@ -55,5 +64,11 @@
 
     .authors {
         margin-bottom: 3em;
+    }
+
+    .obj_galley_link {
+        margin: 0.5em 0;
+        display: block;
+        &:extend(.btn-primary all);
     }
 }

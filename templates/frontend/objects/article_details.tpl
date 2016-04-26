@@ -63,7 +63,7 @@
 
       <div id="cover-image">
         {* Article or issue cover *}
-        {* @todo *}
+        {* @todo less cat more article *}
         <img src="http://lorempixel.com/500/700/cats/" class="img-responsive"/>
       </div>
 
