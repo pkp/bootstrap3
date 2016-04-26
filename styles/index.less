@@ -10,3 +10,37 @@
  */
 
 @import "../bootstrap/less/bootstrap.less";
+
+// Assign Bootstrap table styles to the tasks grid
+#notificationsGrid {
+    width: 300px; // Any wider may cause issues on small devices
+    padding: 0 0.5em;
+
+    table {
+        &:extend(.table all);
+    }
+
+    th:first-child {
+        &:extend(.sr-only all);
+    }
+
+    .footer {
+
+        .actions {
+            &:extend(.list-inline all);
+
+            li {
+
+                a {
+                    &:extend(.btn all);
+                    &:extend(.btn-default all);
+                }
+            }
+        }
+    }
+
+    .gridPaging {
+        &:extend(.pull-right);
+        margin-top: 0.5em;
+    }
+}
