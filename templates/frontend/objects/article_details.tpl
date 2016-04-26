@@ -57,6 +57,16 @@
  * @uses $pubIdPlugins @todo
  *}
 <article class="obj_article_details">
+  <header>
+    <h1 class="page-title">
+      {$article->getLocalizedTitle()|escape}
+    </h1>
+    {if $article->getLocalizedSubtitle()}
+    <h2 class="page-subtitle">
+      {$article->getLocalizedSubtitle()|escape}
+    </h2>
+    {/if}
+  </header>
 
 	<div class="row">
     <section class="article-download col-md-4">
@@ -64,7 +74,7 @@
       <div id="cover-image">
         {* Article or issue cover *}
         {* @todo less cat more article *}
-        <img src="http://lorempixel.com/500/700/cats/" class="img-responsive"/>
+        <img src="http://lorempixel.com/450/600/cats/" class="img-responsive"/>
       </div>
 
       <div id="download">
@@ -83,17 +93,6 @@
     </section>
 		<div class="col-md-8">
 			<section class="article-main">
-
-        <header>
-          <h1 class="page-title">
-            {$article->getLocalizedTitle()|escape}
-          </h1>
-          {if $article->getLocalizedSubtitle()}
-          <h2 class="page-subtitle">
-            {$article->getLocalizedSubtitle()|escape}
-          </h2>
-          {/if}
-        </header>
 
         <div class="row">
   				{if $article->getAuthors()}
