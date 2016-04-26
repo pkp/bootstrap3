@@ -46,18 +46,18 @@
 	<!--	-->
 	{* Announcements *}
 	{if $enableAnnouncementsHomepage}
-		<div class="cmp_announcements highlight_first media">
+		<div class="cmp_announcements media">
 			<div class="page-header">
 				<h1>{translate key="announcement.announcements"}</h1>
 			</div>
 			<ul class="media-list">
+				{foreach name=announcements from=$announcements item=announcement}
 				<li class="media">
 					<div class="media-body">
-						{foreach name=announcements from=$announcements item=announcement}
-							{include file="frontend/objects/announcement_summary.tpl"}
-						{/foreach}
+						{include file="frontend/objects/announcement_summary.tpl"}
 					</div>
 				</li>
+				{/foreach}
 			</ul>
 		</div><!-- .anouncement highlight -->
 	{/if}
