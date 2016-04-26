@@ -57,176 +57,161 @@
  * @uses $pubIdPlugins @todo
  *}
 <article class="obj_article_details">
-	<h1 class="page_title">
-		{$article->getLocalizedTitle()|escape}
-	</h1>
-
-	{if $article->getLocalizedSubtitle()}
-		<h2 class="subtitle">
-			{$article->getLocalizedSubtitle()|escape}
-		</h2>
-	{/if}
 
 	<div class="row">
-		<div class="col-sm-12 col-md-12">
-			<div class="main_entry">
+    <section class="article-download col-md-4">
 
-				{if $article->getAuthors()}
-					<div class="authors">
-						{foreach from=$article->getAuthors() item=author}
-							<strong>{$author->getFullName()|escape}</strong>
-							{if $author->getLocalizedAffiliation()}
-								<div class="affilitation">
-									{$author->getLocalizedAffiliation()|escape}
-								</div>
-							{/if}
-						{/foreach}
-					</div>
-				{/if}
+      <div id="cover-image">
+        {* Article or issue cover *}
+        {* @todo *}
+        <img src="http://lorempixel.com/500/700/cats/" class="img-responsive"/>
+      </div>
 
-				<ul class="nav nav-tabs">
-					{if $article->getLocalizedAbstract()}
-						<li class="active">
-							<a href="#summary" data-toggle="tab">
-								{translate key="submission.summary"}
-							</a>
-						</li>
-					{/if}
-	        		<li>
-						<a href="#details" data-toggle="tab">
-							{translate key="article.details"}
-						</a>
-					</li>
+      <div id="download">
+        {* Article Galleys *}
+        {if $article->getGalleys()}
+          <ul class="list-unstyled">
+            {foreach from=$article->getGalleys() item=galley}
+            <li>
+              {include file="frontend/objects/galley_link.tpl" parent=$article}
+            </li>
+            {/foreach}
+          </ul>
+        {/if}
+      </div>
 
-					{if $article->getGalleys()}
-						<li>
-							<a href="#download" data-toggle="tab">
-								{translate key="common.download"}
-							</a>
-						</li>
-					{/if}
-				</ul>
+    </section>
+		<div class="col-md-8">
+			<section class="article-main">
 
-	 			<div id="tab-content" class="tab-content">
+        <header>
+          <h1 class="page-title">
+            {$article->getLocalizedTitle()|escape}
+          </h1>
+          {if $article->getLocalizedSubtitle()}
+          <h2 class="page-subtitle">
+            {$article->getLocalizedSubtitle()|escape}
+          </h2>
+          {/if}
+        </header>
 
-					<!-- Abstract  -->
-					{if $article->getLocalizedAbstract()}
-						<div class="tab-pane active" id="summary">
-							<h2>{translate key="article.abstract"}</h2>
-							<div class="abstract">
-								{$article->getLocalizedAbstract()|strip_unsafe_html|nl2br}
-							</div>
+        <div class="row">
+  				{if $article->getAuthors()}
+  				<div class="col-sm-6 article-authors">
+  					{foreach from=$article->getAuthors() item=author}
+  					<strong>{$author->getFullName()|escape}</strong>
+  					{if $author->getLocalizedAffiliation()}
+  						<div class="article-author-affilitation">
+  							{$author->getLocalizedAffiliation()|escape}
+  						</div>
+  					{/if}
+  					{/foreach}
+  				</div>
+  				{/if}
+          <div class="col-sm-6 article-meta">
+            {* Keywords *}
+            {* @todo keywords not yet implemented *}
 
-							{call_hook name="Templates::Article::Main"}
-						</div>
+            {* Article Subject *}
+            {if $article->getLocalizedSubject()}
+              <div class="panel panel-default">
+                <h3 class="panel-heading">
+                  {translate key="article.subject"}
+                </h3>
+                <div class="panel-body">
+                  {$article->getLocalizedSubject()|escape}
+                </div>
+              </div>
+            {/if}
 
-					{/if}
+            {* PubIds (requires plugins) *}
+            {* @todo this hasn't been tested or styled *}
+            {foreach from=$pubIdPlugins item=pubIdPlugin}
+              {if $issue->getPublished()}
+                {assign var=pubId value=$pubIdPlugin->getPubId($pubObject)}
+              {else}
+                {assign var=pubId value=$pubIdPlugin->getPubId($pubObject, true)}{* Preview rather than assign a pubId *}
+              {/if}
+              {if $pubId}
+                <div class="item pubid">
+                  <div class="label">
+                    {$pubIdPlugin->getPubIdDisplayType()|escape}
+                  </div>
+                  <div class="value">
+                    {if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+                      <a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}">
+                        {$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+                      </a>
+                    {else}
+                      {$pubId|escape}
+                    {/if}
+                  </div>
+                </div>
+              {/if}
+            {/foreach}
+          </div>
+        </div>
 
-				 	<div class="tab-pane" id="details">
-						<h2 class="label">{translate key="article.details"}</h2>
+        {* Article abstract *}
+        {if $article->getLocalizedAbstract()}
+          <div class="article-summary" id="summary">
+            <h2>{translate key="article.abstract"}</h2>
+            <div class="article-abstract">
+              {$article->getLocalizedAbstract()|strip_unsafe_html|nl2br}
+            </div>
+            {call_hook name="Templates::Article::Main"}
+          </div>
+        {/if}
 
-						{* Keywords *}
-						{* @todo keywords not yet implemented *}
+        <div class="article-details" id="details">
+          <h2>{translate key="article.details"}</h2>
 
-						{* Article Subject *}
-						{if $article->getLocalizedSubject()}
-							<div class="panel panel-default">
-								<h3 class="panel-heading">
-									{translate key="article.subject"}
-								</h3>
-								<div class="panel-body">
-									{$article->getLocalizedSubject()|escape}
-								</div>
-							</div>
-						{/if}
+          {* Issue article appears in *}
+          <div class="panel panel-default">
+            <h3 class="panel-heading">
+              {translate key="issue.issue"}
+            </h3>
+            <div class="panel-body">
+              <a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
+                {$issue->getIssueIdentification()}
+              </a>
+            </div>
+          </div>
 
-						{* Issue article appears in *}
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								{translate key="issue.issue"}
-							</div>
-							<div class="panel-body">
-								<a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-									{$issue->getIssueIdentification()}
-								</a>
-							</div>
-						</div>
+          {* Citations *}
+          {* @todo this hasn't been tested or styled *}
+          {if $citationFactory->getCount()}
+            <div class="panel panel-default">
+              <h3 class="panel-heading">
+                {translate key="submission.citations"}
+              </h3>
+              <div class="panel-body">
+                <ul>
+                  {iterate from=citationFactory item=citation}
+                    <li>
+                      {$citation->getRawCitation()|strip_unsafe_html}
+                    </li>
+                  {/iterate}
+                </ul>
+              </div>
+            </div>
+          {/if}
 
-						{if $section}
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									{translate key="section.section"}
-								</div>
-								<div class="panel-body">
-									{$section->getLocalizedTitle()|escape}
-								</div>
-							</div>
-						{/if}
+          {if $section}
+            <div class="panel panel-default">
+              <h3 class="panel-heading">
+                {translate key="section.section"}
+              </h3>
+              <div class="panel-body">
+                {$section->getLocalizedTitle()|escape}
+              </div>
+            </div>
+          {/if}
 
-						{* Citations *}
-						{* @todo this hasn't been tested or styled *}
-						{if $citationFactory->getCount()}
-							<div class="panel panel-default">
-								<h3 class="panel-heading">
-									{translate key="submission.citations"}
-								</h3>
-								<div class="panel-body">
-									<ul>
-										{iterate from=citationFactory item=citation}
-											<li>
-												{$citation->getRawCitation()|strip_unsafe_html}
-											</li>
-										{/iterate}
-									</ul>
-								</div>
-							</div>
-						{/if}
+          {call_hook name="Templates::Article::Details"}
 
-						{* PubIds (requires plugins) *}
-						{* @todo this hasn't been tested or styled *}
-						{foreach from=$pubIdPlugins item=pubIdPlugin}
-							{if $issue->getPublished()}
-								{assign var=pubId value=$pubIdPlugin->getPubId($pubObject)}
-							{else}
-								{assign var=pubId value=$pubIdPlugin->getPubId($pubObject, true)}{* Preview rather than assign a pubId *}
-							{/if}
-							{if $pubId}
-								<div class="item pubid">
-									<div class="label">
-										{$pubIdPlugin->getPubIdDisplayType()|escape}
-									</div>
-									<div class="value">
-										{if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-											<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}">
-												{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-											</a>
-										{else}
-											{$pubId|escape}
-										{/if}
-									</div>
-								</div>
-							{/if}
-						{/foreach}
-
-						{call_hook name="Templates::Article::Details"}
-
-					</div>
-					<div class="tab-pane" id="download">
-
-						{* Article Galleys *}
-						{if $article->getGalleys()}
-							<ul class="list-unstyled">
-								{foreach from=$article->getGalleys() item=galley}
-								<li>
-									{include file="frontend/objects/galley_link.tpl" parent=$article}
-								</li>
-								{/foreach}
-							</ul>
-						{/if}
-					</div>
-				</div> <!-- end .tab-content -->
-
-			</div><!-- .main_entry -->
+        </div>
+			</section><!-- .article-main -->
 		</div><!-- .col -->
 	</div><!-- .row -->
 
