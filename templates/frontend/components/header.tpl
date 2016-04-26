@@ -64,7 +64,7 @@
 				<div class="navbar-header">
 
           {* Mobile hamburger menu *}
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -114,7 +114,7 @@
 							'$.pkp.controllers.MenuHandler');
 					{rdelim});
 				</script>
-				<nav class="navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
+				<nav id="nav-menu" class="navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
 					{* Primary navigation menu for current application *}
 					{include file="frontend/components/primaryNavMenu.tpl"}
 
