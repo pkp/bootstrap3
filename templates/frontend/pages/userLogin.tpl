@@ -49,12 +49,12 @@
 
     <div class="form-group">
       <label for="login-username">{translate key="user.username"}</label>
-      <input type="text" class="form-control" id="login-username" placeholder="{translate key='user.username'}" value="{$username|escape}" maxlenght="32" required>
+      <input type="text" name="username" class="form-control" id="login-username" placeholder="{translate key='user.username'}" value="{$username|escape}" maxlenght="32" required>
     </div>
 
     <div class="form-group">
       <label for="login-password">{translate key="user.password"}</label>
-      <input type="password" class="form-control" id="login-password" placeholder="{translate key='user.password'}" password="true" maxlength="32" required="$passwordRequired">
+      <input type="password" name="password" class="form-control" id="login-password" placeholder="{translate key='user.password'}" password="true" maxlength="32" required="$passwordRequired">
     </div>
 
     <div class="form-group">
