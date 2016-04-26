@@ -50,7 +50,7 @@
     </div>
 
 		{* Header *}
-		<header class="navbar navbar-default navbar-fixed-top" id="headerNavigationContainer" role="banner">
+		<header class="navbar navbar-default" id="headerNavigationContainer" role="banner">
 
       {* User-specific login, settings and task management *}
       {url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNav" escape=false}
