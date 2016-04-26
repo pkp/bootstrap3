@@ -72,3 +72,19 @@
         &:extend(.btn-primary all);
     }
 }
+
+// Beacuse we want to float right when the header is not collapsed
+// Why you no give us pull-md-right bootstrap?
+.pull-md-right {
+
+    @media(min-width: @screen-md) {
+        float: right;
+    }
+}
+
+// Style the footer
+footer[role="contentinfo"] {
+    background: @gray-lighter; // bootstrap variable
+    padding: 2em;
+    margin-top: 4em;
+}
