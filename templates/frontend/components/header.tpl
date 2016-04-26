@@ -50,10 +50,16 @@
     </div>
 
 		{* Header *}
-		<header class="pkp_structure_head navbar navbar-default navbar-fixed-top" id="headerNavigationContainer" role="banner">
-			<div class="pkp_head_wrapper container-fluid">
+		<header class="navbar navbar-default navbar-fixed-top" id="headerNavigationContainer" role="banner">
 
-				<div class="pkp_site_name_wrapper navbar-header">
+      {* User-specific login, settings and task management *}
+      {url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNav" escape=false}
+      {load_url_in_div class="pkp_navigation_user_wrapper" id="navigationUserWrapper" url=$fetchHeaderUrl}
+
+			<div class="container-fluid">
+
+				<div class="navbar-header">
+
           {* Mobile hamburger menu *}
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -61,12 +67,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+
 					{* Logo or site title. Only use <h1> heading on the homepage.
 					   Otherwise that should go to the page title. *}
 					{if $requestedOp == 'index'}
-						<h1 class="pkp_site_name">
+						<h1 class="site-name">
 					{else}
-						<div class="pkp_site_name">
+						<div class="site-name">
 					{/if}
 						{if $currentJournal && $multipleContexts}
 							{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
@@ -74,17 +81,17 @@
 							{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
 						{/if}
 						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-							<a href="{$homeUrl}" class="is_img navbar-brand">
+							<a href="{$homeUrl}" class="navbar-brand">
 								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
 							</a>
 						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
-							<a href="{$homeUrl}" class="is_text navbar-brand">{$displayPageHeaderTitle}</a>
+							<a href="{$homeUrl}" class="navbar-brand">{$displayPageHeaderTitle}</a>
 						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
-							<a href="{$homeUrl}" class="is_img navbar-brand">
+							<a href="{$homeUrl}" class="navbar-brand">
 								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" />
 							</a>
 						{else}
-							<a href="{$homeUrl}" class="is_img navbar-brand">
+							<a href="{$homeUrl}" class="navbar-brand">
 								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
 							</a>
 						{/if}
@@ -93,6 +100,7 @@
 					{else}
 						</div>
 					{/if}
+
 				</div>
 
 				{* Primary site navigation *}
@@ -103,22 +111,15 @@
 							'$.pkp.controllers.MenuHandler');
 					{rdelim});
 				</script>
-				<nav class="pkp_navigation_primary_row navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
-					<div class="pkp_navigation_primary_wrapper">
+				<nav class="navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
+					{* Primary navigation menu for current application *}
+					{include file="frontend/components/primaryNavMenu.tpl"}
 
-						{* Primary navigation menu for current application *}
-						{include file="frontend/components/primaryNavMenu.tpl"}
-
-						{* Search form *}
-						{if !$noContextsConfigured}
-							{include file="frontend/components/searchForm_simple.tpl"}
-						{/if}
-					</div>
+					{* Search form *}
+					{if !$noContextsConfigured}
+						{include file="frontend/components/searchForm_simple.tpl"}
+					{/if}
 				</nav>
-
-				{* User-specific login, settings and task management *}
-				{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNav" escape=false}
-				{load_url_in_div class="pkp_navigation_user_wrapper" id="navigationUserWrapper" url=$fetchHeaderUrl}
 
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
