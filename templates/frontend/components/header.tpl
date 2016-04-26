@@ -117,7 +117,9 @@
 
 					{* Search form *}
 					{if !$noContextsConfigured}
-						{include file="frontend/components/searchForm_simple.tpl"}
+						<div class="pull-right">
+							{include file="frontend/components/searchForm_simple.tpl"}
+						</div>
 					{/if}
 				</nav>
 
