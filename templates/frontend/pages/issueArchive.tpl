@@ -27,7 +27,7 @@
 			{translate key="current.noCurrentIssueDesc"}
 		</div>
 	{else}
-		<div class="panel panel-default">
+		<div class="panel">
 			<div class="panel-body">
 				{* List issues *}
 				<ul class="list-group">
