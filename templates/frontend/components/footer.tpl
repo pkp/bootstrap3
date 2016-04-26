@@ -23,30 +23,31 @@
 			</aside><!-- pkp_sidebar.left -->
 		{/if}
 	{/if}
-</div><!-- pkp_structure_content -->
+  </div><!-- pkp_structure_content -->
 
-<footer class="pkp_structure_footer_wrapper footer" role="contentinfo">
+  <footer class="footer" role="contentinfo">
 
-	<div class="pkp_structure_footer container-fluid">
+  	<div class="container">
 
-		{if $pageFooter}
-			<div class="pkp_footer_content">
-				{$pageFooter}
-			</div>
-		{/if}
+      <div class="row">
+    		{if $pageFooter}
+        <div class="col-md-8">
+          {$pageFooter}
+        </div>
+    		{/if}
 
-		<div class="pkp_brand_footer" role="complementary" aria-label="{translate|escape key="about.aboutThisPublishingSystem"}">
-			<a href="{url page="about" op="aboutThisPublishingSystem"}">
-				<img alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}">
-			</a>
-			<a href="{$pkpLink}">
-				<img alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/lib/pkp/templates/images/pkp_brand.png">
-			</a>
-		</div>
-	</div>
+    		<div class="col-md-4" role="complementary" aria-label="{translate|escape key="about.aboutThisPublishingSystem"}">
+    			<a href="{url page="about" op="aboutThisPublishingSystem"}">
+    				<img alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}">
+    			</a>
+    			<a href="{$pkpLink}">
+    				<img alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/lib/pkp/templates/images/pkp_brand.png">
+    			</a>
+    		</div>
 
-</footer><!-- pkp_structure_footer_wrapper -->
-
+      </div> <!-- .row -->
+  	</div><!-- .container -->
+  </footer>
 </div><!-- pkp_structure_page -->
 
 {call_hook name="Templates::Common::Footer::PageFooter"}
