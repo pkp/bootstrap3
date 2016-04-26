@@ -29,7 +29,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutTheJournal"}
 
-<div class="page page_about">
+<div id="main-content" class="page page_about">
 
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutTheJournal"}
 
