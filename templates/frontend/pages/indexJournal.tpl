@@ -46,20 +46,16 @@
 	<!--	-->
 	{* Announcements *}
 	{if $enableAnnouncementsHomepage}
-		<div class="cmp_announcements media">
-			<div class="page-header">
+		<section class="cmp_announcements media">
+			<header class="page-header">
 				<h1>{translate key="announcement.announcements"}</h1>
-			</div>
-			<ul class="media-list">
+			</header>
+			<div class="media-list">
 				{foreach name=announcements from=$announcements item=announcement}
-				<li class="media">
-					<div class="media-body">
-						{include file="frontend/objects/announcement_summary.tpl"}
-					</div>
-				</li>
+				{include file="frontend/objects/announcement_summary.tpl"}
 				{/foreach}
-			</ul>
-		</div><!-- .anouncement highlight -->
+			</div>
+		</section><!-- .anouncement highlight -->
 	{/if}
 
 	{if $issue && $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
