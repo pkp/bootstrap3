@@ -52,7 +52,7 @@
 			</header>
 			<div class="media-list">
 				{foreach name=announcements from=$announcements item=announcement}
-				{include file="frontend/objects/announcement_summary.tpl"}
+					{include file="frontend/objects/announcement_summary.tpl"}
 				{/foreach}
 			</div>
 		</section><!-- .anouncement highlight -->

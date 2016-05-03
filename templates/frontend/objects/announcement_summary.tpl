@@ -9,16 +9,17 @@
  *
  * @uses $announcement Announcement The announcement to display
  *}
-<article class="obj_announcement_summary">
-  <header>
-  	<h2 class="media-heading">
-  		<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
-  			{$announcement->getLocalizedTitle()|escape}
-  		</a>
-  	</h2>
-  </header>
+<article class="announcement-summary media">
 	<div class="media-body">
-		<div class="date">{$announcement->getDatePosted()}</div>
+		<h2 class="media-heading">
+			<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+				{$announcement->getLocalizedTitle()|escape}
+			</a>
+		</h2>
+		<p class="date">
+			<span class="glyphicon glyphicon-calendar"></span>
+			{$announcement->getDatePosted()}
+		</p>
 		{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
 	</div>
-</article>
+</article><!-- .announcement-summary -->
