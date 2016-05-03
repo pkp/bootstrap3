@@ -62,7 +62,9 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	 * @see ThemePlugin::getLessStylesheet
 	 */
 	function getLessStylesheet() {
-		return 'styles/index.less';
+		// Return any stylesheet in /styles to adopt that bootstrap wrapper
+		// @TODO select the stylesheet programmatically based on site setting
+		return 'styles/bootstrap.less';
 	}
 
 	/**
