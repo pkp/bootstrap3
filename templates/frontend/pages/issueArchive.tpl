@@ -27,26 +27,20 @@
 			{translate key="current.noCurrentIssueDesc"}
 		</div>
 	{else}
-		<div class="panel">
-			<div class="panel-body">
-				{* List issues *}
-				<ul class="list-group">
-				{iterate from=issues item=issue}
-					<li class="list-group-item">
-						{include file="frontend/objects/issue_summary.tpl"}
-					</li>
-				{/iterate}
-				</ul>
-			</div>
+
+		{* List issues *}
+		<div class="issues">
+			{iterate from=issues item=issue}
+				{include file="frontend/objects/issue_summary.tpl"}
+			{/iterate}
 		</div>
 
 		{if $issues->getPageCount() > 0}
-		<nav>
-			<ul class="pagination">
-				{page_info iterator=$issues}
-				{page_links anchor="issues" name="issues" iterator=$issues}
-			</ul>
-		</nav>
+			<nav class="text-center">
+				<ul class="pagination">
+					{page_links anchor="issues" name="issues" iterator=$issues}
+				</ul>
+			</nav>
 		{/if}
 	{/if}
 </div>
