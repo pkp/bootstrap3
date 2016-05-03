@@ -107,13 +107,6 @@
 				</div>
 
 				{* Primary site navigation *}
-				<script type="text/javascript">
-					// Attach the JS file tab handler.
-					$(function() {ldelim}
-						$('#navigationPrimary').pkpHandler(
-							'$.pkp.controllers.MenuHandler');
-					{rdelim});
-				</script>
 				<nav id="nav-menu" class="navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
 					{* Primary navigation menu for current application *}
 					{include file="frontend/components/primaryNavMenu.tpl"}
