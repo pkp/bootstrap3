@@ -71,11 +71,14 @@
 	<div class="row">
     <section class="article-download col-md-4">
 
-      <div id="cover-image">
-        {* Article or issue cover *}
-        {* @todo less cat more article *}
-        <img src="http://lorempixel.com/450/600/cats/" class="img-responsive"/>
-      </div>
+        {* Issue cover image *}
+        {if $issue->getLocalizedFileName()}
+            <div class="cover-image">
+                <a href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
+                    <img class="img-responsive" src="{$publicFilesDir}/{$issue->getLocalizedFileName()|escape}" alt="{$issue->getLocalizedOriginalFileName()|escape}">
+                </a>
+            </div>
+        {/if}
 
       <div id="download">
         {* Article Galleys *}
