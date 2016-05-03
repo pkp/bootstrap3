@@ -84,18 +84,18 @@
 							{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
 						{/if}
 						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-							<a href="{$homeUrl}" class="navbar-brand">
-								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
+							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
+								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}>
 							</a>
 						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
 							<a href="{$homeUrl}" class="navbar-brand">{$displayPageHeaderTitle}</a>
 						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
-							<a href="{$homeUrl}" class="navbar-brand">
-								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" />
+							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
+								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}">
 							</a>
 						{else}
 							<a href="{$homeUrl}" class="navbar-brand">
-								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
+								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" />
 							</a>
 						{/if}
 					{if $requestedOp == 'index'}
