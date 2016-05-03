@@ -64,7 +64,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	function getLessStylesheet() {
 		// Return any stylesheet in /styles to adopt that bootstrap wrapper
 		// @TODO select the stylesheet programmatically based on site setting
-		return 'styles/bootstrap.less';
+		return 'styles/yeti.less';
 	}
 
 	/**
