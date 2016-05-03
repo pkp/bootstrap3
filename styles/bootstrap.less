@@ -23,6 +23,12 @@
     width: auto;
 }
 
+// Page header subtitles
+.page-header small {
+    display: block;
+    margin-top: 0.5em;
+}
+
 // Assign Bootstrap table styles to the tasks grid
 #notificationsGrid {
     width: 300px; // Any wider may cause issues on small devices
@@ -58,13 +64,13 @@
 }
 
 // Add space below authors on article page
-.obj_article_details {
+.article-details {
 
     .authors {
-        margin-bottom: 3em;
+        margin-bottom: 2em;
     }
 
-    .obj_galley_link {
+    .galley-link {
         margin: 0.5em 0;
         display: block;
         &:extend(.btn-primary all);

@@ -18,4 +18,7 @@
 	<message key="plugins.themes.bootstrap3.accessible_menu.main_navigation">Main Navigation</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.main_content">Main Content</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.sidebar">Sidebar</message>
+	<message key="plugins.themes.bootstrap3.article.sidebar">Article Sidebar</message>
+	<message key="plugins.themes.bootstrap3.article.main">Main Article Content</message>
+	<message key="plugins.themes.bootstrap3.article.details">Article Details</message>
 </locale>
