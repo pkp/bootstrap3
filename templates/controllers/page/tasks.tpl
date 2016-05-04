@@ -25,14 +25,14 @@
 		);
 	{rdelim});
 </script>
-<li class="dropdown{if $unreadNotificationCount} active{/if}">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+<li id="userTasks" class="dropdown{if $unreadNotificationCount} active{/if}">
+	<a href="#" id="notificationsToggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 		{translate key="common.tasks"}
-		<span id="unreadNotificationCount" class="badge">
+		<span id="unreadNotificationCount" class="badge task-count{if $unreadNotificationCount} hasTasks{/if}">
 			{$unreadNotificationCount}
 		</span>
 	</a>
-	<div id="notificationsPopover" class="dropdown-menu dropdown-menu-right">
+	<div id="notificationsPopover" class="dropdown-menu dropdown-menu-right panel">
 		{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.TaskNotificationsGridHandler" op="fetchGrid" escape=false}
 		{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
 	</div>
