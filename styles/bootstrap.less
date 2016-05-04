@@ -104,6 +104,33 @@
     }
 }
 
+// Override <h*> styles in media headings so that we can preserve accessible
+// heading structure without distorting the media style
+.media-heading h1,
+.media-heading h2,
+.media-heading h3,
+.media-heading h4,
+.media-heading h5,
+.media-heading h6,
+h1.media-heading,
+h2.media-heading,
+h3.media-heading,
+h4.media-heading,
+h5.media-heading,
+h6.media-heading {
+    font-size: @font-size-large; // Bootstrap variable
+}
+
+// Adjust lead text in media headings relative to the <h*> styles above
+.media .lead {
+    font-size: @font-size-base; // Bootstrap variable
+}
+
+// Media elements need a little bit more spacing in almost all themes
+.media {
+    margin-top: 2em;
+}
+
 // Style the footer
 footer[role="contentinfo"] {
     background: @gray-lighter; // bootstrap variable

@@ -19,55 +19,52 @@
 
 <div class="article-summary media">
 	{if $article->getLocalizedFileName() && $article->getLocalizedShowCoverPage() && !$article->getHideCoverPageToc($locale)}
-		<div class="cover">
+		<div class="cover media-left">
 			<a href="{url page="article" op="view" path=$articlePath}" class="file">
-				<img src="{$coverPagePath|escape}{$article->getFileName($locale)|escape}"{if $article->getCoverPageAltText($locale) != ''} alt="{$article->getCoverPageAltText($locale)|escape}"{else} alt="{translate key="article.coverPage.altText"}"{/if}>
+				<img class="media-object" src="{$coverPagePath|escape}{$article->getFileName($locale)|escape}"{if $article->getCoverPageAltText($locale) != ''} alt="{$article->getCoverPageAltText($locale)|escape}"{else} alt="{translate key="article.coverPage.altText"}"{/if}>
 			</a>
 		</div>
 	{/if}
 
-	<div class="media">
+	<h3 class="media-heading">
+		<a href="{url page="article" op="view" path=$articlePath}">
+			{$article->getLocalizedTitle()|strip_unsafe_html}
+		</a>
+	</h3>
 
-		<h3 class="media-heading">
-			<a href="{url page="article" op="view" path=$articlePath}">
-				{$article->getLocalizedTitle()|strip_unsafe_html}
-			</a>
-		</h3>
+	{if $showAuthor || $article->getPages() || $hasAccess || $showGalleyLinks}
+		<div class="media-body">
 
-		{if $showAuthor || $article->getPages() || $hasAccess || $showGalleyLinks}
-			<div class="media-body">
+			{if $showAuthor}
+				<div class="meta">
+					{if $showAuthor}
+						<div class="authors">
+							{$article->getAuthorString()}
+						</div>
+					{/if}
+				</div>
+			{/if}
 
-				{if $showAuthor}
-					<div class="meta">
-						{if $showAuthor}
-							<div class="authors">
-								{$article->getAuthorString()}
-							</div>
+			{* Page numbers for this article *}
+			{if $article->getPages()}
+				<p class="pages">
+					{$article->getPages()|escape}
+				</p>
+			{/if}
+
+			{if $hasAccess || $showGalleyLinks}
+				<div class="btn-group" role="group">
+					{foreach from=$article->getGalleys() item=galley}
+						{assign var="hasArticleAccess" value=$hasAccess}
+						{if ($article->getAccessStatus() == $smarty.const.ARTICLE_ACCESS_OPEN)}
+							{assign var="hasArticleAccess" value=1}
 						{/if}
-					</div>
-				{/if}
-
-				{* Page numbers for this article *}
-				{if $article->getPages()}
-					<p class="pages">
-						{$article->getPages()|escape}
-					</p>
-				{/if}
-
-				{if $hasAccess || $showGalleyLinks}
-					<div class="btn-group" role="group">
-						{foreach from=$article->getGalleys() item=galley}
-							{assign var="hasArticleAccess" value=$hasAccess}
-							{if ($article->getAccessStatus() == $smarty.const.ARTICLE_ACCESS_OPEN)}
-								{assign var="hasArticleAccess" value=1}
-							{/if}
-							{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
-						{/foreach}
-					</div>
-				{/if}
-			</div>
-		{/if}
-	</div>
+						{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
+					{/foreach}
+				</div>
+			{/if}
+		</div>
+	{/if}
 
 	{call_hook name="Templates::Issue::Issue::Article"}
 </div><!-- .article-summary -->
