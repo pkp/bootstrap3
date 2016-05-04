@@ -22,7 +22,8 @@
 		{translate|assign:'sectionTitle' key=$sectionTitleKey}
 	{/if}
 
-	<a href="{url page=$page op=$op path=$path anchor=$anchor}">
+	<a href="{url page=$page op=$op path=$path anchor=$anchor}" class="btn btn-default btn-xs">
+		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 		{translate key="common.edit"}
 
 		{* Screen readers need more context *}

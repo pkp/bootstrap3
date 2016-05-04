@@ -41,7 +41,7 @@
 		<div class="author_guidelines">
 			<h2 class="section-title">
 				{translate key="about.authorGuidelines"}
-				<span class="edit-link"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}</span>
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
 			</h2>
 			{$currentJournal->getLocalizedSetting('authorGuidelines')|nl2br}
 		</div>
@@ -53,7 +53,7 @@
 		<div class="submission_checklist">
 			<h2 class="section-title">
 				{translate key="about.submissionPreparationChecklist"}
-				<span class="edit-link"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}</span>
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}
 			</h2>
 			<p class="description">
 				{translate key="about.submissionPreparationChecklist.description"}
@@ -76,7 +76,7 @@
 		<div class="copyright-notice">
 			<h2 class="section-title">
 				{translate key="about.copyrightNotice"}
-				<span class="edit-link"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.copyrightNotice"}</span>
+				</span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.copyrightNotice"}
 			</h2>
 			{$currentJournal->getLocalizedSetting('copyrightNotice')|nl2br}
 		</div>
@@ -88,7 +88,7 @@
 		<div class="privacy-statement">
 			<h2 class="section-title">
 				{translate key="about.privacyStatement"}
-				<span class="edit-link"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.privacyStatement"}</span>
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.privacyStatement"}
 			</h2>
 			{$currentJournal->getLocalizedSetting('privacyStatement')|nl2br}
 		</div>
