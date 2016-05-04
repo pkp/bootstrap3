@@ -40,14 +40,27 @@
 
 	{* Display a message if no current issue exists *}
 	{if !$issue}
+
 		{include file="frontend/components/breadcrumbs_issue.tpl" currentTitleKey="current.noCurrentIssue"}
 
 		<div class="alert alert-warning" role="alert">
 			{include file="frontend/components/notification.tpl" type="warning" messageKey="current.noCurrentIssueDesc"}
 		</div>
+
 	{* Display an issue with the Table of Contents *}
 	{elseif $showToc}
-		{include file="frontend/components/breadcrumbs_issue.tpl" currentTitle=$issueIdentification}
+
+		{include file="frontend/components/breadcrumbs_issue.tpl" currentTitle=$issue->getIssueSeries()}
+
+		<div class="page-header">
+			<h1>
+				{$issue->getLocalizedTitle()}
+				<small>
+					{$issue->getIssueSeries()}
+				</small>
+			</h1>
+		</div>
+
 		{include file="frontend/objects/issue_toc.tpl"}
 
 	{* Display an issue without a Table of Contents *}
@@ -58,16 +71,19 @@
 		{else}
 			{url|assign:"currentUrl" page="issue" op="current" path="showToc"}
 		{/if}
-		<ul class="list-group">
-			<li><a href="{$currentUrl}">{translate key="issue.toc"}</a></li>
-		</ul>
-
-<div  class="panel panel-default">
-<div class="panel-body">
-		{if $coverPagePath}<div id="issueCoverImage"><a href="{$currentUrl}"><img src="{$coverPagePath|escape}{$issue->getFileName($locale)|escape}"{if $coverPageAltText != ''} alt="{$coverPageAltText|escape}"{else} alt="{translate key="issue.coverPage.altText"}"{/if}{if $width} width="{$width|escape}"{/if}{if $height} height="{$height|escape}"{/if}/></a></div>{/if}
-</div>
-	<div id="issueCoverDescription">{$issue->getLocalizedCoverPageDescription()|strip_unsafe_html|nl2br}</div>
+		<a href="{$currentUrl}">{translate key="issue.toc"}</a>
+		{if $coverPagePath}
+			<div class="cover-image issue-cover-image">
+				<a href="{$currentUrl}">
+					<img class="img-responsive" src="{$coverPagePath|escape}{$issue->getFileName($locale)|escape}"{if $coverPageAltText != ''} alt="{$coverPageAltText|escape}"{else} alt="{translate key="issue.coverPage.altText"}"{/if}>
+				</a>
+			</div>
+		{/if}
+		<div class="issue-cover-description">
+			{$issue->getLocalizedCoverPageDescription()|strip_unsafe_html|nl2br}
+		</div>
 	{/if}
+
 </div>
 
 {include file="common/frontend/footer.tpl"}
