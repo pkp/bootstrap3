@@ -19,7 +19,7 @@ cd /path/to/your/ojs/plugins/themes
 git clone https://github.com/NateWr/bootstrap3.git
 ```
 
-Alternatively, you can [download a zip] of the master branch. Unpack the `.zip` file in the `/plugins/themes/` directory in your OJS 3.0 installation. _Make sure the resulting directory is `bootstrap3`, not `bootstrap3-master`_.
+Alternatively, you can [download a zip](https://github.com/NateWr/bootstrap3/archive/master.zip) of the master branch. Unpack the `.zip` file in the `/plugins/themes/` directory in your OJS 3.0 installation. _Make sure the resulting directory is `bootstrap3`, not `bootstrap3-master`_.
 
 ## Contribution
 
