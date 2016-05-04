@@ -12,16 +12,16 @@
 {include file="frontend/components/header.tpl" pageTitle="about.editorialTeam"}
 
 <div class="page page_editorial_team">
+
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.editorialTeam"}
-<div class="page-header">
-<h1>{translate key="about.editorialTeam"}</h1>
-</div>
-<div class="panel panel-default">
-<div class="panel-body">
-	{$currentJournal->getLocalizedSetting('masthead')}
-</div>
-</div>
-</div>
+
+	<div class="page-header">
+		<h1>{translate key="about.editorialTeam"}</h1>
+	</div>
+
+	<div class="masthead">
+		{$currentJournal->getLocalizedSetting('masthead')}
+	</div>
 
 </div><!-- .page -->
 
