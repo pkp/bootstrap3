@@ -54,10 +54,14 @@
 
 		<div class="page-header">
 			<h1>
-				{$issue->getLocalizedTitle()}
-				<small>
+				{if $issue->getLocalizedTitle()}
+					{$issue->getLocalizedTitle()}
+					<small>
+						{$issue->getIssueSeries()}
+					</small>
+				{else}
 					{$issue->getIssueSeries()}
-				</small>
+				{/if}
 			</h1>
 		</div>
 
