@@ -47,7 +47,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDisplayName() {
-		return __('plugins.themes.default.name');
+		return __('plugins.themes.bootstrap3.name');
 	}
 
 	/**
@@ -55,7 +55,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDescription() {
-		return __('plugins.themes.default.description');
+		return __('plugins.themes.bootstrap3.description');
 	}
 
 	/**
