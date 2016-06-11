@@ -55,9 +55,64 @@
 		{* Header *}
 		<header class="navbar navbar-default" id="headerNavigationContainer" role="banner">
 
-		{* User-specific login, settings and task management *}
-		{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNav" escape=false}
-		{load_url_in_div class="pkp_navigation_user_wrapper" id="navigationUserWrapper" url=$fetchHeaderUrl}
+			{* User profile, login, etc, navigation menu*}
+			<div class="container-fluid">
+				<div class="row">
+					<ul id="navigationUser" class="nav nav-pills tab-list pull-right" role="navigation" aria-label="{translate|escape key="common.navigation.user"}">
+						{if $isUserLoggedIn}
+							<li>
+								<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
+									{$loggedInUsername|escape}
+									<span class="badge">
+										{$unreadNotificationCount}
+									</span>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-right">
+									{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}
+										<li>
+											<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
+												{translate key="navigation.dashboard"}
+												<span class="badge">
+													{$unreadNotificationCount}
+												</span>
+											</a>
+										</li>
+									{/if}
+									<li>
+										<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
+											{translate key="common.viewProfile"}
+										</a>
+									</li>
+									{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
+									<li>
+										<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
+											{translate key="navigation.admin"}
+										</a>
+									</li>
+									{/if}
+									<li>
+										<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">
+											{translate key="user.logOut"}
+										</a>
+									</li>
+									{if $isUserLoggedInAs}
+										<li>
+											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">
+												{translate key="user.logOutAs"} {$loggedInUsername|escape}
+											</a>
+										</li>
+									{/if}
+								</ul>
+							</li>
+						{else}
+							{if !$hideRegisterLink}
+								<li><a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}">{translate key="navigation.register"}</a></li>
+							{/if}
+							<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
+						{/if}
+					</ul>
+				</div><!-- .row -->
+			</div><!-- .container-fluid -->
 
 			<div class="container-fluid">
 
@@ -123,10 +178,7 @@
 		</header><!-- .pkp_structure_head -->
 
 		{* Wrapper for page content and sidebars *}
-		{if $isFullWidth}
-			{assign var=hasLeftSidebar value=0}
-		{/if}
-		<div class="pkp_structure_content{if $hasLeftSidebar} has_left_sidebar{/if} container">
+		<div class="pkp_structure_content container">
 
 			<script type="text/javascript">
 				// Attach the JS page handler to the main content wrapper.

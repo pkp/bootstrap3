@@ -14,10 +14,6 @@
 
   {include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
-  <p>
-    {translate key="user.register.completeForm"}
-  </p>
-
   {if !$implicitAuth}
   <p class="required_label">
     {translate key="common.requiredField"}

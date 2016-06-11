@@ -71,7 +71,7 @@
 
     <p>
       <button type="submit" class="btn btn-primary">{translate key="user.login"}</button>
-      {if !$hideRegisterLink}
+      {if !$disableUserReg}
       {url|assign:registerUrl page="user" op="register" source=$source}
       <a class="btn btn-default register-button" href="{$registerUrl}" role="button">{translate key="user.login.registerNewAccount"}</a>
       {/if}

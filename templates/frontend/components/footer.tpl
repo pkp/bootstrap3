@@ -50,6 +50,8 @@
   </footer>
 </div><!-- pkp_structure_page -->
 
+{load_script context="frontend" scripts=$scripts}
+
 {call_hook name="Templates::Common::Footer::PageFooter"}
 </body>
 </html>

@@ -27,15 +27,15 @@
  * @uses $sponsorNote string Description for sponsors section
  * @uses $sponsors array List of sponsors of this journal
  *}
-{include file="frontend/components/header.tpl" pageTitle="about.aboutTheJournal"}
+{include file="frontend/components/header.tpl" pageTitle="about.aboutContext"}
 
 <div id="main-content" class="page page_about">
 
-	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutTheJournal"}
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutContext"}
 
 	{* Page Title *}
 	<div class="page-header">
-		<h1>{translate key="about.aboutTheJournal"}</h1>
+		<h1>{translate key="about.aboutContext"}</h1>
 	</div>
 	{* /Page Title *}
 
@@ -51,7 +51,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h2 class="section-title">
-						{translate key="about.journalContact"}
+						{translate key="about.contact"}
 					</h2>
 
 					{if $mailingAddress}
