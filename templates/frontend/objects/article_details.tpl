@@ -76,10 +76,10 @@
 			<h2 class="sr-only">{translate key="plugins.themes.bootstrap3.article.sidebar"}</h2>
 
 			{* Issue cover image *}
-			{if $issue->getLocalizedFileName()}
+			{if $issue->getCoverImage()}
 				<div class="cover-image">
 					<a href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-						<img class="img-responsive" src="{$publicFilesDir}/{$issue->getLocalizedFileName()|escape}" alt="{$issue->getLocalizedOriginalFileName()|escape}">
+						<img class="img-responsive" src="{$publicFilesDir}/{$issue->getCoverImage()|escape}">
 					</a>
 				</div>
 			{/if}
