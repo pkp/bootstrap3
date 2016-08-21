@@ -17,13 +17,6 @@
 
 	<p class="bg-info">{translate key="user.login.resetPasswordInstructions"}</p>
 
-	<script>
-		$(function() {ldelim}
-			// Attach the form handler.
-			$('#lostPasswordForm').pkpHandler('$.pkp.controllers.form.FormHandler');
-		{rdelim});
-	</script>
-
 	<form class="pkp_form lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
 		{if $error}
 			<p class="bg-warning">

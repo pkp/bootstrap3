@@ -21,20 +21,9 @@
 	{/if}
 
 	{if $implicitAuth}
-	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">{translate key="user.login"}</a>
+		<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">{translate key="user.login"}</a>
 	{else}
-	<script>
-		$(function() {ldelim}
-			// Attach the form handler.
-			$('#login').pkpHandler(
-				'$.pkp.controllers.form.FormHandler',
-				{ldelim}
-					trackFormChanges: false
-				{rdelim});
-		{rdelim});
-	</script>
-
-	<form class="pkp_form login" id="login" method="post" action="{$loginUrl}">
+		<form class="pkp_form login" id="login" method="post" action="{$loginUrl}">
 	{/if}
 
   	{if $error}

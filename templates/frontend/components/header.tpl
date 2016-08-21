@@ -23,22 +23,6 @@
 {if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
 {include file="core:frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}">
-	<script type="text/javascript">
-		// Initialise JS handler.
-		$(function() {ldelim}
-			$('body').pkpHandler(
-				'$.pkp.controllers.SiteHandler',
-				{ldelim}
-					{if $isUserLoggedIn}
-						inlineHelpState: {$initialHelpState},
-					{/if}
-					toggleHelpUrl: {url|json_encode page="user" op="toggleHelp" escape=false},
-					toggleHelpOnText: {$toggleHelpOnText|json_encode},
-					toggleHelpOffText: {$toggleHelpOffText|json_encode},
-					{include file="core:controllers/notification/notificationOptions.tpl"}
-				{rdelim});
-		{rdelim});
-	</script>
 	<div class="pkp_structure_page">
 
 		<nav id="accessibility-nav" class="sr-only" role="navigation" aria-labelled-by="accessible-menu-label">
@@ -179,12 +163,4 @@
 
 		{* Wrapper for page content and sidebars *}
 		<div class="pkp_structure_content container">
-
-			<script type="text/javascript">
-				// Attach the JS page handler to the main content wrapper.
-				$(function() {ldelim}
-					$('div.pkp_structure_main').pkpHandler('$.pkp.controllers.PageHandler');
-				{rdelim});
-			</script>
-
 			<main class="pkp_structure_main col-xs-12 col-sm-10 col-md-8" role="main">

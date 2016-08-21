@@ -35,18 +35,6 @@
 	</div>
 	{* /Page Title *}
 
-	<script>
-		$(function() {ldelim}
-			// Attach the search form handler.
-			$('#searchForm').pkpHandler(
-				'$.pkp.pages.search.SearchFormHandler',
-				{ldelim}
-					instantSearch: {if $instantSearchEnabled}true{else}false{/if}
-				{rdelim}
-			);
-		{rdelim});
-	</script>
-
 	{* Main Search From *}
 	<form method="post" id="search-form" class="search-form" action="{url op="search"}" role="search">
 
