@@ -25,13 +25,13 @@
 
 	{* Login/register prompt *}
 	{capture assign="login"}
-		<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>
+		<a href="{url page="login"}">{translate key="about.submissions.login"}</a>
 	{/capture}
 	{capture assign="register"}
-		<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>
+		<a href="{url page="user" op="register"}">{translate key="about.submissions.register"}</a>
 	{/capture}
 		<div class="alert alert-info" role="alert">
-			{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
+			{translate key="about.submissions.registrationRequired" login=$login register=$register}
 		</div>
 	{* /Login/register prompt *}
 

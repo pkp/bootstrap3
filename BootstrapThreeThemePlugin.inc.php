@@ -18,9 +18,10 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	/**
 	 * Initialize the theme
 	 *
+	 * @param $themes array list of all loaded themes
 	 * @return null
 	 */
-	public function init() {
+	public function init($themes) {
 		$this->addStyle('bootstrap', 'styles/bootstrap.less');
 		$this->addScript('bootstrap', 'bootstrap/js/bootstrap.min.js');
 	}
