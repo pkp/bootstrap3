@@ -18,10 +18,9 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	/**
 	 * Initialize the theme
 	 *
-	 * @param $themes array list of all loaded themes
 	 * @return null
 	 */
-	public function init($themes) {
+	public function init() {
 		$this->addStyle('bootstrap', 'styles/bootstrap.less');
 
 		// Load jQuery from a CDN or, if CDNs are disabled, from a local copy.
