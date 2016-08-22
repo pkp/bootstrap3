@@ -22,40 +22,31 @@
 	</div>
 	{* /Page Title *}
 
-
 	{* Login/register prompt *}
-	{capture assign="login"}
-		<a href="{url page="login"}">{translate key="about.submissions.login"}</a>
-	{/capture}
-	{capture assign="register"}
-		<a href="{url page="user" op="register"}">{translate key="about.submissions.register"}</a>
-	{/capture}
-		<div class="alert alert-info" role="alert">
-			{translate key="about.submissions.registrationRequired" login=$login register=$register}
+	{if $isUserLoggedIn}
+		{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
+		{capture assign="viewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
+		<div class="alert alert-info">
+			{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
 		</div>
-	{* /Login/register prompt *}
-
-
-	{* Author Guidelines *}
-	{if $currentJournal->getLocalizedSetting('authorGuidelines')}
-		<div class="author_guidelines">
-			<h2 class="section-title">
-				{translate key="about.authorGuidelines"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
-			</h2>
-			{$currentJournal->getLocalizedSetting('authorGuidelines')|nl2br}
+	{else}
+		{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
+		{capture assign="register"}<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
+		<div class="alert alert-info">
+			{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
 		</div>
 	{/if}
-	{* /Author Guidelines *}
 
 	{* Submission Checklist *}
 	{if $submissionChecklist}
 		<div class="submission_checklist">
-			<h2 class="section-title">
-				{translate key="about.submissionPreparationChecklist"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}
-			</h2>
-			<p class="description">
+			<div class="page-header">
+				<h2>
+					{translate key="about.submissionPreparationChecklist"}
+					{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}
+				</h2>
+			</div>
+			<p class="lead description">
 				{translate key="about.submissionPreparationChecklist.description"}
 			</p>
 			<ul class="list-group">
@@ -71,10 +62,22 @@
 	{/if}
 	{* /Submission Checklist *}
 
+	{* Author Guidelines *}
+	{if $currentJournal->getLocalizedSetting('authorGuidelines')}
+		<div class="author_guidelines">
+			<h2 class="page-header">
+				{translate key="about.authorGuidelines"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
+			</h2>
+			{$currentJournal->getLocalizedSetting('authorGuidelines')|nl2br}
+		</div>
+	{/if}
+	{* /Author Guidelines *}
+
 	{* Copyright Notice *}
 	{if $currentJournal->getLocalizedSetting('copyrightNotice')}
 		<div class="copyright-notice">
-			<h2 class="section-title">
+			<h2 class="page-header">
 				{translate key="about.copyrightNotice"}
 				</span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.copyrightNotice"}
 			</h2>
@@ -86,7 +89,7 @@
 	{* Privacy Statement *}
 	{if $currentJournal->getLocalizedSetting('privacyStatement')}
 		<div class="privacy-statement">
-			<h2 class="section-title">
+			<h2 class="page-header">
 				{translate key="about.privacyStatement"}
 				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.privacyStatement"}
 			</h2>

@@ -18,7 +18,7 @@
 {/capture}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$pageTitle}
 
-<div class="page page_issue_archive">
+<div id="main-content" class="page page_issue_archive">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle}
 
 	{* No issues have been published *}
@@ -29,7 +29,7 @@
 	{else}
 
 		{* List issues *}
-		<div class="issues">
+		<div class="issues media-list">
 			{iterate from=issues item=issue}
 				{include file="frontend/objects/issue_summary.tpl"}
 			{/iterate}

@@ -11,18 +11,17 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.editorialTeam"}
 
-<div class="page page_editorial_team">
+<div id="main-content" class="page page_editorial_team">
 
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.editorialTeam"}
 
+	{* Page Title *}
 	<div class="page-header">
 		<h1>{translate key="about.editorialTeam"}</h1>
 	</div>
+	{* /Page Title *}
 
-	<div class="masthead">
-		{$currentJournal->getLocalizedSetting('masthead')}
-	</div>
-
+	{$currentJournal->getLocalizedSetting('masthead')}
 </div><!-- .page -->
 
 {include file="common/frontend/footer.tpl"}

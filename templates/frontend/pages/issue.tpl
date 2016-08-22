@@ -16,76 +16,17 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$issueIdentification}
 
-<div class="page page_issue">
-	{* @todo look into this and find an appropriate place for it *}
-	{if $issue}
-		{foreach from=$pubIdPlugins item=pubIdPlugin}
-			{if $issue->getPublished()}
-				{assign var=pubId value=$pubIdPlugin->getPubId($issue)}
-			{else}
-				{assign var=pubId value=$pubIdPlugin->getPubId($issue, true)}{* Preview rather than assign a pubId *}
-			{/if}
-			{if $pubId}
-				{$pubIdPlugin->getPubIdDisplayType()|escape}:
-				{if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}">
-						{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					</a>
-				{else}
-					{$pubId|escape}
-				{/if}
-			{/if}
-		{/foreach}
-	{/if}
+<div id="main-content" class="page page_issue">
 
 	{* Display a message if no current issue exists *}
 	{if !$issue}
-
 		{include file="frontend/components/breadcrumbs_issue.tpl" currentTitleKey="current.noCurrentIssue"}
-
-		<div class="alert alert-warning" role="alert">
-			{include file="frontend/components/notification.tpl" type="warning" messageKey="current.noCurrentIssueDesc"}
-		</div>
+		{include file="frontend/components/notification.tpl" type="warning" messageKey="current.noCurrentIssueDesc"}
 
 	{* Display an issue with the Table of Contents *}
-	{elseif $showToc}
-
-		{include file="frontend/components/breadcrumbs_issue.tpl" currentTitle=$issue->getIssueSeries()}
-
-		<div class="page-header">
-			<h1>
-				{if $issue->getLocalizedTitle()}
-					{$issue->getLocalizedTitle()}
-					<small>
-						{$issue->getIssueSeries()}
-					</small>
-				{else}
-					{$issue->getIssueSeries()}
-				{/if}
-			</h1>
-		</div>
-
-		{include file="frontend/objects/issue_toc.tpl"}
-
-	{* Display an issue without a Table of Contents *}
-	{* @todo create an appropriate issue_cover.tpl object template for this *}
 	{else}
-		{if $issueId}
-			{url|assign:"currentUrl" page="issue" op="view" path=$issueId|to_array:"showToc"}
-		{else}
-			{url|assign:"currentUrl" page="issue" op="current" path="showToc"}
-		{/if}
-		<a href="{$currentUrl}">{translate key="issue.toc"}</a>
-		{if $coverPagePath}
-			<div class="cover-image issue-cover-image">
-				<a href="{$currentUrl}">
-					<img class="img-responsive" src="{$coverPagePath|escape}{$issue->getFileName($locale)|escape}"{if $coverPageAltText != ''} alt="{$coverPageAltText|escape}"{else} alt="{translate key="issue.coverPage.altText"}"{/if}>
-				</a>
-			</div>
-		{/if}
-		<div class="issue-cover-description">
-			{$issue->getLocalizedCoverPageDescription()|strip_unsafe_html|nl2br}
-		</div>
+		{include file="frontend/components/breadcrumbs_issue.tpl" currentTitle=$issueIdentification}
+		{include file="frontend/objects/issue_toc.tpl"}
 	{/if}
 
 </div>

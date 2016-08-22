@@ -8,47 +8,6 @@
  * @brief View of an Article which displays all details about the article.
  *  Expected to be primary object on the page.
  *
- * Many journals will want to add custom data to this object, either through
- * plugins which attach to hooks on the page or by editing the template
- * themselves. In order to facilitate this, a flexible layout markup pattern has
- * been implemented. If followed, plugins and other content can provide markup
- * in a way that will render consistently with other items on the page. This
- * pattern is used in the .main_entry column and the .entry_details column. It
- * consists of the following:
- *
- * <!-- Wrapper class which provides proper spacing between components -->
- * <div class="item">
- *     <!-- Title/value combination -->
- *     <div class="label">Abstract</div>
- *     <div class="value">Value</div>
- * </div>
- *
- * All styling should be applied by class name, so that titles may use heading
- * elements (eg, <h3>) or any element required.
- *
- * <!-- Example: component with multiple title/value combinations -->
- * <div class="item">
- *     <div class="sub_item">
- *         <div class="label">DOI</div>
- *         <div class="value">12345678</div>
- *     </div>
- *     <div class="sub_item">
- *         <div class="label">Published Date</div>
- *         <div class="value">2015-01-01</div>
- *     </div>
- * </div>
- *
- * <!-- Example: component with no title -->
- * <div class="item">
- *     <div class="value">Whatever you'd like</div>
- * </div>
- *
- * Core components are produced manually below, but can also be added via
- * plugins using the hooks provided:
- *
- * Templates::Article::Main
- * Templates::Article::Details
- *
  * @uses $article Article This article
  * @uses $issue Issue The issue this article is assigned to
  * @uses $section Section The journal section this article is assigned to
@@ -93,6 +52,38 @@
 				</div>
 			{/if}
 
+			<div class="list-group">
+
+				{* Published date *}
+				{if $article->getDatePublished()}
+					<div class="list-group-item date-published">
+						<strong>{translate key="submissions.published"}</strong>
+						{$article->getDatePublished()|date_format}
+					</div>
+				{/if}
+
+				{* DOI (requires plugin) *}
+				{foreach from=$pubIdPlugins item=pubIdPlugin}
+					{if $pubIdPlugin->getPubIdType() != 'doi'}
+						{php}continue;{/php}
+					{/if}
+					{if $issue->getPublished()}
+						{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+					{else}
+						{assign var=pubId value=$pubIdPlugin->getPubId($article)}{* Preview pubId *}
+					{/if}
+					{if $pubId}
+						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+						<div class="list-group-item doi">
+							<strong>{translate key="plugins.pubIds.doi.readerDisplayName"}</strong>
+							<a href="{$doiUrl}">
+								{$doiUrl}
+							</a>
+						</div>
+					{/if}
+				{/foreach}
+			</div>
+
 		</section><!-- .article-sidebar -->
 
 		<div class="col-md-8">
@@ -131,21 +122,50 @@
 
 			</section><!-- .article-main -->
 
-			<section class="article-details">
+			<section class="article-more-details">
 
 				{* Screen-reader heading for easier navigation jumps *}
 				<h2 class="sr-only">{translate key="plugins.themes.bootstrap3.article.details"}</h2>
 
+				{* Citation formats *}
+				{if $citationPlugins|@count}
+					<div class="panel panel-default citation_formats">
+						<div class="panel-heading">
+							{translate key="submission.howToCite"}
+						</div>
+						<div class="panel-body">
+
+							{* Output the first citation format *}
+							{foreach from=$citationPlugins name="citationPlugins" item="citationPlugin"}
+								<div id="citationOutput" class="citation_output">
+									{$citationPlugin->fetchCitation($article, $issue, $currentContext)}
+								</div>
+								{php}break;{/php}
+							{/foreach}
+
+							{* Output list of all citation formats *}
+							<div class="list-group citation_format_options">
+								{foreach from=$citationPlugins name="citationPlugins" item="citationPlugin"}
+									{capture assign="citationUrl"}{url page="article" op="cite" path=$article->getBestArticleId()}/{$citationPlugin->getName()|escape}{/capture}
+									<a class="list-group-item {$citationPlugin->getName()|escape}" href="{$citationUrl}"{if !$citationPlugin->isDownloadable()} data-load-citation="true"{/if} target="_blank">{$citationPlugin->getCitationFormatName()|escape}</a>
+								{/foreach}
+							</div>
+						</div>
+					</div>
+				{/if}
+
 				{* PubIds (requires plugins) *}
-				{* @todo this hasn't been tested *}
 				{foreach from=$pubIdPlugins item=pubIdPlugin}
+					{if $pubIdPlugin->getPubIdType() == 'doi'}
+						{php}continue;{/php}
+					{/if}
 					{if $issue->getPublished()}
-						{assign var=pubId value=$pubIdPlugin->getPubId($pubObject)}
+						{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 					{else}
-						{assign var=pubId value=$pubIdPlugin->getPubId($pubObject, true)}{* Preview rather than assign a pubId *}
+						{assign var=pubId value=$pubIdPlugin->getPubId($article)}{* Preview pubId *}
 					{/if}
 					{if $pubId}
-						<div class="panel panel-default">
+						<div class="panel panel-default pub_ids">
 							<div class="panel-heading">
 								{$pubIdPlugin->getPubIdDisplayType()|escape}
 							</div>
@@ -164,7 +184,7 @@
 
 				{* Article Subject *}
 				{if $article->getLocalizedSubject()}
-					<div class="panel panel-default">
+					<div class="panel panel-default subject">
 						<div class="panel-heading">
 							{translate key="article.subject"}
 						</div>
@@ -175,7 +195,7 @@
 				{/if}
 
 				{* Issue article appears in *}
-				<div class="panel panel-default">
+				<div class="panel panel-default issue">
 					<div class="panel-heading">
 						{translate key="issue.issue"}
 					</div>
@@ -183,24 +203,39 @@
 						<a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
 							{$issue->getIssueIdentification()}
 						</a>
+
 					</div>
 				</div>
 
-				{* Citations *}
-				{* @todo this hasn't been tested *}
-				{if $citationFactory->getCount()}
-					<div class="panel panel-default">
+				{if $section}
+					<div class="panel panel-default section">
 						<div class="panel-heading">
-							{translate key="submission.citations"}
+							{translate key="section.section"}
 						</div>
 						<div class="panel-body">
-							<ul>
-								{iterate from=citationFactory item=citation}
-									<li>
-										{$citation->getRawCitation()|strip_unsafe_html}
-									</li>
-								{/iterate}
-							</ul>
+							{$section->getLocalizedTitle()|escape}
+						</div>
+					</div>
+				{/if}
+
+				{* Licensing info *}
+				{if $copyright || $licenseUrl}
+					<div class="panel panel-default copyright">
+						<div class="panel-body">
+							{if $licenseUrl}
+								{if $ccLicenseBadge}
+									{$ccLicenseBadge}
+								{else}
+									<a href="{$licenseUrl|escape}" class="copyright">
+										{if $copyrightHolder}
+											{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
+										{else}
+											{translate key="submission.license"}
+										{/if}
+									</a>
+								{/if}
+							{/if}
+							{$copyright}
 						</div>
 					</div>
 				{/if}

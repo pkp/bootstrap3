@@ -19,11 +19,11 @@
 	{if $issue->getCoverImage()}
 		<div class="media-left">
 			<a class="cover" href="{url op="view" path=$issue->getBestIssueId($currentJournal)}">
-				<img src="{$coverPagePath|escape}{$issue->getFileName($currentLocale)|escape}">
+				<img class="media-object" src="{$coverImagePath|escape}{$issue->getCoverImage()}">
 			</a>
 		</div>
 	{/if}
-	{assign var="issueDescription" value=$issue->getLocalizedDescription()}
+
 
 	<div class="media-body">
 		<h2 class="media-heading">
@@ -34,13 +34,12 @@
 					{$issueSeries|escape}
 				{/if}
 			</a>
+			{if $issueTitle}
+				<div class="series lead">
+					{$issueSeries|escape}
+				</div>
+			{/if}
 		</h2>
-		{if $issueTitle}
-			<p class="series lead">
-				{$issueSeries|escape}
-			</p>
-		{/if}
-
 		<div class="description">
 			{$issueDescription|strip_unsafe_html|nl2br}
 		</div>

@@ -21,19 +21,74 @@
 		{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
 	{/if}
 
-	{* Description *}
-	{if $issue->hasDescription()}
-		<div class="description">
-			{$issue->getLocalizedDescription()|strip_unsafe_html|nl2br}
-		</div>
-	{/if}
+	{* Issue introduction area above articles *}
+	<div class="heading">
+
+		{* Issue cover image and description*}
+		{assign var=issueCover value=$issue->getCoverImage()}
+		{if $issueCover}
+			<div class="thumbnail">
+				<a class="cover" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
+					<img class="img-responsive" src="{$coverImagePath|escape}{$issueCover|escape}"{if $issue->getCoverImageAltText() != ''} alt="{$issue->getCoverImageAltText()|escape}"{/if}>
+				</a>
+				{if $issue->hasDescription()}
+					<div class="description">
+						{$issue->getLocalizedDescription()|strip_unsafe_html}
+					</div>
+				{/if}
+			</div>
+
+		{elseif $issue->hasDescription()}
+			<div class="description">
+				{$issue->getLocalizedDescription()|strip_unsafe_html}
+			</div>
+		{/if}
+
+		{* PUb IDs (eg - DOI) *}
+		{foreach from=$pubIdPlugins item=pubIdPlugin}
+			{if $issue->getPublished()}
+				{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
+			{else}
+				{assign var=pubId value=$pubIdPlugin->getPubId($issue)}{* Preview pubId *}
+			{/if}
+			{if $pubId}
+				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+				<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
+					<span class="type">
+						{$pubIdPlugin->getPubIdDisplayType()|escape}:
+					</span>
+					<span class="id">
+						{if $doiUrl}
+							<a href="{$doiUrl|escape}">
+								{$doiUrl}
+							</a>
+						{else}
+							{$pubId}
+						{/if}
+					</span>
+				</div>
+			{/if}
+		{/foreach}
+
+		{* Published date *}
+		{if $issue->getDatePublished()}
+			<div class="published">
+				<strong>
+					{translate key="submissions.published"}:
+				</strong>
+				{$issue->getDatePublished()|date_format:$dateFormatShort}
+			</div>
+		{/if}
+	</div>
 
 	{* Full-issue galleys *}
 	{if $issueGalleys && ($hasAccess || $showGalleyLinks)}
 		<div class="galleys">
-			<h2>
-				{translate key="issue.fullIssue"}
-			</h2>
+			<div class="page-header">
+				<h2>
+					<small>{translate key="issue.fullIssue"}</small>
+				</h2>
+			</div>
 			<div class="btn-group" role="group">
 				{foreach from=$issueGalleys item=galley}
 					{include file="frontend/objects/galley_link.tpl" parent=$issue}
@@ -45,18 +100,22 @@
 	{* Articles *}
 	<div class="sections">
 		{foreach name=sections from=$publishedArticles item=section}
-			<div class="section">
+			<section class="section">
 				{if $section.articles}
 					{if $section.title}
-						<h2>
-							{$section.title|escape}
-						</h2>
+						<div class="page-header">
+							<h2>
+								<small>{$section.title|escape}</small>
+							</h2>
+						</div>
 					{/if}
-					{foreach from=$section.articles item=article}
-						{include file="frontend/objects/article_summary.tpl"}
-					{/foreach}
+					<div class="media-list">
+						{foreach from=$section.articles item=article}
+							{include file="frontend/objects/article_summary.tpl"}
+						{/foreach}
+					</div>
 				{/if}
-			</div>
+			</section>
 		{/foreach}
 	</div><!-- .sections -->
 </div><!-- .issue-toc -->

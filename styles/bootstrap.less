@@ -46,44 +46,16 @@
     margin-top: 0.5em;
 }
 
-// Assign Bootstrap table styles to the tasks grid
-#notificationsGrid {
-    width: 300px; // Any wider may cause issues on small devices
-    padding: 0 0.5em;
-    color: @navbar-default-color; // Bootstrap variable
-
-    table {
-        &:extend(.table all);
-    }
-
-    th:first-child {
-        &:extend(.sr-only all);
-    }
-
-    .footer {
-
-        .actions {
-            &:extend(.list-inline all);
-
-            li {
-
-                a {
-                    &:extend(.btn all);
-                    &:extend(.btn-default all);
-                }
-            }
-        }
-    }
-
-    .gridPaging {
-        &:extend(.pull-right);
-        margin-top: 0.5em;
-    }
+// Wrap homepage journal description and additional content in margins
+.pkp_page_index .journal-description,
+.pkp_page_index .additional_content {
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
-// Add space below authors on article page
 .article-details {
 
+    // Add space below authors on article page
     .authors {
         margin-bottom: 2em;
     }
@@ -92,6 +64,21 @@
         margin: 0.5em 0;
         display: block;
         &:extend(.btn-primary all);
+    }
+
+
+    // Add space between citation output and list of citation formats
+    .citation_output {
+        margin-bottom: @panel-body-padding;
+        word-wrap: break-word;
+    }
+}
+
+.article-sidebar {
+
+    // Ensure doi link doesn't extend beyond container
+    .doi {
+        word-wrap: break-word;
     }
 }
 
@@ -129,6 +116,43 @@ h6.media-heading {
 // Media elements need a little bit more spacing in almost all themes
 .media {
     margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+// Set a max size for media list thumbnails
+.media-left img {
+    max-width: 128px;
+}
+
+// Apply .panel and .list-group styling to  block output with lists
+.pkp_block {
+    &:extend(.panel);
+    &:extend(.panel-default);
+
+    .title {
+        &:extend(.panel-heading);
+        &:extend(.panel-default > .panel-heading);
+        display: block;
+    }
+
+    ul {
+        &:extend(.list-group);
+        &:extend(.panel > .list-group);
+
+        li {
+            &:extend(.list-group-item);
+            &:extend(.panel > .list-group .list-group-item);
+        }
+    }
+}
+
+// Apply .btn styles to makeSubmission block plugin
+.pkp_block.block_make_submission {
+
+    a {
+        &:extend(.btn);
+        &:extend(.btn-default);
+    }
 }
 
 // Style the footer
