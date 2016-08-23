@@ -7,117 +7,84 @@
 *
 * User registration form.
 *}
-{if $includeEntirePage}
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
 
 <div id="main-content" class="page page_register">
 
-  {include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
-  {if !$implicitAuth}
-  <p class="required_label">
-    {translate key="common.requiredField"}
-  </p>
-  {url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
-  {url|assign:"loginUrl" page="login" source=$rolesProfileUrl}
-  <div class="alert alert-warning">
-    {translate key="user.register.alreadyRegisteredOtherContext" registerUrl=$loginUrl}
-  </div>
-  {/if}
-  {/if}
+	<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">
+		{csrf}
 
-<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">
+		{if $source}
+			<input type="hidden" name="source" value="{$source|escape}" />
+		{/if}
 
-  {if $source}
-  <input type="hidden" name="source" value="{$source|escape}" />
-  {/if}
+		{include file="common/formErrors.tpl"}
 
-  {include file="common/formErrors.tpl"}
+		{include file="frontend/components/registrationForm.tpl"}
 
-  <fieldset id="register-identity">
-    <legend>{translate key="user.profile"}</legend>
+		{* When a user is registering with a specific journal *}
+		{if $currentContext}
 
-    <div class="form-group">
-      <label for="register-fname">{translate key="user.firstName"}</label>
-      <input type="text" class="form-control" id="register-fname" placeholder="{translate key='user.firstName'}" value="{$firstName|escape}" maxlenght="40" required>
-    </div>
+			{* Users are opted into the Reader and Author roles in the current
+			   journal/press by default. See RegistrationForm::initData() *}
+			{assign var=contextId value=$currentContext->getId()}
+			{foreach from=$readerUserGroups[$contextId] item=userGroup}
+				{if in_array($userGroup->getId(), $userGroupIds)}
+					{assign var="userGroupId" value=$userGroup->getId()}
+					<input type="hidden" name="readerGroup[{$userGroupId}]" value="1">
+				{/if}
+			{/foreach}
+			{foreach from=$authorUserGroups[$contextId] item=userGroup}
+				{if in_array($userGroup->getId(), $userGroupIds)}
+					{assign var="userGroupId" value=$userGroup->getId()}
+					<input type="hidden" name="authorGroup[{$userGroupId}]" value="1">
+				{/if}
+			{/foreach}
 
-    <div class="form-group">
-      <label for="register-mname">{translate key="user.middleName"}</label>
-      <input type="text" class="form-control" id="register-mname" placeholder="{translate key='user.middleName'}" value="{$middleName|escape}" maxlenght="40">
-    </div>
+			{* Allow the user to sign up as a reviewer *}
+			{assign var=userCanRegisterReviewer value=0}
+			{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
+				{if $userGroup->getPermitSelfRegistration()}
+					{assign var=userCanRegisterReviewer value=$userCanRegisterReviewer+1}
+				{/if}
+			{/foreach}
+			{if $userCanRegisterReviewer}
+				<fieldset class="reviewer">
+					<legend>
+						{translate key="user.reviewerPrompt"}
+					</legend>
+					<div class="fields">
+						<div id="reviewerOptinGroup" class="form-group optin">
+							{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
+								{if $userGroup->getPermitSelfRegistration()}
+									<label>
+										{assign var="userGroupId" value=$userGroup->getId()}
+										<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
+										{translate key="user.reviewerPrompt.userGroup" userGroup=$userGroup->getLocalizedName()}
+									</label>
+								{/if}
+							{/foreach}
+						</div>
+					</div>
+				</fieldset>
+			{/if}
+		{/if}
 
-    <div class="form-group">
-      <label for="register-lname">{translate key="user.lastName"}</label>
-      <input type="text" class="form-control" id="register-lname" placeholder="{translate key='user.lastName'}" value="{$lastName|escape}" maxlenght="40" required>
-    </div>
+		{include file="frontend/components/registrationFormContexts.tpl"}
 
-    <div class="form-group">
-      <label for="register-affiliation">{translate key="user.affiliation"}</label>
-      {assign var="primaryLocale" value=$currentContext->getPrimaryLocale()}
-      <input type="text" class="form-control" id="register-affiliation" placeholder="{translate key='user.affiliation'}" value="{$affiliation.$primaryLocale|escape}" required>
-    </div>
+		<div class="buttons">
+			<button class="btn btn-primary submit" type="submit">
+				{translate key="user.register"}
+			</button>
 
-    <div class="form-group">
-      <label for="register-country">{translate key="common.country"}</label>
-      <select name="country" id="register-country" required>
-        <option></option>
-        {html_options options=$countries selected=$country}
-      </select>
-    </div>
-  </fieldset>
+			{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
+			<a class="btn btn-default" href="{url page="login" source=$rolesProfileUrl}" class="login">
+				{translate key="user.login"}
+			</a>
+		</div>
+	</form>
 
-  <fieldset id="register-login">
-    <legend>{translate key="user.login"}</legend>
-
-    <div class="form-group">
-      <label for="register-email">{translate key="user.email"}</label>
-      <input type="email" class="form-control" id="register-email" placeholder="{translate key='user.email'}" value="{$email|escape}" maxlenght="32" required>
-    </div>
-
-    <div class="form-group">
-      <label for="register-username">{translate key="user.username"}</label>
-      <input type="text" class="form-control" id="register-username" placeholder="{translate key='user.username'}" value="{$username|escape}" maxlenght="32" required>
-      <button id="suggestUsernameButton" class="suggest_username">
-        {translate key="common.suggest"}
-      </button>
-    </div>
-
-    <div class="form-group">
-      <label for="register-password">{translate key="user.password"}</label>
-      <input type="email" class="form-control" id="register-password" password="true" maxlength="32" required="$passwordRequired">
-    </div>
-
-    <div class="form-group">
-      <label for="register-password-repeat">{translate key="user.repeatPassword"}</label>
-      <input type="email" class="form-control" id="register-password-repeat" password="true" maxlength="32" required="$passwordRequired">
-    </div>
-  </fieldset>
-
-  {* @todo Implement this without recourse to the Form Builder Vocab,
-  so we don't force themers to dip into FBV at all *}
-  {include file="user/userGroups.tpl"}
-
-  {* @todo recaptcha display is untested *}
-  {if $reCaptchaHtml}
-  <div class="recaptcha">
-    {fieldLabel name="captcha" required=true key="common.captchaField" class="desc"}
-    {$reCaptchaHtml}
-  </div>
-  {/if}
-
-  <button type="submit" class="btn btn-primary">{translate key="user.register"}</button>
-
-  {if $privacyStatement}
-  <section id="register-privacy">
-    <h2>{translate key="user.register.privacyStatement"}</h2>
-    <p>{$privacyStatement|nl2br}</p>
-  </section>
-  {/if}
-</form>
-
-{if $includeEntirePage}
-</div><!-- .page -->
 
 {include file="common/frontend/footer.tpl"}
-{/if}

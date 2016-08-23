@@ -10,33 +10,42 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
 
-
 <div id="main-content" class="page page_lost_password">
 
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
 
-	<p class="bg-info">{translate key="user.login.resetPasswordInstructions"}</p>
+	<div class="alert alert-info" role="alert">
+		{translate key="user.login.resetPasswordInstructions"}
+	</div>
 
 	<form class="pkp_form lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
+		{csrf}
+
 		{if $error}
-			<p class="bg-warning">
+			<div class="alert alert-error" role="alert">
 				{translate key=$error}
-			</p>
+			</div>
 		{/if}
 
-    <div class="form-group">
-      <label for="login-email">{translate key="user.login.registeredEmail"}</label>
-      <input type="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlenght="32" required>
-    </div>
+		<div class="form-group">
+			<label for="login-email">
+				{translate key="user.login.registeredEmail"}
+			</label>
+			<input type="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlenght="32" required>
+		</div>
 
-    <p>
-      <button type="submit" class="btn btn-primary">{translate key="user.login.resetPassword"}</button>
-      {if !$disableUserReg}
-      {url|assign:registerUrl page="user" op="register" source=$source}
-      <a class="btn btn-default register-button" href="{$registerUrl}" role="button">{translate key="user.login.registerNewAccount"}</a>
-      {/if}
-    </p>
+		<div class="buttons">
+			<button type="submit" class="btn btn-primary">
+				{translate key="user.login.resetPassword"}
+			</button>
 
+			{if !$disableUserReg}
+				{url|assign:registerUrl page="user" op="register" source=$source}
+				<a class="btn btn-default register-button" href="{$registerUrl}" role="button">
+					{translate key="user.login.registerNewAccount"}
+				</a>
+			{/if}
+		</div>
 	</form>
 
 </div><!-- .page -->
