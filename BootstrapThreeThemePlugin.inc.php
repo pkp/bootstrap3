@@ -29,6 +29,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 			'options' => array(
 				'bootstrap3' => 'plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3',
 				'cerulean'   => 'plugins.themes.bootstrap3.options.bootstrapTheme.cerulean',
+				'cleanblog'  => 'plugins.themes.bootstrap3.options.bootstrapTheme.cleanblog',
 				'cosmo'      => 'plugins.themes.bootstrap3.options.bootstrapTheme.cosmo',
 				'cyborg'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.cyborg',
 				'darkly'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.darkly',
