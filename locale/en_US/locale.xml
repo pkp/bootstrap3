@@ -21,4 +21,23 @@
 	<message key="plugins.themes.bootstrap3.article.sidebar">Article Sidebar</message>
 	<message key="plugins.themes.bootstrap3.article.main">Main Article Content</message>
 	<message key="plugins.themes.bootstrap3.article.details">Article Details</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.label">Bootstrap Theme</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.description">Select one of these open-source Bootstrap themes which change the colors aand typography of your website.</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3">Default Bootstrap Theme</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cerulean">Cerulean</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cosmo">Cosmo</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cyborg">Cyborg</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.darkly">Darkly</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.flatly">Flatly</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.journal">Journal</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.lumen">Lumen</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.paper">Paper</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.readable">Readable</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.sandstone">Sandstone</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.simplex">Simplex</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.slate">Slate</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.spacelab">Spacelab</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.superhero">Superhero</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.united">United</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.yeti">Yeti</message>
 </locale>

@@ -21,7 +21,38 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	 * @return null
 	 */
 	public function init() {
+
+		// Register option for bootstrap themes
+		$this->addOption('bootstrapTheme', 'radio', array(
+			'label' => 'plugins.themes.bootstrap3.options.bootstrapTheme.label',
+			'description' => 'plugins.themes.bootstrap3.options.bootstrapTheme.description',
+			'options' => array(
+				'bootstrap3' => 'plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3',
+				'cerulean'   => 'plugins.themes.bootstrap3.options.bootstrapTheme.cerulean',
+				'cosmo'      => 'plugins.themes.bootstrap3.options.bootstrapTheme.cosmo',
+				'cyborg'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.cyborg',
+				'darkly'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.darkly',
+				'flatly'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.flatly',
+				'journal'    => 'plugins.themes.bootstrap3.options.bootstrapTheme.journal',
+				'lumen'      => 'plugins.themes.bootstrap3.options.bootstrapTheme.lumen',
+				'paper'      => 'plugins.themes.bootstrap3.options.bootstrapTheme.paper',
+				'readable'   => 'plugins.themes.bootstrap3.options.bootstrapTheme.readable',
+				'sandstone'  => 'plugins.themes.bootstrap3.options.bootstrapTheme.sandstone',
+				'simplex'    => 'plugins.themes.bootstrap3.options.bootstrapTheme.simplex',
+				'slate'      => 'plugins.themes.bootstrap3.options.bootstrapTheme.slate',
+				'spacelab'   => 'plugins.themes.bootstrap3.options.bootstrapTheme.spacelab',
+				'superhero'  => 'plugins.themes.bootstrap3.options.bootstrapTheme.superhero',
+				'united'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.united',
+				'yeti'       => 'plugins.themes.bootstrap3.options.bootstrapTheme.yeti',
+			)
+		));
+
 		$this->addStyle('bootstrap', 'styles/bootstrap.less');
+
+		$bootstrapTheme = $this->getOption('bootstrapTheme');
+		if (!empty($bootstrapTheme)) {
+			$this->addStyle('bootstrapTheme-' . $bootstrapTheme, 'styles/' . $bootstrapTheme . '.less');
+		}
 
 		// Load jQuery from a CDN or, if CDNs are disabled, from a local copy.
 		$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
