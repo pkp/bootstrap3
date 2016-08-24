@@ -13,6 +13,7 @@
  * @uses $journalDescription string Journal description from HTML text editor
  * @uses $homepageImage object Image to be displayed on the homepage
  * @uses $additionalHomeContent string Arbitrary input from HTML text editor
+ * @uses $announcements array List of announcements
  * @uses $numAnnouncementsHomepage int Number of announcements to display on the
  *       homepage
  * @uses $issue Issue Current issue
@@ -36,7 +37,7 @@
 	{/if}
 
 	{* Announcements *}
-	{if $numAnnouncementsHomepage}
+	{if $numAnnouncementsHomepage && $announcements|count}
 		<section class="cmp_announcements media">
 			<header class="page-header">
 				<h2>
