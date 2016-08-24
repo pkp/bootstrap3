@@ -101,6 +101,14 @@
 									{$author->getLocalizedAffiliation()|escape}
 								</div>
 							{/if}
+							{if $author->getOrcid()}
+								<span class="orcid">
+									<a href="{$author->getOrcid()|escape}" target="_blank">
+										<img src="//orcid.org/sites/default/files/images/orcid_16x16.png">
+										{$author->getOrcid()|escape}
+									</a>
+								</span>
+							{/if}
 						{/foreach}
 					</div>
 				{/if}
