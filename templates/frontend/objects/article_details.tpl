@@ -34,12 +34,16 @@
 			{* Screen-reader heading for easier navigation jumps *}
 			<h2 class="sr-only">{translate key="plugins.themes.bootstrap3.article.sidebar"}</h2>
 
-			{* Issue cover image *}
-			{if $issue->getCoverImage()}
+			{* Article/Issue cover image *}
+			{if $article->getCoverImage() || $issue->getCoverImage()}
 				<div class="cover-image">
-					<a href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-						<img class="img-responsive" src="{$publicFilesDir}/{$issue->getCoverImage()|escape}">
-					</a>
+					{if $article->getCoverImage()}
+						<img class="img-responsive" src="{$publicFilesDir}/{$article->getCoverImage()|escape}"{if $article->getCoverImageAltText()} alt="{$article->getCoverImageAltText()|escape}"{/if}>
+					{else}
+						<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+							<img class="img-responsive" src="{$publicFilesDir}/{$issue->getCoverImage()|escape}"{if $issue->getCoverImageAltText()} alt="{$issue->getCoverImageAltText()|escape}"{/if}>
+						</a>
+					{/if}
 				</div>
 			{/if}
 
