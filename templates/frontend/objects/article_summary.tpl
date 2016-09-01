@@ -21,19 +21,19 @@
 	{if $article->getCoverImage()}
 		<div class="cover media-left">
 			<a href="{url page="article" op="view" path=$articlePath}" class="file">
-				<img class="media-object" src="{$coverPagePath|escape}{$article->getFileName($locale)|escape}">
+				<img class="media-object" src="{$publicFilesDir|escape}/{$article->getCoverImage()|escape}">
 			</a>
 		</div>
 	{/if}
 
-	<h3 class="media-heading">
-		<a href="{url page="article" op="view" path=$articlePath}">
-			{$article->getLocalizedTitle()|strip_unsafe_html}
-		</a>
-	</h3>
+	<div class="media-body">
+		<h3 class="media-heading">
+			<a href="{url page="article" op="view" path=$articlePath}">
+				{$article->getLocalizedTitle()|strip_unsafe_html}
+			</a>
+		</h3>
 
-	{if $showAuthor || $article->getPages() || $hasAccess || $showGalleyLinks}
-		<div class="media-body">
+		{if $showAuthor || $article->getPages() || ($article->getDatePublished() && $showDatePublished)}
 
 			{if $showAuthor}
 				<div class="meta">
@@ -52,19 +52,13 @@
 				</p>
 			{/if}
 
-			{if $hasAccess || $showGalleyLinks}
-				<div class="btn-group" role="group">
-					{foreach from=$article->getGalleys() item=galley}
-						{assign var="hasArticleAccess" value=$hasAccess}
-						{if ($article->getAccessStatus() == $smarty.const.ARTICLE_ACCESS_OPEN)}
-							{assign var="hasArticleAccess" value=1}
-						{/if}
-						{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
-					{/foreach}
-				</div>
-			{/if}
-		</div>
-	{/if}
+			<div class="btn-group" role="group">
+				{foreach from=$article->getGalleys() item=galley}
+					{include file="frontend/objects/galley_link.tpl" parent=$article}
+				{/foreach}
+			</div>
+		{/if}
+	</div>
 
 	{call_hook name="Templates::Issue::Issue::Article"}
 </div><!-- .article-summary -->
