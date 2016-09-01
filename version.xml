@@ -15,7 +15,7 @@
 	<application>bootstrap3</application>
 	<type>plugins.themes</type>
 	<release>1.0.0.0</release>
-	<date>2016-04-25</date>
+	<date>2016-09-01</date>
 	<lazy-load>0</lazy-load>
 	<class>BootstrapThreeThemePlugin</class>
 </version>
