@@ -49,6 +49,13 @@
           {translate key="about.submissions"}
         </a>
       </li>
+	  {if $currentJournal->getSetting('mailingAddress') || $currentJournal->getSetting('contactName')}
+	  <li>
+	    <a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="contact"}">
+		    {translate key="about.contact"}
+	    </a>
+	  </li>
+      {/if}
     </ul>
 
     {/if}
