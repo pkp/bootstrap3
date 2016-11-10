@@ -72,7 +72,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 		$this->addScript('jQueryUI', $jqueryUI, array('baseUrl' => ''));
 		$this->addScript('jQueryTagIt', $request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/jquery.tag-it.js', array('baseUrl' => ''));
 
-		// Load Boostrap
+		// Load Bootstrap
 		$this->addScript('bootstrap', 'bootstrap/js/bootstrap.min.js');
 	}
 
