@@ -33,3 +33,5 @@ Thanks to everyone who has contributed to this theme:
 - Ted Roeder ([Cold Spring Harbor Laboratory](http://www.cshl.edu/))
 - William Alejandro Ortiz Porras, @wortizBiteca ([Biteca Ltda, Columbia](http://www.biteca.com/))
 - Ramón Martins Sodoma da Fonseca (IBCIT, Brazil)
+- Alexander Kiselev, @Avernial
+- Nikos Kasioumis, @kasioumis
