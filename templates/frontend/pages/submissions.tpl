@@ -86,18 +86,6 @@
 	{/if}
 	{* /Copyright Notice *}
 
-	{* Privacy Statement *}
-	{if $currentJournal->getLocalizedSetting('privacyStatement')}
-		<div class="privacy-statement">
-			<h2 class="page-header">
-				{translate key="about.privacyStatement"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.privacyStatement"}
-			</h2>
-			{$currentJournal->getLocalizedSetting('privacyStatement')|nl2br}
-		</div>
-	{/if}
-	{* /Privacy Statement *}
-
 </div><!-- .page -->
 
 {include file="common/frontend/footer.tpl"}
