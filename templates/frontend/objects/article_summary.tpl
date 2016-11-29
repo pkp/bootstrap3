@@ -18,10 +18,10 @@
 {/if}
 
 <div class="article-summary media">
-	{if $article->getCoverImage()}
+	{if $article->getLocalizedCoverImage()}
 		<div class="cover media-left">
 			<a href="{url page="article" op="view" path=$articlePath}" class="file">
-				<img class="media-object" src="{$publicFilesDir|escape}/{$article->getCoverImage()|escape}">
+				<img class="media-object" src="{$publicFilesDir|escape}/{$article->getLocalizedCoverImage()|escape}">
 			</a>
 		</div>
 	{/if}

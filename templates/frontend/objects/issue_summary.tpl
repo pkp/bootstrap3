@@ -16,10 +16,10 @@
 	{assign var=issueSeries value=$issue->getIssueSeries()}
 
 	{* Show cover image and use cover description *}
-	{if $issue->getCoverImage()}
+	{if $issue->getLocalizedCoverImage()}
 		<div class="media-left">
 			<a class="cover" href="{url op="view" path=$issue->getBestIssueId($currentJournal)}">
-				<img class="media-object" src="{$coverImagePath|escape}{$issue->getCoverImage()}">
+				<img class="media-object" src="{$coverImagePath|escape}{$issue->getLocalizedCoverImage()}">
 			</a>
 		</div>
 	{/if}

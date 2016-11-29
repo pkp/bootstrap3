@@ -35,13 +35,13 @@
 			<h2 class="sr-only">{translate key="plugins.themes.bootstrap3.article.sidebar"}</h2>
 
 			{* Article/Issue cover image *}
-			{if $article->getCoverImage() || $issue->getCoverImage()}
+			{if $article->getLocalizedCoverImage() || $issue->getLocalizedCoverImage()}
 				<div class="cover-image">
-					{if $article->getCoverImage()}
-						<img class="img-responsive" src="{$publicFilesDir}/{$article->getCoverImage()|escape}"{if $article->getCoverImageAltText()} alt="{$article->getCoverImageAltText()|escape}"{/if}>
+					{if $article->getLocalizedCoverImage()}
+						<img class="img-responsive" src="{$publicFilesDir}/{$article->getLocalizedCoverImage()|escape}"{if $article->getLocalizedCoverImageAltText()} alt="{$article->getLocalizedCoverImageAltText()|escape}"{/if}>
 					{else}
 						<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-							<img class="img-responsive" src="{$publicFilesDir}/{$issue->getCoverImage()|escape}"{if $issue->getCoverImageAltText()} alt="{$issue->getCoverImageAltText()|escape}"{/if}>
+							<img class="img-responsive" src="{$publicFilesDir}/{$issue->getLocalizedCoverImage()|escape}"{if $issue->getLocalizedCoverImageAltText()} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
 						</a>
 					{/if}
 				</div>
