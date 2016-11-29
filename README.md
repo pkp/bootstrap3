@@ -1,6 +1,6 @@
-# Bootstrap3 for OJS 3.0
+# Bootstrap3 for OJS 3+
 
-A community-built theme for OJS 3.0 that implements Bootstrap 3 components.
+A community-built theme for OJS 3+ that implements Bootstrap 3 components.
 
 ## Installation
 
@@ -10,6 +10,14 @@ A community-built theme for OJS 3.0 that implements Bootstrap 3 components.
 4. Browse to the Settings > Website > Appearance page and select Bootstrap 3 from the theme option and save your change.
 
 You can now see the Bootstrap 3 theme on your website. Go back to the Settings > Website > Appearance page (or refresh the page if it is still open) to view options to switch to any of the bundled Bootstrap 3 themes.
+
+## Version Compatibility
+
+Some versions of the Bootstrap3 theme are only compatible with certain releases of OJS. This release list indicates which versions are compatible.
+
+| **Bootstrap3** | **OJS** | **Date** |
+| 1.0.1 | 3.0.1 | 2016-11-29 |
+| 1.0.0 | 3.0.0 | 2016-09-01 |
 
 ## Project Aims
 
@@ -35,3 +43,16 @@ Thanks to everyone who has contributed to this theme:
 - Ramón Martins Sodoma da Fonseca (IBCIT, Brazil)
 - Alexander Kiselev, @Avernial
 - Nikos Kasioumis, @kasioumis
+
+## Changelog
+
+**1.0.1** (2016-11-29)
+* Fix: add missing Contact link to primary nav menu (h/t @Avernial)
+* Fix: style the PDF view header and view pane
+* Fix: forgotten password form (h/t @Avernial)
+* Fix: remove deprecated privacy statement from submissions page
+* Update: use localised cover images introduced in OJS 3.0.1
+* Update: use new sidebar key introduced in OJS 3.0.1
+
+**1.0.0** (2016-09-01)
+* Initial release
