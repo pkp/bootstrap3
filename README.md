@@ -15,6 +15,7 @@ You can now see the Bootstrap 3 theme on your website. Go back to the Settings >
 
 Some versions of the Bootstrap3 theme are only compatible with certain releases of OJS. This release list indicates which versions are compatible.
 
+* **Bootstrap3 v1.0.2** is compatible with OJS 3.0.1 and 3.0.2.
 * **Bootstrap3 v1.0.1** is compatible with OJS 3.0.1.
 * **Bootstrap3 v1.0.0** is compatible with OJS 3.0.0.
 
@@ -44,6 +45,10 @@ Thanks to everyone who has contributed to this theme:
 - Nikos Kasioumis, @kasioumis
 
 ## Changelog
+
+**1.0.2** (2017-02-06)
+* Update: use new localised cover images methods for issue and article cover images
+* Add: Show references on article details page
 
 **1.0.1** (2016-11-29)
 * Fix: add missing Contact link to primary nav menu (h/t @Avernial)
