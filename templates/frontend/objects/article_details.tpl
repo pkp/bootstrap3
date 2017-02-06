@@ -254,6 +254,16 @@
 
 				{call_hook name="Templates::Article::Details"}
 
+				{* References *}
+				{if $article->getCitations()}
+					<div class="article-references">
+						<h2>{translate key="submission.citations"}</h2>
+						<div class="article-references-content">
+							{$article->getCitations()|nl2br}
+						</div>
+					</div>
+				{/if}
+
 			</section><!-- .article-details -->
 		</div><!-- .col-md-8 -->
 	</div><!-- .row -->
