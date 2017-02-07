@@ -74,6 +74,17 @@
 
 		{include file="frontend/components/registrationFormContexts.tpl"}
 
+		{* recaptcha spam blocker *}
+		{if $reCaptchaHtml}
+			<fieldset class="recaptcha_wrapper">
+				<div class="fields">
+					<div class="form-group recaptcha">
+						{$reCaptchaHtml}
+					</div>
+				</div>
+			</fieldset>
+		{/if}
+
 		<div class="buttons">
 			<button class="btn btn-primary submit" type="submit">
 				{translate key="user.register"}
