@@ -46,9 +46,12 @@ Thanks to everyone who has contributed to this theme:
 
 ## Changelog
 
-**1.0.2** (2017-02-06)
-* Update: use new localised cover images methods for issue and article cover images
+**1.0.2** (2017-02-07)
+* Fix: PDF view header styles
+* Fix: Issue cover and description switch to column layout
+* Update: Use new localised cover images methods for issue and article cover images
 * Add: Show references on article details page
+* Add: Add support for recaptcha on registration
 
 **1.0.1** (2016-11-29)
 * Fix: add missing Contact link to primary nav menu (h/t @Avernial)
