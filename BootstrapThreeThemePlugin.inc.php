@@ -52,11 +52,11 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 
 		$locale = AppLocale::getLocale();
 		if (AppLocale::getLocaleDirection($locale) === 'rtl') {
-					if (Config::getVar('general', 'enable_cdn')) {
-						$this->addStyle('bootstrap-rtl', '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css', array('baseUrl' => ''));
-					} else {
-						$this->addStyle('bootstrap-rtl', 'styles/bootstrap-rtl.min.css');
-					}
+			if (Config::getVar('general', 'enable_cdn')) {
+				$this->addStyle('bootstrap-rtl', '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css', array('baseUrl' => ''));
+			} else {
+				$this->addStyle('bootstrap-rtl', 'styles/bootstrap-rtl.min.css');
+			}
 		}
 		$bootstrapTheme = $this->getOption('bootstrapTheme');
 		if (!empty($bootstrapTheme)) {
