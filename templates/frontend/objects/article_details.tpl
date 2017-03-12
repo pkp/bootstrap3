@@ -86,7 +86,44 @@
 						</div>
 					{/if}
 				{/foreach}
+
 			</div>
+			{* Author biographies *}
+			{assign var="hasBiographies" value=0}
+			{foreach from=$article->getAuthors() item=author}
+				{if $author->getLocalizedBiography()}
+					{assign var="hasBiographies" value=$hasBiographies+1}
+				{/if}
+			{/foreach}
+			{if $hasBiographies}
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						{if $hasBiographies > 1}
+							{translate key="submission.authorBiographies"}
+						{else}
+							{translate key="submission.authorBiography"}
+						{/if}
+					</div>
+					<div class="panel-body">
+					{foreach from=$article->getAuthors() item=author}
+						{if $author->getLocalizedBiography()}
+							<h5>
+								{if $author->getLocalizedAffiliation()}
+									{capture assign="authorName"}{$author->getFullName()|escape}{/capture}
+									{capture assign="authorAffiliation"}<span class="affiliation">{$author->getLocalizedAffiliation()|escape}</span>{/capture}
+									{translate key="submission.authorWithAffiliation" name=$authorName affiliation=$authorAffiliation}
+								{else}
+									{$author->getFullName()|escape}
+								{/if}
+							</h5>
+							<div class="value small">
+								{$author->getLocalizedBiography()|strip_unsafe_html}
+							</div>
+						{/if}
+					{/foreach}
+					</div>
+				</div>
+			{/if}
 
 		</section><!-- .article-sidebar -->
 
