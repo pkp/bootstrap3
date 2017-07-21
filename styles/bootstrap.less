@@ -76,9 +76,14 @@
 
 
     // Add space between citation output and list of citation formats
-    .citation_output {
+    #citationOutput {
         margin-bottom: @panel-body-padding;
         word-wrap: break-word;
+    }
+
+    // Hide the bibliography number produced by some CSL styles
+    .csl-left-margin {
+        display: none;
     }
 }
 
