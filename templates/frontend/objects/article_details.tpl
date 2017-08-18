@@ -48,11 +48,18 @@
 			{/if}
 
 			{* Article Galleys *}
-			{if $article->getGalleys()}
+			{if $primaryGalleys || $supplementaryGalleys}
 				<div class="download">
-					{foreach from=$article->getGalleys() item=galley}
-						{include file="frontend/objects/galley_link.tpl" parent=$article}
-					{/foreach}
+					{if $primaryGalleys}
+						{foreach from=$primaryGalleys item=galley}
+							{include file="frontend/objects/galley_link.tpl" parent=$article}
+						{/foreach}
+					{/if}
+					{if $supplementaryGalleys}
+						{foreach from=$supplementaryGalleys item=galley}
+							{include file="frontend/objects/galley_link.tpl" parent=$article isSupplementary="1"}
+						{/foreach}
+					{/if}
 				</div>
 			{/if}
 
