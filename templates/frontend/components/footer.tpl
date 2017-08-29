@@ -38,7 +38,7 @@
 
     		<div class="col-md-2" role="complementary" aria-label="{translate|escape key="about.aboutThisPublishingSystem"}">
     			<a href="{$pkpLink}">
-    				<img class="img-responsive" alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/lib/pkp/templates/images/pkp_brand.png">
+    				<img class="img-responsive" alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/{$brandImage}">
     			</a>
     		</div>
 
