@@ -23,28 +23,28 @@
 			</aside><!-- pkp_sidebar.left -->
 		{/if}
 	{/if}
-  </div><!-- pkp_structure_content -->
+	</div><!-- pkp_structure_content -->
 
-  <footer class="footer" role="contentinfo">
+	<footer class="footer" role="contentinfo">
 
-  	<div class="container">
+		<div class="container">
 
-      <div class="row">
-    		{if $pageFooter}
-        <div class="col-md-10">
-          {$pageFooter}
-        </div>
-    		{/if}
+			<div class="row">
+				{if $pageFooter}
+				<div class="col-md-10">
+					{$pageFooter}
+				</div>
+				{/if}
 
-    		<div class="col-md-2" role="complementary" aria-label="{translate|escape key="about.aboutThisPublishingSystem"}">
-    			<a href="{$pkpLink}">
-    				<img class="img-responsive" alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/{$brandImage}">
-    			</a>
-    		</div>
+				<div class="col-md-2" role="complementary" aria-label="{translate|escape key="about.aboutThisPublishingSystem"}">
+					<a href="{$pkpLink}">
+						<img class="img-responsive" alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/{$brandImage}">
+					</a>
+				</div>
 
-      </div> <!-- .row -->
-  	</div><!-- .container -->
-  </footer>
+			</div> <!-- .row -->
+		</div><!-- .container -->
+	</footer>
 </div><!-- pkp_structure_page -->
 
 {load_script context="frontend" scripts=$scripts}
