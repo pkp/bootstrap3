@@ -36,7 +36,7 @@
 				</div>
 				{/if}
 
-				<div class="col-md-2" role="complementary" aria-label="{translate|escape key="about.aboutThisPublishingSystem"}">
+				<div class="col-md-2" role="complementary">
 					<a href="{$pkpLink}">
 						<img class="img-responsive" alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/{$brandImage}">
 					</a>
