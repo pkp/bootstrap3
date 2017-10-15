@@ -22,7 +22,7 @@
 	<message key="plugins.themes.bootstrap3.article.main">Main Article Content</message>
 	<message key="plugins.themes.bootstrap3.article.details">Article Details</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.label">Bootstrap Theme</message>
-	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.description">Select one of these open-source Bootstrap themes which change the colors aand typography of your website.</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.description">Select one of these open-source Bootstrap themes which change the colors and typography of your website.</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3">Default Bootstrap Theme</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cerulean">Cerulean</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cleanblog">Clean Blog</message>
