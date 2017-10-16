@@ -155,6 +155,15 @@ h6.media-heading {
             &:extend(.panel > .list-group .list-group-item);
         }
     }
+
+    .content {
+      &:extend(.panel-body);
+    }
+}
+
+// Apply bootstrap table style to .cmp_table elements
+.cmp_table {
+  &:extend(.table all);
 }
 
 // Apply .btn styles to makeSubmission block plugin
