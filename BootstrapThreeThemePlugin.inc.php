@@ -59,7 +59,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 			}
 		}
 		$bootstrapTheme = $this->getOption('bootstrapTheme');
-		if (!empty($bootstrapTheme)) {
+		if (!empty($bootstrapTheme) && $bootstrapTheme !== 'bootstrap3') {
 			$this->addStyle('bootstrapTheme-' . $bootstrapTheme, 'styles/' . $bootstrapTheme . '.less');
 		}
 
