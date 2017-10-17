@@ -81,7 +81,7 @@
 	</div>
 
 	{* Full-issue galleys *}
-	{if $issueGalleys && ($hasAccess || $showGalleyLinks)}
+	{if $issueGalleys}
 		<div class="galleys">
 			<div class="page-header">
 				<h2>
@@ -90,7 +90,7 @@
 			</div>
 			<div class="btn-group" role="group">
 				{foreach from=$issueGalleys item=galley}
-					{include file="frontend/objects/galley_link.tpl" parent=$issue}
+					{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
 				{/foreach}
 			</div>
 		</div>
