@@ -2,28 +2,29 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * plugins/themes/bootstrap3/locale/en_US/locale.xml
+  * plugins/themes/bootstrap3/locale/sr_RS@latin/locale.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University Library
   * Copyright (c) 2003-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
-  * Localization strings
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
+  * Localization strings for the sr_RS@latin (Srpski) locale.
+
   -->
 
-<locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.bootstrap3.name">Bootstrap 3 Base Theme</message>
-	<message key="plugins.themes.bootstrap3.description">A starter Bootstrap 3 theme for the reader frontend.</message>
-	<message key="plugins.themes.bootstrap3.accessible_menu.label">Quick jump to page content</message>
-	<message key="plugins.themes.bootstrap3.accessible_menu.main_navigation">Main Navigation</message>
-	<message key="plugins.themes.bootstrap3.accessible_menu.main_content">Main Content</message>
-	<message key="plugins.themes.bootstrap3.accessible_menu.sidebar">Sidebar</message>
-	<message key="plugins.themes.bootstrap3.article.sidebar">Article Sidebar</message>
-	<message key="plugins.themes.bootstrap3.article.main">Main Article Content</message>
-	<message key="plugins.themes.bootstrap3.article.details">Article Details</message>
-	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.label">Bootstrap Theme</message>
-	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.description">Select one of these open-source Bootstrap themes which change the colors and typography of your website.</message>
-	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3">Default Bootstrap Theme</message>
+<locale name="sr_RS@latin" full_name="Srpski">
+	<message key="plugins.themes.bootstrap3.name">Butstrap 3 osnovna tema</message>
+	<message key="plugins.themes.bootstrap3.description">Početna Butstrap tema za čitaoce.</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.label">Skoči na stranu sa sadržajem</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.main_navigation">Glavna navigacija</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.main_content">Glavni sadržaj</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.sidebar">Bočna strana</message>
+	<message key="plugins.themes.bootstrap3.article.sidebar">Bočna strana članka</message>
+	<message key="plugins.themes.bootstrap3.article.main">Glavni sadržaj članka</message>
+	<message key="plugins.themes.bootstrap3.article.details">Detalji članka</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.label">Butstrap tema</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.description">Odaberite jednu od ovih Butstrap tema otvorenog koda koje menjaju boje i tipografiju vašeg sajta.</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3">Pretpostavljena Butstrap tema</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cerulean">Cerulean</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cleanblog">Clean Blog</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cosmo">Cosmo</message>

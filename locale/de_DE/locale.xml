@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * plugins/themes/bootstrap3/locale/en_US/locale.xml
+  * plugins/themes/bootstrap3/locale/de_DE/locale.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University Library
   * Copyright (c) 2003-2017 John Willinsky
@@ -11,19 +11,19 @@
   * Localization strings
   -->
 
-<locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.bootstrap3.name">Bootstrap 3 Base Theme</message>
-	<message key="plugins.themes.bootstrap3.description">A starter Bootstrap 3 theme for the reader frontend.</message>
-	<message key="plugins.themes.bootstrap3.accessible_menu.label">Quick jump to page content</message>
-	<message key="plugins.themes.bootstrap3.accessible_menu.main_navigation">Main Navigation</message>
-	<message key="plugins.themes.bootstrap3.accessible_menu.main_content">Main Content</message>
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
+	<message key="plugins.themes.bootstrap3.name">Bootstrap 3 Basis-Thema</message>
+	<message key="plugins.themes.bootstrap3.description">Ein Bais-Bootstrap-3-Thema für die Leseoberfläche.</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.label">Schnell zum Seiteninhalt springen</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.main_navigation">Hauptnavigation</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.main_content">Hauptinhat</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.sidebar">Sidebar</message>
-	<message key="plugins.themes.bootstrap3.article.sidebar">Article Sidebar</message>
-	<message key="plugins.themes.bootstrap3.article.main">Main Article Content</message>
-	<message key="plugins.themes.bootstrap3.article.details">Article Details</message>
-	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.label">Bootstrap Theme</message>
-	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.description">Select one of these open-source Bootstrap themes which change the colors and typography of your website.</message>
-	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3">Default Bootstrap Theme</message>
+	<message key="plugins.themes.bootstrap3.article.sidebar">Artikel-Sidebar</message>
+	<message key="plugins.themes.bootstrap3.article.main">Hauptsächlicher Artikelinhalt</message>
+	<message key="plugins.themes.bootstrap3.article.details">Artikel-Details</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.label">Bootstrap-Thema</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.description">Wählen Sie eines dieser freien Bootstrap-Themen, die die Farben und Typografie Ihrer Webseite ändern.</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3">Standard-Bootstrap-Thema</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cerulean">Cerulean</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cleanblog">Clean Blog</message>
 	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cosmo">Cosmo</message>
