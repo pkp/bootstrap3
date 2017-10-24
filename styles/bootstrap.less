@@ -68,17 +68,20 @@
         margin-bottom: 2em;
     }
 
-    .galley-link {
-        margin: 0.5em 0;
-        display: block;
-        &:extend(.btn-primary all);
+    .download .btn {
+      margin: 0.5em 0;
+      display: block;
     }
 
-
     // Add space between citation output and list of citation formats
-    .citation_output {
+    #citationOutput {
         margin-bottom: @panel-body-padding;
         word-wrap: break-word;
+    }
+
+    // Hide the bibliography number produced by some CSL styles
+    .csl-left-margin {
+        display: none;
     }
 }
 
@@ -152,6 +155,15 @@ h6.media-heading {
             &:extend(.panel > .list-group .list-group-item);
         }
     }
+
+    .content {
+      &:extend(.panel-body);
+    }
+}
+
+// Apply bootstrap table style to .cmp_table elements
+.cmp_table {
+  &:extend(.table all);
 }
 
 // Apply .btn styles to makeSubmission block plugin
