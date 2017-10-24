@@ -15,6 +15,7 @@ You can now see the Bootstrap 3 theme on your website. Go back to the Settings >
 
 Some versions of the Bootstrap3 theme are only compatible with certain releases of OJS. This release list indicates which versions are compatible.
 
+* **Bootstrap3 v1.1** is compatible with OJS 3.1.
 * **Bootstrap3 v1.0.2** is compatible with OJS 3.0.2.
 * **Bootstrap3 v1.0.1** is compatible with OJS 3.0.1.
 * **Bootstrap3 v1.0.0** is compatible with OJS 3.0.0.
@@ -43,8 +44,23 @@ Thanks to everyone who has contributed to this theme:
 - Ramón Martins Sodoma da Fonseca (IBCIT, Brazil)
 - Alexander Kiselev, @Avernial
 - Nikos Kasioumis, @kasioumis
+- Karam Qubsi, @karamqubsi
+- Simon Mitternacht, @mittinatten
+- Marco Tullney, @mtub
 
 ## Changelog
+
+**1.1** (2017-10-24)
+* Fix: Don't try to load additional stylesheet for base theme
+* Add: Custom navigation menu support
+* Add: Subscription support
+* Add: Author biographies on article details page
+* Add: German and Serbian translations
+* Add: RTL support (h/t Karam Qubsi)
+* Update: New OJS/PKP logo in footer
+* Update: Support new how-to-cite format
+* Update: Split display of primary and supplementary galleys
+* Update: Use SVG ORCID icon
 
 **1.0.2** (2017-02-07)
 * Fix: PDF view header styles
