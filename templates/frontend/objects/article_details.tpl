@@ -252,6 +252,45 @@
 					</div>
 				{/if}
 
+				{* Author biographies *}
+				{assign var="hasBiographies" value=0}
+				{foreach from=$article->getAuthors() item=author}
+					{if $author->getLocalizedBiography()}
+						{assign var="hasBiographies" value=$hasBiographies+1}
+					{/if}
+				{/foreach}
+				{if $hasBiographies}
+					<div class="panel panel-default author-bios">
+						<div class="panel-heading">
+							{if $hasBiographies > 1}
+								{translate key="submission.authorBiographies"}
+							{else}
+								{translate key="submission.authorBiography"}
+							{/if}
+						</div>
+						<div class="panel-body">
+							{foreach from=$article->getAuthors() item=author}
+								{if $author->getLocalizedBiography()}
+									<div class="media biography">
+										<div class="media-body">
+											<h3 class="media-heading biography-author">
+												{if $author->getLocalizedAffiliation()}
+													{capture assign="authorName"}{$author->getFullName()|escape}{/capture}
+													{capture assign="authorAffiliation"}<span class="affiliation">{$author->getLocalizedAffiliation()|escape}</span>{/capture}
+													{translate key="submission.authorWithAffiliation" name=$authorName affiliation=$authorAffiliation}
+												{else}
+													{$author->getFullName()|escape}
+												{/if}
+											</h3>
+											{$author->getLocalizedBiography()|strip_unsafe_html}
+										</div>
+									</div>
+								{/if}
+							{/foreach}
+						</div>
+					</div>
+				{/if}
+
 				{call_hook name="Templates::Article::Details"}
 
 				{* References *}
