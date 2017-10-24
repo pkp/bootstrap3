@@ -82,6 +82,9 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 
 		// Load Bootstrap
 		$this->addScript('bootstrap', 'bootstrap/js/bootstrap.min.js');
+
+		// Add navigation menu areas for this theme
+		$this->addMenuArea(array('primary', 'user'));
 	}
 
 	/**
