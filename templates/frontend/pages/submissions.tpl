@@ -69,7 +69,7 @@
 				{translate key="about.authorGuidelines"}
 				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
 			</h2>
-			{$currentJournal->getLocalizedSetting('authorGuidelines')|nl2br}
+			{$currentJournal->getLocalizedSetting('authorGuidelines')}
 		</div>
 	{/if}
 	{* /Author Guidelines *}
@@ -81,7 +81,7 @@
 				{translate key="about.copyrightNotice"}
 				</span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.copyrightNotice"}
 			</h2>
-			{$currentJournal->getLocalizedSetting('copyrightNotice')|nl2br}
+			{$currentJournal->getLocalizedSetting('copyrightNotice')}
 		</div>
 	{/if}
 	{* /Copyright Notice *}
