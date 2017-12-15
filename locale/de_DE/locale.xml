@@ -13,7 +13,7 @@
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<message key="plugins.themes.bootstrap3.name">Bootstrap 3 Basis-Thema</message>
-	<message key="plugins.themes.bootstrap3.description">Ein Bais-Bootstrap-3-Thema für die Leseoberfläche.</message>
+	<message key="plugins.themes.bootstrap3.description">Ein Basis-Bootstrap-3-Thema für die Leseoberfläche.</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.label">Schnell zum Seiteninhalt springen</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.main_navigation">Hauptnavigation</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.main_content">Hauptinhat</message>
