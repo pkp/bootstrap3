@@ -68,9 +68,9 @@
 						<div class="site-name">
 					{/if}
 						{if $currentJournal && $multipleContexts}
-							{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
-						{else}
 							{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
+						{else}
+							{url|assign:"homeUrl" context="index" router=$smarty.const.ROUTE_PAGE}
 						{/if}
 						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
