@@ -20,7 +20,7 @@
 
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
-{if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
+{if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
 {include file="core:frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}">
 	<div class="pkp_structure_page">
@@ -67,11 +67,13 @@
 					{else}
 						<div class="site-name">
 					{/if}
-						{if $currentJournal && $multipleContexts}
-							{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-						{else}
-							{url|assign:"homeUrl" context="index" router=$smarty.const.ROUTE_PAGE}
-						{/if}
+						{capture assign="homeUrl"}
+							{if $currentJournal && $multipleContexts}
+								{url page="index" router=$smarty.const.ROUTE_PAGE}
+							{else}
+								{url context="index" router=$smarty.const.ROUTE_PAGE}
+							{/if}
+						{/capture}
 						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
 								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}>

@@ -40,7 +40,7 @@
 			</button>
 
 			{if !$disableUserReg}
-				{url|assign:registerUrl page="user" op="register" source=$source}
+				{capture assign="registerUrl"}{url page="user" op="register" source=$source}{/capture}
 				<a class="btn btn-default register-button" href="{$registerUrl}" role="button">
 					{translate key="user.login.registerNewAccount"}
 				</a>
