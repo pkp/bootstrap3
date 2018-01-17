@@ -48,7 +48,12 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 			)
 		));
 
-		$this->addStyle('bootstrap', 'styles/bootstrap.less');
+		$bootstrapTheme = $this->getOption('bootstrapTheme');
+		if (empty($bootstrapTheme) || $bootstrapTheme === 'bootstrap3') {
+			$this->addStyle('bootstrap', 'styles/bootstrap.less');
+		} else {
+			$this->addStyle('bootstrapTheme-' . $bootstrapTheme, 'styles/' . $bootstrapTheme . '.less');
+		}
 
 		$locale = AppLocale::getLocale();
 		if (AppLocale::getLocaleDirection($locale) === 'rtl') {
@@ -57,10 +62,6 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 			} else {
 				$this->addStyle('bootstrap-rtl', 'styles/bootstrap-rtl.min.css');
 			}
-		}
-		$bootstrapTheme = $this->getOption('bootstrapTheme');
-		if (!empty($bootstrapTheme) && $bootstrapTheme !== 'bootstrap3') {
-			$this->addStyle('bootstrapTheme-' . $bootstrapTheme, 'styles/' . $bootstrapTheme . '.less');
 		}
 
 		// Load jQuery from a CDN or, if CDNs are disabled, from a local copy.
