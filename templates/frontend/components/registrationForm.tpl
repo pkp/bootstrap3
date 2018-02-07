@@ -24,6 +24,8 @@
 		<div class="form-group first_name">
 			<label>
 				{translate key="user.firstName"}
+				<span class="form-control-required">*</span>
+				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
 			</label>
 		</div>
@@ -36,18 +38,24 @@
 		<div class="form-group last_name">
 			<label>
 				{translate key="user.lastName"}
+				<span class="form-control-required">*</span>
+				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
 			</label>
 		</div>
 		<div class="form-group affiliation">
 			<label>
 				{translate key="user.affiliation"}
+				<span class="form-control-required">*</span>
+				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="text" name="affiliation[{$primaryLocale|escape}]" id="affiliation" value="{$affiliation.$primaryLocale|escape}" required>
 			</label>
 		</div>
 		<div class="form-group country">
 			<label>
 				{translate key="common.country"}
+				<span class="form-control-required">*</span>
+				<span class="sr-only">{translate key="common.required"}</span>
 				<select class="form-control" name="country" id="country" required>
 					<option></option>
 					{html_options options=$countries selected=$country}
@@ -65,24 +73,32 @@
 		<div class="form-group email">
 			<label>
 				{translate key="user.email"}
+				<span class="form-control-required">*</span>
+				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="text" name="email" id="email" value="{$email|escape}" maxlength="90" required>
 			</label>
 		</div>
 		<div class="form-group username">
 			<label>
 				{translate key="user.username"}
+				<span class="form-control-required">*</span>
+				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
 			</label>
 		</div>
 		<div class="form-group password">
 			<label>
 				{translate key="user.password"}
+				<span class="form-control-required">*</span>
+				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="password" name="password" id="password" password="true" maxlength="32" required>
 			</label>
 		</div>
 		<div class="form-group password">
 			<label>
 				{translate key="user.repeatPassword"}
+				<span class="form-control-required">*</span>
+				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="password" name="password2" id="password2" password="true" maxlength="32" required>
 			</label>
 		</div>
