@@ -47,6 +47,7 @@ Thanks to everyone who has contributed to this theme:
 - Karam Qubsi, @karamqubsi
 - Simon Mitternacht, @mittinatten
 - Marco Tullney, @mtub
+- Dennis Müller, @dennmuel ([UB Mannheim](https://www.bib.uni-mannheim.de/))
 
 ## Changelog
 
