@@ -32,6 +32,11 @@
 		<h3 class="media-heading">
 			<a href="{url page="article" op="view" path=$articlePath}">
 				{$article->getLocalizedTitle()|strip_unsafe_html}
+				{if $article->getLocalizedSubtitle()}
+					<p>
+						<small>{$article->getLocalizedSubtitle()|escape}</small>
+					</p>
+				{/if}
 			</a>
 		</h3>
 
