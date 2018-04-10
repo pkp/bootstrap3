@@ -106,20 +106,22 @@
 				{if $article->getAuthors()}
 					<div class="authors">
 						{foreach from=$article->getAuthors() item=author}
-							<strong>{$author->getFullName()|escape}</strong>
-							{if $author->getLocalizedAffiliation()}
-								<div class="article-author-affilitation">
-									{$author->getLocalizedAffiliation()|escape}
-								</div>
-							{/if}
-							{if $author->getOrcid()}
-								<span class="orcid">
-									{$orcidIcon}
-									<a href="{$author->getOrcid()|escape}" target="_blank">
-										{$author->getOrcid()|escape}
-									</a>
-								</span>
-							{/if}
+							<div class="author">
+								<strong>{$author->getFullName()|escape}</strong>
+								{if $author->getLocalizedAffiliation()}
+									<div class="article-author-affilitation">
+										{$author->getLocalizedAffiliation()|escape}
+									</div>
+								{/if}
+								{if $author->getOrcid()}
+									<div class="orcid">
+										{$orcidIcon}
+										<a href="{$author->getOrcid()|escape}" target="_blank">
+											{$author->getOrcid()|escape}
+										</a>
+									</div>
+								{/if}
+							</div>
 						{/foreach}
 					</div>
 				{/if}
