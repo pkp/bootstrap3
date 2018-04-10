@@ -32,6 +32,11 @@
 		<h3 class="media-heading">
 			<a href="{url page="article" op="view" path=$articlePath}">
 				{$article->getLocalizedTitle()|strip_unsafe_html}
+				{if $article->getLocalizedSubtitle()}
+					<p>
+						<small>{$article->getLocalizedSubtitle()|escape}</small>
+					</p>
+				{/if}
 			</a>
 		</h3>
 
@@ -61,7 +66,7 @@
 				{foreach from=$article->getGalleys() item=galley}
 					{if $primaryGenreIds}
 						{assign var="file" value=$galley->getFile()}
-						{if !$file || !in_array($file->getGenreId(), $primaryGenreIds)}
+						{if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
 							{php}continue;{/php}
 						{/if}
 					{/if}
