@@ -53,7 +53,7 @@ Thanks to everyone who has contributed to this theme:
 
 ## Changelog
 
-**1.1.2** (2018-04-23
+**1.1.2** (2018-04-23)
 * Fix: Fatal error on Editorial Team page
 
 **1.1.1** (2018-04-10)
