@@ -98,17 +98,23 @@
 				</div>
 
 				{* Primary site navigation *}
-				<nav id="nav-menu" class="navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
-					{* Primary navigation menu for current application *}
+				{capture assign="primaryMenu"}
 					{load_menu name="primary" id="main-navigation" ulClass="nav navbar-nav"}
+				{/capture}
 
-					{* Search form *}
-					{if !$noContextsConfigured}
-						<div class="pull-md-right">
-							{include file="frontend/components/searchForm_simple.tpl"}
-						</div>
-					{/if}
-				</nav>
+				{if !empty(trim($primaryMenu)) || !$noContextsConfigured}
+					<nav id="nav-menu" class="navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
+						{* Primary navigation menu for current application *}
+						{$primaryMenu}
+
+						{* Search form *}
+						{if !$noContextsConfigured}
+							<div class="pull-md-right">
+								{include file="frontend/components/searchForm_simple.tpl"}
+							</div>
+						{/if}
+					</nav>
+				{/if}
 
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
