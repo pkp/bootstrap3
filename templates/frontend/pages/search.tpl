@@ -75,7 +75,7 @@
 						<label for="authors">
 							{translate key="search.author"}
 						</label>
-						<input class="form-control" type="text" for="authors" name="authors" value="{$authors}">
+						<input class="form-control" type="text" for="authors" name="authors" value="{$authors|escape}">
 					</div>
 				</div>
 			</div>
