@@ -68,7 +68,7 @@
 				{* Published date *}
 				{if $article->getDatePublished()}
 					<div class="list-group-item date-published">
-						<strong>{translate key="submissions.published"}</strong>
+						<strong>{translate key="submissions.published"}:</strong>
 						{$article->getDatePublished()|date_format}
 					</div>
 				{/if}
@@ -86,7 +86,7 @@
 					{if $pubId}
 						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
 						<div class="list-group-item doi">
-							<strong>{translate key="plugins.pubIds.doi.readerDisplayName"}</strong>
+							<strong>{translate key="plugins.pubIds.doi.readerDisplayName"}:</strong>
 							<a href="{$doiUrl}">
 								{$doiUrl}
 							</a>
