@@ -68,7 +68,8 @@
 				{* Published date *}
 				{if $article->getDatePublished()}
 					<div class="list-group-item date-published">
-						<strong>{translate key="submissions.published"}{translate key="semicolon" label=$translatedKeywords}</strong>
+						{capture assign=translatedDatePublished}{translate key="submissions.published"}{/capture}
+						<strong>{translate key="semicolon" label=$translatedDatePublished}</strong>
 						{$article->getDatePublished()|date_format}
 					</div>
 				{/if}
@@ -86,7 +87,8 @@
 					{if $pubId}
 						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
 						<div class="list-group-item doi">
-							<strong>{translate key="plugins.pubIds.doi.readerDisplayName"}{translate key="semicolon" label=$translatedKeywords}</strong>
+							{capture assign=translatedDoi}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
+							<strong>{translate key="semicolon" label=$translatedDoi}</strong>
 							<a href="{$doiUrl}">
 								{$doiUrl}
 							</a>
