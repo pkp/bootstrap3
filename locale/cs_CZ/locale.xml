@@ -12,8 +12,8 @@
   -->
 
 <locale name="cs_CZ" full_name="Čeština">
-	<message key="plugins.themes.bootstrap3.name">Téma Bootstrap 3 Base</message>
-	<message key="plugins.themes.bootstrap3.description">Východzí téma Bootstrap 3 pro čtenářské rozhranní (frontend)</message>
+        <message key="plugins.themes.bootstrap3.name">Bootstrap 3 Base Theme</message>
+	<message key="plugins.themes.bootstrap3.description">Východzí téma Bootstrap 3 Base Theme pro čtenářské rozhranní (frontend)</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.label">Rychlý skok na obsah stránky</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.main_navigation">Hlavní navigace</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.main_content">Hlavní obsah</message>
