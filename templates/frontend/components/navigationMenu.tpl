@@ -17,7 +17,7 @@
 	<ul id="{$id|escape}" class="{$ulClass|escape}">
 		{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
 			{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-				{php}continue;{/php}
+				{continue}
 			{/if}
 			{assign var="hasChildren" value=false}
 			{if !empty($navigationMenuItemAssignment->children)}
