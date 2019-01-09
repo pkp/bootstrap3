@@ -9,7 +9,7 @@
  *
  * @uses $searchQuery string Previously input search query
  *}
-{if !$currentJournal || $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
+{if !$currentJournal || $currentJournal->getData('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
 <form class="navbar-form navbar-left" role="search" method="post" action="{url page="search" op="search"}">
   <div class="form-group">
     <input class="form-control" name="query" value="{$searchQuery|escape}" type="text" aria-label="{translate|escape key="common.searchQuery"}" placeholder="">
