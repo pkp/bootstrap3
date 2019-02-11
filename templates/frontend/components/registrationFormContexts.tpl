@@ -31,6 +31,7 @@
 				<ul class="list-group contexts">
 					{foreach from=$contexts item=context}
 						{assign var=contextId value=$context->getId()}
+						{assign var=isSelected value=false}
 						<li class="list-group-item context">
 							<h4 class="list-group-item-heading">
 								{$context->getLocalizedName()}
@@ -49,8 +50,12 @@
 												</span>
 												<span class="form-control">
 													{$userGroup->getLocalizedName()|escape}
+													{$userGroup->getLocalizedName()}
 												</span>
 											</label>
+											{if in_array($userGroupId, $userGroupIds)}
+												{assign var=isSelected value=true}
+											{/if}
 										{/if}
 									{/foreach}
 									{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
@@ -64,6 +69,9 @@
 													{$userGroup->getLocalizedName()|escape}
 												</span>
 											</label>
+											{if in_array($userGroupId, $userGroupIds)}
+												{assign var=isSelected value=true}
+											{/if}
 										{/if}
 									{/foreach}
 								</div>
@@ -74,4 +82,14 @@
 			</div>
 		</div>
 	</fieldset>
+	{* Require the user to agree to the terms of the context's privacy policy *}
+	{if !$enableSiteWidePrivacyStatement && $context->getSetting('privacyStatement')}
+		<div class="context_privacy {if $isSelected}context_privacy_visible{/if}">
+			<label>
+				<input type="checkbox" name="privacyConsent[{$contextId}]" id="privacyConsent[{$contextId}]" value="1"{if $privacyConsent[$contextId]} checked="checked"{/if}>
+				{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
+				{translate key="user.register.form.privacyConsentThisContext" privacyUrl=$privacyUrl}
+			</label>
+		</div>
+	{/if}
 {/if}
