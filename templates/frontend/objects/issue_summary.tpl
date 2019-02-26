@@ -18,8 +18,8 @@
 	{* Show cover image and use cover description *}
 	{if $issue->getLocalizedCoverImage()}
 		<div class="media-left">
-			<a class="cover" href="{url op="view" path=$issue->getBestIssueId($currentJournal)}">
-				<img class="media-object" src="{$issue->getLocalizedCoverImageUrl()}">
+			<a class="cover" href="{url|escape op="view" path=$issue->getBestIssueId($currentJournal)}">
+				<img class="media-object" src="{$issue->getLocalizedCoverImageUrl()|escape}">
 			</a>
 		</div>
 	{/if}
@@ -27,7 +27,7 @@
 
 	<div class="media-body">
 		<h2 class="media-heading">
-			<a class="title" href="{url op="view" path=$issue->getBestIssueId($currentJournal)}">
+			<a class="title" href="{url|escape op="view" path=$issue->getBestIssueId($currentJournal)}">
 				{if $issueTitle}
 					{$issueTitle|escape}
 				{else}

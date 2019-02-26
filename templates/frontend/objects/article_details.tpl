@@ -95,13 +95,13 @@
 						</div>
 					{/if}
 				{/foreach}
-				
+
 				{* Keywords *}
 				{if !empty($keywords[$currentLocale])}
 					<div class="list-group-item keywords">
 						<strong>{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
 							{translate key="semicolon" label=$translatedKeywords}</strong>
-						<div class="">	
+						<div class="">
 								<span class="value">
 									{foreach from=$keywords item=keyword}
 										{foreach name=keywords from=$keyword item=keywordItem}
@@ -244,8 +244,8 @@
 						{translate key="issue.issue"}
 					</div>
 					<div class="panel-body">
-						<a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-							{$issue->getIssueIdentification()}
+						<a class="title" href="{url|escape page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
+							{$issue->getIssueIdentification()|escape}
 						</a>
 
 					</div>

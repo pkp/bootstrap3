@@ -29,7 +29,7 @@
 		</li>
 		<li>
 			<a href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-				{$issue->getIssueIdentification()}
+				{$issue->getIssueIdentification()|escape}
 			</a>
 		</li>
 		<li class="active">

@@ -14,11 +14,11 @@
 <article class="announcement-full">
 	<header class="page-header">
 		<h1>
-			{$announcement->getLocalizedTitle()}
+			{$announcement->getLocalizedTitle()|escape}
 		</h1>
 		<small class="date">
 			<span class="glyphicon glyphicon-calendar"></span>
-			{translate key="announcement.postedOn" postDate=$announcement->getDatePosted()}
+			{translate key="announcement.postedOn" postDate=$announcement->getDatePosted()|escape}
 		</small>
 	</header>
 	<div class="description">

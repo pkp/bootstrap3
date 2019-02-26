@@ -30,7 +30,7 @@
 		{if $issueCover}
 			{assign var="issueDetailsCol" value="8"}
 			<div class="thumbnail col-md-4">
-				<a class="cover" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
+				<a class="cover" href="{url|escape op="view" page="issue" path=$issue->getBestIssueId()}">
 					<img class="img-responsive" src="{$issueCover|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
 				</a>
 			</div>
@@ -74,7 +74,7 @@
 					<strong>
 						{translate key="submissions.published"}:
 					</strong>
-					{$issue->getDatePublished()|date_format:$dateFormatShort}
+					{$issue->getDatePublished()|escape|date_format:$dateFormatShort}
 				</p>
 			{/if}
 		</div>

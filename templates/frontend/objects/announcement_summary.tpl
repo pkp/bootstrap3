@@ -18,7 +18,7 @@
 		</h2>
 		<p class="date">
 			<span class="glyphicon glyphicon-calendar"></span>
-			{$announcement->getDatePosted()}
+			{$announcement->getDatePosted()|escape}
 		</p>
 		{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
 	</div>

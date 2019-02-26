@@ -48,7 +48,7 @@
 													<input type="checkbox" name="readerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 												</span>
 												<span class="form-control">
-													{$userGroup->getLocalizedName()}
+													{$userGroup->getLocalizedName()|escape}
 												</span>
 											</label>
 										{/if}
@@ -61,7 +61,7 @@
 													<input type="checkbox" name="authorGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 												</span>
 												<span class="form-control">
-													{$userGroup->getLocalizedName()}
+													{$userGroup->getLocalizedName()|escape}
 												</span>
 											</label>
 										{/if}
@@ -74,7 +74,7 @@
 													<input type="checkbox" name="reviewerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 												</span>
 												<span class="form-control">
-													{$userGroup->getLocalizedName()}
+													{$userGroup->getLocalizedName()|escape}
 												</span>
 											</label>
 										{/if}
