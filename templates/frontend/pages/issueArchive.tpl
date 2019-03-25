@@ -47,6 +47,8 @@
 			{elseif $prevPage === 1}
 				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}
 			{/if}
+		{/capture}
+		{capture assign="nextUrl"}
 			{if $nextPage}
 				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$nextPage}
 			{/if}
