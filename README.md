@@ -15,8 +15,8 @@ You can now see the Bootstrap 3 theme on your website. Go back to the `Settings`
 
 Some versions of the Bootstrap3 theme are only compatible with certain releases of OJS. This release list indicates which versions are compatible.
 
-* **Bootstrap3 v3.1.2** is comptable with OJS 3.1.2.
-* **Bootstrap3 v3.1.1** is comptable with OJS 3.1.1.-1 to 3.1.1-4.
+* **Bootstrap3 v3.1.2-x** is compatible with OJS 3.1.2.
+* **Bootstrap3 v3.1.1** is compatible with OJS 3.1.1.-1 to 3.1.1-4.
 * **Bootstrap3 v1.1.4** is compatible with OJS 3.1.1-1, 3.1.1-2.
 * **Bootstrap3 v1.1.3** is compatible with OJS 3.1.1-1.
 * **Bootstrap3 v1.1.2** is compatible with OJS 3.1.1.
