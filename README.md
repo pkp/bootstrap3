@@ -57,6 +57,12 @@ Thanks to everyone who has contributed to this theme:
 
 ## Changelog
 
+**3.1.2-3** (2019-04-02)
+* Fix: #114 Resolve version conflict with Bootstrap and jQuery
+
+**3.1.2-2** (2019-03-25)
+* Fix: #115 Fatal error in issue pagination
+
 **3.1.2** (2019-03-04)
 * Update: Remove unused alt tag image
 * Update: Make compatible with Smarty v3
