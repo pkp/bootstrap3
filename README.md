@@ -57,6 +57,9 @@ Thanks to everyone who has contributed to this theme:
 
 ## Changelog
 
+**3.1.2-4** (2019-04-11)
+* Fix: #116 Update registration form to use givenName and familyName
+
 **3.1.2-3** (2019-04-02)
 * Fix: #114 Resolve version conflict with Bootstrap and jQuery
 
