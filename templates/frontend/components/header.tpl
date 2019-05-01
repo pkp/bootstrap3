@@ -102,13 +102,13 @@
 					{load_menu name="primary" id="main-navigation" ulClass="nav navbar-nav"}
 				{/capture}
 
-				{if !empty(trim($primaryMenu)) || !$noContextsConfigured}
+				{if !empty(trim($primaryMenu)) || $currentContext}
 					<nav id="nav-menu" class="navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
 						{* Primary navigation menu for current application *}
 						{$primaryMenu}
 
 						{* Search form *}
-						{if !$noContextsConfigured}
+						{if $currentContext}
 							<div class="pull-md-right">
 								{include file="frontend/components/searchForm_simple.tpl"}
 							</div>
