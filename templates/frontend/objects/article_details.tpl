@@ -77,7 +77,7 @@
 				{* DOI (requires plugin) *}
 				{foreach from=$pubIdPlugins item=pubIdPlugin}
 					{if $pubIdPlugin->getPubIdType() != 'doi'}
-						{php}continue;{/php}
+						{continue}
 					{/if}
 					{if $issue->getPublished()}
 						{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
@@ -201,7 +201,7 @@
 				{* PubIds (requires plugins) *}
 				{foreach from=$pubIdPlugins item=pubIdPlugin}
 					{if $pubIdPlugin->getPubIdType() == 'doi'}
-						{php}continue;{/php}
+						{continue}
 					{/if}
 					{if $issue->getPublished()}
 						{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
