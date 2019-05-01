@@ -53,19 +53,6 @@
 											</label>
 										{/if}
 									{/foreach}
-									{foreach from=$authorUserGroups[$contextId] item=userGroup}
-										{if $userGroup->getPermitSelfRegistration()}
-											{assign var="userGroupId" value=$userGroup->getId()}
-											<label class="input-group">
-												<span class="input-group-addon">
-													<input type="checkbox" name="authorGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
-												</span>
-												<span class="form-control">
-													{$userGroup->getLocalizedName()|escape}
-												</span>
-											</label>
-										{/if}
-									{/foreach}
 									{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
 										{if $userGroup->getPermitSelfRegistration()}
 											{assign var="userGroupId" value=$userGroup->getId()}
