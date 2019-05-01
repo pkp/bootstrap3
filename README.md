@@ -57,6 +57,12 @@ Thanks to everyone who has contributed to this theme:
 
 ## Changelog
 
+**3.1.2-5** (2019-05-01)
+* Fix: #118. Glyphicons URL incorrect
+* Fix: #86 Hide search field in site index
+* Add: #93 Add sitewide privacy consent
+* Update: #117 Remove author role selection during registration
+
 **3.1.2-4** (2019-04-11)
 * Fix: #116 Update registration form to use givenName and familyName
 
