@@ -48,11 +48,16 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 			)
 		));
 
+		// Determine the path to the glyphicons font in Bootstrap
+		$iconFontPath = Application::getRequest()->getBaseUrl() . '/' . $this->getPluginPath() . '/bootstrap/fonts/';
+
 		$bootstrapTheme = $this->getOption('bootstrapTheme');
 		if (empty($bootstrapTheme) || $bootstrapTheme === 'bootstrap3') {
 			$this->addStyle('bootstrap', 'styles/bootstrap.less');
+			$this->modifyStyle('bootstrap', ['addLessVariables' => '@icon-font-path:"' . $iconFontPath . '";']);
 		} else {
 			$this->addStyle('bootstrapTheme-' . $bootstrapTheme, 'styles/' . $bootstrapTheme . '.less');
+			$this->modifyStyle('bootstrapTheme-' . $bootstrapTheme, ['addLessVariables' => '@icon-font-path:"' . $iconFontPath . '";']);
 		}
 
 		$locale = AppLocale::getLocale();
