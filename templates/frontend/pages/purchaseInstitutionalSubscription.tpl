@@ -20,7 +20,7 @@
 
 	{assign var="formPath" value="institutional"}
 	{if $subscriptionId}
-		{assign var="formPath" value={"institutional":to_array:$subscriptionId}
+		{assign var="formPath" value="institutional"|to_array:$subscriptionId}
 	{/if}
 	<form class="cmp_form purchase-subscription" method="post" id="subscriptionForm" action="{url op="payPurchaseSubscription" path=$formPath}">
 		{csrf}
