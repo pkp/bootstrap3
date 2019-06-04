@@ -52,8 +52,8 @@
 					{assign var="dayVar" value=$filterName|cat:"Day"}
 					{assign var="yearVar" value=$filterName|cat:"Year"}
 					{assign var="originalMonth" value=$monthVar}
-					{assign var="originalDay" value=$monthVar}
-					{assign var="originalYear" value=$monthVar}
+					{assign var="originalDay" value=$dayVar}
+					{assign var="originalYear" value=$yearVar}
 					{assign var=$monthVar value=""}
 					{assign var=$dayVar value=""}
 					{assign var=$yearVar value=""}
