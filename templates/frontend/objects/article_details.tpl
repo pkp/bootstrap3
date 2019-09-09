@@ -195,13 +195,17 @@
 				{/foreach}
 
 				{* Article Subject *}
-				{if $article->getLocalizedSubject()}
+				{if !empty($keywords[$currentLocale])}
 					<div class="panel panel-default subject">
 						<div class="panel-heading">
 							{translate key="article.subject"}
 						</div>
 						<div class="panel-body">
-							{$article->getLocalizedSubject()|escape}
+							{foreach from=$keywords item=keyword}
+                						{foreach name=keywords from=$keyword item=keywordItem}
+                  						{$keywordItem|escape}{if !$smarty.foreach.keywords.last}, {/if}
+                						{/foreach}
+              						{/foreach}
 						</div>
 					</div>
 				{/if}
