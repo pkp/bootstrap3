@@ -256,3 +256,11 @@ footer[role="contentinfo"] {
 .form-control-required {
   color: @brand-danger;
 }
+
+.references a {
+  // Avoid long links overflow
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+}
