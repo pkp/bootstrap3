@@ -226,18 +226,6 @@
 					{/if}
 				{/foreach}
 
-				{* Article Subject *}
-				{if $article->getLocalizedSubject()}
-					<div class="panel panel-default subject">
-						<div class="panel-heading">
-							{translate key="article.subject"}
-						</div>
-						<div class="panel-body">
-							{$article->getLocalizedSubject()|escape}
-						</div>
-					</div>
-				{/if}
-
 				{* Issue article appears in *}
 				<div class="panel panel-default issue">
 					<div class="panel-heading">
