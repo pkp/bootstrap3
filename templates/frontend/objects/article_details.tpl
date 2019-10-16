@@ -179,7 +179,8 @@
 							    {translate key="submission.howToCite.citationFormats"}
 									<span class="caret"></span>
 							  </button>
-							  <ul class="dropdown-menu" role="menu">
+							  <div class="dropdown-menu" role="menu">
+								<ul>
 									{foreach from=$citationStyles item="citationStyle"}
 										<li>
 											<a
@@ -192,7 +193,22 @@
 											</a>
 										</li>
 									{/foreach}
-							  </ul>
+								</ul>
+								{if count($citationDownloads)}
+									<div class="label">
+										{translate key="submission.howToCite.downloadCitation"}
+									</div>
+									<ul class="citation_formats_styles">
+										{foreach from=$citationDownloads item="citationDownload"}
+											<li>
+											<a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
+												{$citationDownload.title|escape}
+											</a>
+											</li>
+										{/foreach}
+									</ul>
+								{/if}
+							  </div>
 							</div>
 						</div>
 					</div>
