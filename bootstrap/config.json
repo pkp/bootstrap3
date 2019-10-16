@@ -251,7 +251,7 @@
     "@label-info-bg": "@brand-info",
     "@label-warning-bg": "@brand-warning",
     "@label-danger-bg": "@brand-danger",
-    "@label-color": "#fff",
+    "@label-color": "@text-color",
     "@label-link-hover-color": "#fff",
     "@modal-inner-padding": "15px",
     "@modal-title-padding": "15px",
