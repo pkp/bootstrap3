@@ -36,7 +36,7 @@
 	{assign var="parentId" value=$parent->getBestIssueId()|escape}
 {else}
 	{assign var="page" value="article"}
-	{assign var="parentId" value=$parent->getBestArticleId()|escape}
+	{assign var="parentId" value=$parent->getBestId()|escape}
 {/if}
 
 {* Get user access flag *}

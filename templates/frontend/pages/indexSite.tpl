@@ -21,7 +21,7 @@
 	<div class="journals">
 		<div class="page-header">
 			<h2>
-				{translate key="journal.journals"}
+				{translate key="context.contexts"}
 			</h2>
 		</div>
 
