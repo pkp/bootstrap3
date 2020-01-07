@@ -23,7 +23,7 @@
 	{if $article->getLocalizedCoverImage()}
 		<div class="cover media-left">
 			<a href="{url page="article" op="view" path=$articlePath}" class="file">
-				<img class="media-object" src="{$article->getLocalizedCoverImageUrl()|escape}">
+				<img class="media-object" src="{$article->getLocalizedCoverImageUrl()|escape}" alt="{$article->getLocalizedCoverImageAltText()|escape|default:''}">
 			</a>
 		</div>
 	{/if}
