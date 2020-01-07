@@ -38,10 +38,10 @@
 			{if $article->getLocalizedCoverImage() || $issue->getLocalizedCoverImage()}
 				<div class="cover-image">
 					{if $article->getLocalizedCoverImage()}
-						<img class="img-responsive" src="{$article->getLocalizedCoverImageUrl()|escape}"{if $article->getLocalizedCoverImageAltText()} alt="{$article->getLocalizedCoverImageAltText()|escape|default:''}"{/if}>
+						<img class="img-responsive" src="{$article->getLocalizedCoverImageUrl()|escape|default:''}">
 					{else}
 						<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-							<img class="img-responsive" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText()} alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}"{/if}>
+							<img class="img-responsive" src="{$issue->getLocalizedCoverImageUrl()|escape|default:''}">
 						</a>
 					{/if}
 				</div>
