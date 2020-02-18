@@ -23,30 +23,85 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	public function init() {
 
 		// Register option for bootstrap themes
-		$this->addOption('bootstrapTheme', 'radio', array(
-			'label' => 'plugins.themes.bootstrap3.options.bootstrapTheme.label',
-			'description' => 'plugins.themes.bootstrap3.options.bootstrapTheme.description',
-			'options' => array(
-				'bootstrap3' => 'plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3',
-				'cerulean'   => 'plugins.themes.bootstrap3.options.bootstrapTheme.cerulean',
-				'cleanblog'  => 'plugins.themes.bootstrap3.options.bootstrapTheme.cleanblog',
-				'cosmo'      => 'plugins.themes.bootstrap3.options.bootstrapTheme.cosmo',
-				'cyborg'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.cyborg',
-				'darkly'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.darkly',
-				'flatly'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.flatly',
-				'journal'    => 'plugins.themes.bootstrap3.options.bootstrapTheme.journal',
-				'lumen'      => 'plugins.themes.bootstrap3.options.bootstrapTheme.lumen',
-				'paper'      => 'plugins.themes.bootstrap3.options.bootstrapTheme.paper',
-				'readable'   => 'plugins.themes.bootstrap3.options.bootstrapTheme.readable',
-				'sandstone'  => 'plugins.themes.bootstrap3.options.bootstrapTheme.sandstone',
-				'simplex'    => 'plugins.themes.bootstrap3.options.bootstrapTheme.simplex',
-				'slate'      => 'plugins.themes.bootstrap3.options.bootstrapTheme.slate',
-				'spacelab'   => 'plugins.themes.bootstrap3.options.bootstrapTheme.spacelab',
-				'superhero'  => 'plugins.themes.bootstrap3.options.bootstrapTheme.superhero',
-				'united'     => 'plugins.themes.bootstrap3.options.bootstrapTheme.united',
-				'yeti'       => 'plugins.themes.bootstrap3.options.bootstrapTheme.yeti',
-			)
-		));
+		$this->addOption('bootstrapTheme', 'FieldOptions', [
+			'type' => 'radio',
+			'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.label'),
+			'description' => __('plugins.themes.bootstrap3.options.bootstrapTheme.description'),
+			'options' => [
+				[
+					'value' => 'bootstrap3',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3'),
+				],
+				[
+					'value' => 'cerulean',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.cerulean'),
+				],
+				[
+					'value' => 'cleanblog',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.cleanblog'),
+				],
+				[
+					'value' => 'cosmo',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.cosmo'),
+				],
+				[
+					'value' => 'cyborg',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.cyborg'),
+				],
+				[
+					'value' => 'darkly',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.darkly'),
+				],
+				[
+					'value' => 'flatly',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.flatly'),
+				],
+				[
+					'value' => 'journal',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.journal'),
+				],
+				[
+					'value' => 'lumen',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.lumen'),
+				],
+				[
+					'value' => 'paper',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.paper'),
+				],
+				[
+					'value' => 'readable',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.readable'),
+				],
+				[
+					'value' => 'sandstone',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.sandstone'),
+				],
+				[
+					'value' => 'simplex',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.simplex'),
+				],
+				[
+					'value' => 'slate',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.slate'),
+				],
+				[
+					'value' => 'spacelab',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.spacelab'),
+				],
+				[
+					'value' => 'superhero',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.superhero'),
+				],
+				[
+					'value' => 'united',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.united'),
+				],
+				[
+					'value' => 'yeti',
+					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.yeti'),
+				],
+			],
+		]);
 
 		// Determine the path to the glyphicons font in Bootstrap
 		$iconFontPath = Application::getRequest()->getBaseUrl() . '/' . $this->getPluginPath() . '/bootstrap/fonts/';

@@ -251,7 +251,7 @@
 				{/if}
 
 				{* Licensing info *}
-				{if $copyright || $licenseUrl}
+				{if $licenseTerms || $licenseUrl}
 					<div class="panel panel-default copyright">
 						<div class="panel-body">
 							{if $licenseUrl}
@@ -267,7 +267,7 @@
 									</a>
 								{/if}
 							{/if}
-							{$copyright}
+							{$licenseTerms}
 						</div>
 					</div>
 				{/if}

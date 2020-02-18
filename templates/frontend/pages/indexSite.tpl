@@ -34,7 +34,7 @@
 			<ul class="media-list">
 				{iterate from=journals item=journal}
 					{capture assign="url"}{url journal=$journal->getPath()}{/capture}
-					{assign var="thumb" value=$journal->getLocalizedSetting('journalThumbnail')}
+					{assign var="thumb" value=$journal->getLocalizedData('journalThumbnail')}
 					{assign var="description" value=$journal->getLocalizedDescription()}
 					<li class="media">
 						{if $thumb}

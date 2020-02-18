@@ -73,7 +73,7 @@
 						{/capture}
 						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
-								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}>
+								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if}>
 							</a>
 						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
 							<a href="{$homeUrl}" class="navbar-brand">{$displayPageHeaderTitle}</a>
