@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/themes/bootstrap3/locale/fr_FR/locale.xml
+  *
+  * Copyright (c) 2014-2019 Simon Fraser University Library
+  * Copyright (c) 2003-2019 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="fr_FR" full_name="Français (France)">
+	<message key="plugins.themes.bootstrap3.name">Bootstrap 3 Thème de base</message>
+	<message key="plugins.themes.bootstrap3.description">Un thème Bootstrap 3 de départ pour le front-end.</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.label">Aller rapidement au contenu de la page</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.main_navigation">Navigation principale</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.main_content">Contenu principal</message>
+	<message key="plugins.themes.bootstrap3.accessible_menu.sidebar">Barre latérale</message>
+	<message key="plugins.themes.bootstrap3.article.sidebar">Barre latérale de l'article</message>
+	<message key="plugins.themes.bootstrap3.article.main">Contenu principal de l'article</message>
+	<message key="plugins.themes.bootstrap3.article.details">Details de l'article</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.label">Thème Bootstrap</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.description">Veuillez choisir un de ces thèmes Bootstrap open-source qui changent les couleurs et la typographie de votre site web.</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3">Thème Bootstrap par défaut</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cerulean">Cerulean</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cleanblog">Clean Blog</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cosmo">Cosmo</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.cyborg">Cyborg</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.darkly">Darkly</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.flatly">Flatly</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.journal">Journal</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.lumen">Lumen</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.paper">Paper</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.readable">Readable</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.sandstone">Sandstone</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.simplex">Simplex</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.slate">Slate</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.spacelab">Spacelab</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.superhero">Superhero</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.united">United</message>
+	<message key="plugins.themes.bootstrap3.options.bootstrapTheme.yeti">Yeti</message>
+</locale>
