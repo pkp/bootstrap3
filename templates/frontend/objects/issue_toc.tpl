@@ -98,7 +98,7 @@
 
 	{* Articles *}
 	<div class="sections">
-		{foreach name=sections from=$publishedArticles item=section}
+		{foreach name=sections from=$publishedSubmissions item=section}
 			<section class="section">
 				{if $section.articles}
 					{if $section.title}
