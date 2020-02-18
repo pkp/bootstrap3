@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-02-18T19:18:25+00:00\n"
+"PO-Revision-Date: 2020-02-18T19:18:25+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.bootstrap3.name"
+msgstr "Бутстрап 3 основна тема"
+
+msgid "plugins.themes.bootstrap3.description"
+msgstr "Почетна Бутстрап тема за читаоце."
+
+msgid "plugins.themes.bootstrap3.accessible_menu.label"
+msgstr "Скочи на страну са садржајем"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.main_navigation"
+msgstr "Главна навигација"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.main_content"
+msgstr "Главни садржај"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.sidebar"
+msgstr "Бочна страна"
+
+msgid "plugins.themes.bootstrap3.article.sidebar"
+msgstr "Бочна страна чланка"
+
+msgid "plugins.themes.bootstrap3.article.main"
+msgstr "Главни садржај чланка"
+
+msgid "plugins.themes.bootstrap3.article.details"
+msgstr "Детаљи чланка"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.label"
+msgstr "Бутстрап тема"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.description"
+msgstr "Одаберите једну од ових Бутстрап тема отвореног кода које мењају боје и типографију вашег сајта."
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3"
+msgstr "Претпостављена Бутстрап тема"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.cerulean"
+msgstr "Cerulean"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.cleanblog"
+msgstr "Clean Blog"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.cosmo"
+msgstr "Cosmo"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.cyborg"
+msgstr "Cyborg"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.darkly"
+msgstr "Darkly"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.flatly"
+msgstr "Flatly"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.journal"
+msgstr "Journal"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.lumen"
+msgstr "Lumen"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.paper"
+msgstr "Paper"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.readable"
+msgstr "Readable"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.sandstone"
+msgstr "Sandstone"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.simplex"
+msgstr "Simplex"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.slate"
+msgstr "Slate"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.spacelab"
+msgstr "Spacelab"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.superhero"
+msgstr "Superhero"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.united"
+msgstr "United"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.yeti"
+msgstr "Yeti"

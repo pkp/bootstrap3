@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-02-18T19:18:25+00:00\n"
+"PO-Revision-Date: 2020-02-18T19:18:25+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.bootstrap3.name"
+msgstr "Bootstrap 3 Base Theme"
+
+msgid "plugins.themes.bootstrap3.description"
+msgstr "Východzí téma Bootstrap 3 Base Theme pro čtenářské rozhranní (frontend)"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.label"
+msgstr "Rychlý skok na obsah stránky"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.main_navigation"
+msgstr "Hlavní navigace"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.main_content"
+msgstr "Hlavní obsah"
+
+msgid "plugins.themes.bootstrap3.accessible_menu.sidebar"
+msgstr "Postranní sloupec"
+
+msgid "plugins.themes.bootstrap3.article.sidebar"
+msgstr "Postranní sloupec článku"
+
+msgid "plugins.themes.bootstrap3.article.main"
+msgstr "Obsah hlavního článku"
+
+msgid "plugins.themes.bootstrap3.article.details"
+msgstr "Podrobnosti článku"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.label"
+msgstr "Téma Bootstrap"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.description"
+msgstr "Zvolte jedno s těchto Bootstrap otevřených témat tak, čímž změníte typografii i barvy vašich stránek."
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3"
+msgstr "Základní téma bootstrab"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.cerulean"
+msgstr "Cerulean"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.cleanblog"
+msgstr "Čistý blog"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.cosmo"
+msgstr "Cosmo"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.cyborg"
+msgstr "Cyborg"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.darkly"
+msgstr "Temné"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.flatly"
+msgstr "Rozhodné"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.journal"
+msgstr "Časopis"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.lumen"
+msgstr "Lumen"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.paper"
+msgstr "Článek"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.readable"
+msgstr "Čitelné"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.sandstone"
+msgstr "Pískovec"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.simplex"
+msgstr "Simplex"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.slate"
+msgstr "Břidlice"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.spacelab"
+msgstr "Vesmírná laboratoř"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.superhero"
+msgstr "Superhrdina"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.united"
+msgstr "United"
+
+msgid "plugins.themes.bootstrap3.options.bootstrapTheme.yeti"
+msgstr "Yeti"
