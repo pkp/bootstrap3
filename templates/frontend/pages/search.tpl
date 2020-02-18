@@ -87,7 +87,7 @@
 				{translate key="search.searchResults"}
 			</h2>
 			{iterate from=results item=result}
-				{include file="frontend/objects/article_summary.tpl" article=$result.publishedArticle showDatePublished=true hideGalleys=true}
+				{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission showDatePublished=true hideGalleys=true}
 			{/iterate}
 		</div>
 
