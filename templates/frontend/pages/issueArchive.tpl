@@ -41,18 +41,14 @@
 		</div>
 
 		{* Pagination *}
-		{capture assign="prevUrl"}
-			{if $prevPage > 1}
-				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$prevPage}
-			{elseif $prevPage === 1}
-				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}
-			{/if}
-		{/capture}
-		{capture assign="nextUrl"}
-			{if $nextPage}
-				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$nextPage}
-			{/if}
-		{/capture}
+		{if $prevPage > 1}
+			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$prevPage}{/capture}
+		{elseif $prevPage === 1}
+			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}{/capture}
+		{/if}
+		{if $nextPage}
+			{capture assign=nextUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$nextPage}{/capture}
+		{/if}
 		{include
 			file="frontend/components/pagination.tpl"
 			prevUrl=$prevUrl
