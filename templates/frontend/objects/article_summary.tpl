@@ -70,6 +70,7 @@
 							{continue}
 						{/if}
 					{/if}
+					{assign var=publication value=$article->getCurrentPublication()}
 					{assign var="hasArticleAccess" value=$hasAccess}
 					{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
 						{assign var="hasArticleAccess" value=1}
