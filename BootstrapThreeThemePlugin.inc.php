@@ -104,7 +104,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 		]);
 
 		// Determine the path to the glyphicons font in Bootstrap
-		$iconFontPath = Application::getRequest()->getBaseUrl() . '/' . $this->getPluginPath() . '/bootstrap/fonts/';
+		$iconFontPath = Application::get()->getRequest()->getBaseUrl() . '/' . $this->getPluginPath() . '/bootstrap/fonts/';
 
 		$bootstrapTheme = $this->getOption('bootstrapTheme');
 		if (empty($bootstrapTheme) || $bootstrapTheme === 'bootstrap3') {
@@ -126,7 +126,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 
 		// Load jQuery from a CDN or, if CDNs are disabled, from a local copy.
 		$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		if (Config::getVar('general', 'enable_cdn')) {
 			$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
 			$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
