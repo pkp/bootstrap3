@@ -67,7 +67,7 @@
 		<div class="author_guidelines">
 			<h2 class="page-header">
 				{translate key="about.authorGuidelines"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.authorGuidelines"}
 			</h2>
 			{$currentJournal->getLocalizedSetting('authorGuidelines')}
 		</div>
@@ -79,7 +79,7 @@
 		<div class="copyright-notice">
 			<h2 class="page-header">
 				{translate key="about.copyrightNotice"}
-				</span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.copyrightNotice"}
+				</span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="permissions" sectionTitleKey="about.copyrightNotice"}
 			</h2>
 			{$currentJournal->getLocalizedSetting('copyrightNotice')}
 		</div>
