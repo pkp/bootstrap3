@@ -30,18 +30,31 @@
 		<div class="container">
 
 			<div class="row">
-				{if $pageFooter}
-				<div class="col-md-10">
-					{$pageFooter}
-				</div>
-				{/if}
 
-				<div class="col-md-2" role="complementary">
-					<a href="{url page="about" op="aboutThisPublishingSystem"}">
-                                                <img class="img-responsive" alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
-                                        </a>
+				<div class="col-sm-4" style="margin-left: -08px;">
+					<h5>Enlaces</h5>
+					<a href="https://uasd.edu.do//" target="blank"> Portal de Portales</a><br>			
+          <a href="https://www.uasd.edu.do/index.php/informacion-general" target="blank">Lista de Índices </a><br>
+          <a href="https://www.uasd.edu.do/index.php/ciencias" target="blank">Facultad de Ciencias </a><br>
+          <a href="https://uasd.edu.do/index.php/escuelas3/informatica1/sobre-la-escuela" target="blank">Escuela de Informática</a><br>
+        </div>
+        
+				<div class="col-sm-4" style="margin-left: -08px;">
+          <h5>Biblioteca</h5>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">Catálogo en Línea</a><br>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">Repositorio Institucional</a><br>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">Mi Biblioteca</a><br>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">Libros Electrónicos</a><br>
 				</div>
 
+				<div class="col-sm-4" style="margin-left: -08px;">
+          <h5>Interes</h5>
+          <a href="https://pkp.sfu.ca/ojs/" target="blank">Información OJS</a><br>
+          <a href="https://pkp.sfu.ca/scholarly-inquiry/" target="blank">Consultas OJS</a><br>
+          <a href="http://eprints.rclis.org/25517/1/RevInfo_v1n1_art05.pdf" target="blank">Uso OJS Nivel Nacional</a><br>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">Libros Electrónicos</a><br>
+        </div>
+				
 			</div> <!-- .row -->
 		</div><!-- .container -->
 	</footer>
