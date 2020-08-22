@@ -7,7 +7,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="{$baseUrl}/plugins/themes/uasd/templates/images/latindex.jpg" alt="First slide">
+          <img class="first-slide" src="{$baseUrl}/plugins/themes/bootstrap3/templates/images/latindex.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="{$baseUrl}/plugins/themes/uasd/templates/images/revistas_caribe.jpg" alt="Second slide">
+          <img class="second-slide" src="{$baseUrl}/plugins/themes/bootstrap3/templates/images/revistas_caribe.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
