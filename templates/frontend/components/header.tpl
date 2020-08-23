@@ -81,10 +81,6 @@
 							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
 								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}">
 							</a>
-						{else}
-							<a href="{$homeUrl}" class="navbar-brand">
-								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" />
-							</a>
 						{/if}
 					{if $requestedOp == 'index'}
 						</h1>
