@@ -98,6 +98,13 @@ msgstr "United"
 msgid "plugins.themes.bootstrap3.options.bootstrapTheme.yeti"
 msgstr "Yeti"
 
+# Header
+msgid "uasd.header-search.label"
+msgstr "Escriba los términos que desea buscar en nuestras revistas"
+
+msgid "uasd.header-search.placeholder"
+msgstr "Añadir un criterio de búsqueda"
+
 # Carousel
 msgid "uasd.carousel.sign-up"
 msgstr "Registrate ahora"

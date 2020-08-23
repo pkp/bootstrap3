@@ -10,6 +10,7 @@
  * @uses $isFullWidth bool Should this page be displayed without sidebars? This
  *       represents a page-level override, and doesn't indicate whether or not
  *       sidebars have been configured for thesite.
+ * @uses $baseUrl
  *}
 
 {* Determine whether a logo or title string is being displayed *}
@@ -23,27 +24,38 @@
 {if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}">
-	<div class="pkp_structure_page">
+  <div class="pkp_structure_page">
 
-		<nav id="accessibility-nav" class="sr-only" role="navigation" aria-label="{translate|escape key="plugins.themes.bootstrap3.accessible_menu.label"}">
+    <nav id="accessibility-nav" class="sr-only" role="navigation" aria-label="{translate|escape key="plugins.themes.bootstrap3.accessible_menu.label"}">
 			<ul>
-			  <li><a href="#main-navigation">{translate|escape key="plugins.themes.bootstrap3.accessible_menu.main_navigation"}</a></li>
-			  <li><a href="#main-content">{translate|escape key="plugins.themes.bootstrap3.accessible_menu.main_content"}</a></li>
+				<li><a href="#main-navigation">{translate|escape key="plugins.themes.bootstrap3.accessible_menu.main_navigation"}</a></li>
+				<li><a href="#main-content">{translate|escape key="plugins.themes.bootstrap3.accessible_menu.main_content"}</a></li>
 			  <li><a href="#sidebar">{translate|escape key="plugins.themes.bootstrap3.accessible_menu.sidebar"}</a></li>
 			</ul>
 		</nav>
 
+    <div class="header-search"> 
+      <div class="container">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-6 offset-md-3 col-12 ">
+              <h3>{translate|escape key="uasd.header-search.label"}</h3>
+							{include file="frontend/components/searchForm.tpl"}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uasd-logo">
+        <a href="https://uasd.edu.do/" class="is_img journal-name navbar-brand" target="_blank">
+          <img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" alt="common.openJournalSystems" width="200">
+        </a>
+      </div>
+
+    </div>			
+
 		{* Header *}
 		<header class="navbar navbar-default" id="headerNavigationContainer" role="banner">
-
-			{* User profile, login, etc, navigation menu*}
-			<div class="container-fluid">
-				<div class="row">
-					<nav aria-label="{translate|escape key="common.navigation.user"}">
-						{load_menu name="user" id="navigationUser" ulClass="nav nav-pills tab-list pull-right"}
-					</nav>
-				</div><!-- .row -->
-			</div><!-- .container-fluid -->
 
 			<div class="container-fluid">
 
@@ -51,7 +63,7 @@
 
 					{* Mobile hamburger menu *}
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false" aria-controls="nav-menu">
-						<span class="sr-only">Toggle navigation</span>
+					  <span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -89,7 +101,7 @@
 					{/if}
 
 				</div>
-
+				
 				{* Primary site navigation *}
 				{capture assign="primaryMenu"}
 					{load_menu name="primary" id="main-navigation" ulClass="nav navbar-nav"}
@@ -99,19 +111,17 @@
 					<nav id="nav-menu" class="navbar-collapse collapse" aria-label="{translate|escape key="common.navigation.site"}">
 						{* Primary navigation menu for current application *}
 						{$primaryMenu}
-
-						{* Search form *}
-						{if $currentContext}
-							<div class="pull-md-right">
-								{include file="frontend/components/searchForm_simple.tpl"}
-							</div>
-						{/if}
 					</nav>
 				{/if}
+				
+				{* User profile, login, etc, navigation menu*}
+				<nav aria-label="{translate|escape key="common.navigation.user"}">
+					{load_menu name="user" id="navigationUser" ulClass="nav nav-pills tab-list pull-right"}
+				</nav>
 
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
-
+  
 		{* Wrapper for page content and sidebars *}
 		<div class="pkp_structure_content container">
 			<main class="pkp_structure_main col-xs-12 col-sm-10 col-md-8" role="main">
