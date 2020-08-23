@@ -32,27 +32,27 @@
 			<div class="row">
 
 				<div class="col-sm-4" style="margin-left: -08px;">
-					<h5>Enlaces</h5>
-					<a href="https://uasd.edu.do//" target="blank"> Portal de Portales</a><br>			
-          <a href="https://www.uasd.edu.do/index.php/informacion-general" target="blank">Lista de Índices </a><br>
-          <a href="https://www.uasd.edu.do/index.php/ciencias" target="blank">Facultad de Ciencias </a><br>
-          <a href="https://uasd.edu.do/index.php/escuelas3/informatica1/sobre-la-escuela" target="blank">Escuela de Informática</a><br>
+					<h5>{translate|escape key="uasd.footer.links"}</h5>
+					<a href="https://uasd.edu.do/" target="blank">{translate|escape key="uasd.footer.main-portal"}</a><br>			
+          <a href="https://uasd.edu.do/index.php/informacion-general" target="blank">{translate|escape key="uasd.footer.indices"}</a><br>
+					<a href="https://uasd.edu.do/index.php/informacion-general" target="blank">{translate|escape key="uasd.footer.general-info"}</a><br>
+          <a href="https://uasd.edu.do/index.php/contactanos" target="blank">{translate|escape key="uasd.footer.contact"}</a><br>
         </div>
         
 				<div class="col-sm-4" style="margin-left: -08px;">
-          <h5>Biblioteca</h5>
-          <a href="https://catalogo.uasd.edu.do/" target="blank">Catálogo en Línea</a><br>
-          <a href="https://catalogo.uasd.edu.do/" target="blank">Repositorio Institucional</a><br>
-          <a href="https://catalogo.uasd.edu.do/" target="blank">Mi Biblioteca</a><br>
-          <a href="https://catalogo.uasd.edu.do/" target="blank">Libros Electrónicos</a><br>
+          <h5>{translate|escape key="uasd.footer.library"}</h5>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">{translate|escape key="uasd.footer.online-catalog"}</a><br>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">{translate|escape key="uasd.footer.institutional-repository"}</a><br>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">{translate|escape key="uasd.footer.my-library"}</a><br>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">{translate|escape key="uasd.footer.ebooks"}</a><br>
 				</div>
 
 				<div class="col-sm-4" style="margin-left: -08px;">
-          <h5>Interes</h5>
-          <a href="https://pkp.sfu.ca/ojs/" target="blank">Información OJS</a><br>
-          <a href="https://pkp.sfu.ca/scholarly-inquiry/" target="blank">Consultas OJS</a><br>
-          <a href="http://eprints.rclis.org/25517/1/RevInfo_v1n1_art05.pdf" target="blank">Uso OJS Nivel Nacional</a><br>
-          <a href="https://catalogo.uasd.edu.do/" target="blank">Libros Electrónicos</a><br>
+          <h5>{translate|escape key="uasd.footer.interest"}</h5>
+          <a href="https://pkp.sfu.ca/ojs/" target="blank">{translate|escape key="uasd.footer.ojs-info"}</a><br>
+          <a href="https://pkp.sfu.ca/scholarly-inquiry/" target="blank">{translate|escape key="uasd.footer.ojs-scholarly-inquiry"}</a><br>
+          <a href="http://eprints.rclis.org/25517/1/RevInfo_v1n1_art05.pdf" target="blank">{translate|escape key="uasd.footer.ojs-nationwide-use"}</a><br>
+          <a href="https://catalogo.uasd.edu.do/" target="blank">{translate|escape key="uasd.footer.ebooks"}</a><br>
         </div>
 				
 			</div> <!-- .row -->
