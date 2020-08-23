@@ -34,25 +34,8 @@
 			</ul>
 		</nav>
 
-    <div class="header-search"> 
-      <div class="container">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-6 offset-md-3 col-12 ">
-              <h3>{translate|escape key="uasd.header-search.label"}</h3>
-							{include file="frontend/components/searchForm.tpl"}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="uasd-logo">
-        <a href="https://uasd.edu.do/" class="is_img journal-name navbar-brand" target="_blank">
-          <img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" alt="common.openJournalSystems" width="200">
-        </a>
-      </div>
-
-    </div>			
+    
+		{include file="frontend/components/headerSearch.tpl"}
 
 		{* Header *}
 		<header class="navbar navbar-default" id="headerNavigationContainer" role="banner">
