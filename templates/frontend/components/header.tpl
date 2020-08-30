@@ -34,7 +34,7 @@
 			</ul>
 		</nav>
 
-    
+
 		{include file="frontend/components/headerSearch.tpl"}
 
 		{* Header *}
@@ -66,6 +66,8 @@
 								{url context="index" router=$smarty.const.ROUTE_PAGE}
 							{/if}
 						{/capture}
+						<!--If current context -->
+					{if $currentContext}
 						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
 								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if}>
@@ -77,6 +79,7 @@
 								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}">
 							</a>
 						{/if}
+					{/if}
 					{if $requestedOp == 'index'}
 						</h1>
 					{else}

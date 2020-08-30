@@ -105,6 +105,16 @@ msgstr "Escriba los términos que desea buscar en nuestras revistas"
 msgid "uasd.header-search.placeholder"
 msgstr "Añadir un criterio de búsqueda"
 
+# Menú principal
+msgid "uasd.nav.item.homepage"
+msgstr "Sitio principal"
+
+msgid "uasd.nav.item.index"
+msgstr "Inicio"
+
+msgid "uasd.nav.item.info"
+msgstr "Información General"
+
 # Carousel
 msgid "uasd.carousel.sign-up"
 msgstr "Registrate ahora"
