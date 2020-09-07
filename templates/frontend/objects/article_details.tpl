@@ -151,7 +151,7 @@
 							{translate key="semicolon" label=$translatedKeywords}</strong>
 						<div class="">
 								<span class="value">
-									{foreach from=$keywords item=keyword}
+									{foreach from=$keywords[$currentLocale] item=keyword}
 										{foreach name=keywords from=$keyword item=keywordItem}
 											{$keywordItem|escape}{if !$smarty.foreach.keywords.last}, {/if}
 										{/foreach}
