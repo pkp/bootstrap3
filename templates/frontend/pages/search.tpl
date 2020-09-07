@@ -36,7 +36,7 @@
 			</label>
 
 			<div class="input-group">
-				<input type="text" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate key="common.search"}">
+				<input type="search" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate key="common.search"}">
 				<span class="input-group-btn">
 					<input type="submit" value="{translate key="common.search"}" class="btn btn-default">
 				</span>
