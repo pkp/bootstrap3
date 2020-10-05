@@ -240,7 +240,20 @@
 											</a>
 										</li>
 									{/foreach}
-							  </ul>
+									 {* Download citation formats *}
+									{if count($citationDownloads)}
+										<div class="panel-heading">{translate key="submission.howToCite.downloadCitation"}</div>
+										
+											{foreach from=$citationDownloads item="citationDownload"}
+												<li>
+													<a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
+														<span class="fa fa-download"></span>
+														{$citationDownload.title|escape}
+													</a>
+												</li>
+											{/foreach}
+									{/if}	
+							  </ul>		
 							</div>
 						</div>
 					</div>
