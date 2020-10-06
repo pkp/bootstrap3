@@ -240,21 +240,26 @@
 											</a>
 										</li>
 									{/foreach}
-									 {* Download citation formats *}
-									{if count($citationDownloads)}
-										<div class="panel-heading">{translate key="submission.howToCite.downloadCitation"}</div>
-										
-											{foreach from=$citationDownloads item="citationDownload"}
-												<li>
-													<a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
-														<span class="fa fa-download"></span>
-														{$citationDownload.title|escape}
-													</a>
-												</li>
-											{/foreach}
-									{/if}	
 							  </ul>		
 							</div>
+							{if count($citationDownloads)}
+							<div class="btn-group">
+							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
+							    {translate key="submission.howToCite.downloadCitation"}
+									<span class="caret"></span>
+							  </button>
+							  {* Download citation formats *}
+							  <ul class="dropdown-menu" role="menu">
+									{foreach from=$citationDownloads item="citationDownload"}
+										<li>
+											<a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
+												<span class="fa fa-download"></span>
+												{$citationDownload.title|escape}
+											</a>
+									{/foreach}
+							  </ul>		
+							</div>
+							{/if}
 						</div>
 					</div>
 				{/if}
