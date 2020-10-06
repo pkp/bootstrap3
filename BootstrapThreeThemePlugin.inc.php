@@ -135,6 +135,19 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 			$jquery = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
 			$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
 		}
+		
+		// Load icon font FontAwesome - http://fontawesome.io/
+		if (Config::getVar('general', 'enable_cdn')) {
+			$url = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css';
+		} else {
+			$url = $request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css';
+		}
+		$this->addStyle(
+			'fontAwesome',
+			$url,
+			array('baseUrl' => '')
+		);
+		
 		// Use an empty `baseUrl` argument to prevent the theme from looking for
 		// the files within the theme directory
 		$this->addScript('jQuery', $jquery, array('baseUrl' => ''));
