@@ -224,7 +224,7 @@
 							</div>
 							<div class="btn-group">
 							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
-							    {translate key="submission.howToCite.citationFormats"}
+								{translate key="submission.howToCite.citationFormats"}
 									<span class="caret"></span>
 							  </button>
 							  <ul class="dropdown-menu" role="menu">
@@ -240,8 +240,26 @@
 											</a>
 										</li>
 									{/foreach}
-							  </ul>
+							  </ul>		
 							</div>
+							{if !empty($citationDownloads)}
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
+									{translate key="submission.howToCite.downloadCitation"}
+										<span class="caret"></span>
+								</button>
+							{* Download citation formats *}
+							<ul class="dropdown-menu" role="menu">
+								{foreach from=$citationDownloads item="citationDownload"}
+									<li>
+										<a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
+											<span class="fa fa-download"></span>
+											{$citationDownload.title|escape}
+										</a>
+								{/foreach}
+							</ul>		
+							</div>
+							{/if}
 						</div>
 					</div>
 				{/if}
