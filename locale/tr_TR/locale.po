@@ -42,7 +42,7 @@ msgid "plugins.themes.bootstrap3.options.bootstrapTheme.label"
 msgstr "Bootstrap Theme"
 
 msgid "plugins.themes.bootstrap3.options.bootstrapTheme.description"
-msgstr "Select one of these open-source Bootstrap themes which change the colors and typography of your website."
+msgstr "Web sitenizin renklerini ve tipografisini değiştiren bu açık kaynaklı Bootstrap temalarından birini seçin."
 
 msgid "plugins.themes.bootstrap3.options.bootstrapTheme.bootstrap3"
 msgstr "Bootstrap Teması"
