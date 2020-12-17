@@ -326,11 +326,17 @@
 				{call_hook name="Templates::Article::Details"}
 
 				{* References *}
-				{if $article->getCitations()}
+				{if $parsedCitations->getCount() || $article->getCitations()}
 					<div class="article-references">
 						<h2>{translate key="submission.citations"}</h2>
-						<div class="article-references-content">
-							{$article->getCitations()|nl2br}
+							<div class="article-references-content">
+							{if $parsedCitations->getCount()}
+								{iterate from=parsedCitations item=parsedCitation}
+									<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
+								{/iterate}
+							{elseif $article->getCitations()}
+								{$article->getCitations()|escape|nl2br}
+							{/if}
 						</div>
 					</div>
 				{/if}
