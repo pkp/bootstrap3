@@ -117,26 +117,16 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 
 		$locale = AppLocale::getLocale();
 		if (AppLocale::getLocaleDirection($locale) === 'rtl') {
-			if (Config::getVar('general', 'enable_cdn')) {
-				$this->addStyle('bootstrap-rtl', '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css', array('baseUrl' => ''));
-			} else {
-				$this->addStyle('bootstrap-rtl', 'styles/bootstrap-rtl.min.css');
-			}
+			$this->addStyle('bootstrap-rtl', 'styles/bootstrap-rtl.min.css');
 		}
 
 		// Load jQuery from a CDN or, if CDNs are disabled, from a local copy.
 		$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
 		$request = Application::get()->getRequest();
-		if (Config::getVar('general', 'enable_cdn')) {
-			$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
-			$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
-		} else {
-			// Use OJS's built-in jQuery files
-			$jquery = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
-			$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
-		}
 		// Use an empty `baseUrl` argument to prevent the theme from looking for
 		// the files within the theme directory
+		$jquery = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
+		$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
 		$this->addScript('jQuery', $jquery, array('baseUrl' => ''));
 		$this->addScript('jQueryUI', $jqueryUI, array('baseUrl' => ''));
 		$this->addScript('jQueryTagIt', $request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/jquery.tag-it.js', array('baseUrl' => ''));
