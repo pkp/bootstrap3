@@ -65,22 +65,14 @@
 						<div class="site-name">
 					{/if}
 						{capture assign="homeUrl"}
-							{if $currentJournal && $multipleContexts}
-								{url page="index" router=$smarty.const.ROUTE_PAGE}
-							{else}
-								{url context="index" router=$smarty.const.ROUTE_PAGE}
-							{/if}
+							{url page="index" router=$smarty.const.ROUTE_PAGE}
 						{/capture}
-						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+						{if $displayPageHeaderLogo}
 							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
 								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if}>
 							</a>
-						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
+						{elseif $displayPageHeaderTitle}
 							<a href="{$homeUrl}" class="navbar-brand">{$displayPageHeaderTitle}</a>
-						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
-							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
-								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}">
-							</a>
 						{else}
 							<a href="{$homeUrl}" class="navbar-brand">
 								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" />
