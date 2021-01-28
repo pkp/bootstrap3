@@ -12,6 +12,11 @@
 
 @import "../bootstrap/less/bootstrap.less";
 
+// Support screen-reader only class from core OJS
+.pkp_screen_reader {
+    .sr-only;
+}
+
 // Collapse margins on the site name in the header
 .navbar-header .site-name {
     margin: 0;
@@ -156,6 +161,7 @@ h6.media-heading {
         &:extend(.panel-heading);
         &:extend(.panel-default > .panel-heading);
         display: block;
+        margin-top: 0;
     }
 
     ul {
