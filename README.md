@@ -34,6 +34,23 @@ Thanks to everyone who has contributed to this theme:
 - Dennis Müller, @dennmuel ([UB Mannheim](https://www.bib.uni-mannheim.de/))
 - Clinton Graham, @ctgraham (University of Pittsburgh)
 
+## License
+This theme is released under the GPL license.
+
+The following fonts are distributed under the terms of the [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL):
+
+- Lato
+- News Cycle
+- Raleway
+- Source Sans Pro
+
+The following fonts are distributed under the terms of the [Apache License, 2.0](http://www.apache.org/licenses/LICENSE-2.0):
+
+- Open Sans
+- Roboto
+
+The Ubuntu font is distributed under the terms of the [Ubuntu Font License](http://font.ubuntu.com/ufl/).
+
 ## Changelog
 
 Changes are tracked in the [releases notes](https://github.com/NateWr/bootstrap3/releases).
