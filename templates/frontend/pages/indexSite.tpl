@@ -72,13 +72,6 @@
 					</li>
 				{/foreach}
 			</ul>
-
-			{if $journals->getPageCount() > 0}
-				<div class="cmp_pagination">
-					{page_info iterator=$journals}
-					{page_links anchor="journals" name="journals" iterator=$journals}
-				</div>
-			{/if}
 		{/if}
 	</div>
 
