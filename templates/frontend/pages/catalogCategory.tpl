@@ -43,7 +43,7 @@
 		{/if}
 	</div>
 
-	{if !$subcategories->wasEmpty()}
+	{if $subcategories|@count}
 	<nav class="subcategories" role="navigation">
 		<h2>
 			{translate key="catalog.category.subcategories"}
@@ -60,10 +60,10 @@
 	</nav>
 	{/if}
 
-    {* Count of articles in this category *}
-    <div class="article_count">
-        {translate key="catalog.browseTitles" numTitles=$total}
-    </div>
+	{* Count of articles in this category *}
+	<div class="article_count">
+		{translate key="catalog.browseTitles" numTitles=$total}
+	</div>
 
 	{* No published titles in this category *}
 	{if empty($publishedSubmissions)}
@@ -72,7 +72,7 @@
 		<ul class="media-list">
 			{foreach from=$publishedSubmissions item=article}
 				<li>
-					{include file="frontend/objects/article_summary.tpl" article=$article hideGalleys=true}
+					{include file="frontend/objects/article_summary.tpl" article=$article hideGalleys=true heading="h3"}
 				</li>
 			{/foreach}
 		</ul>
