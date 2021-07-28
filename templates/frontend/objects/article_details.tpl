@@ -145,18 +145,16 @@
 				{/foreach}
 
 				{* Keywords *}
-				{if !empty($keywords[$currentLocale])}
+				{if !empty($publication->getLocalizedData('keywords'))}
 					<div class="list-group-item keywords">
 						<strong>{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
-							{translate key="semicolon" label=$translatedKeywords}</strong>
+						{translate key="semicolon" label=$translatedKeywords}</strong>
 						<div class="">
-								<span class="value">
-									{foreach from=$keywords[$currentLocale] item=keyword}
-										{foreach name=keywords from=$keyword item=keywordItem}
-											{$keywordItem|escape}{if !$smarty.foreach.keywords.last}, {/if}
-										{/foreach}
-									{/foreach}
-								</span>
+							<span class="value">
+								{foreach name="keywords" from=$publication->getLocalizedData('keywords') item="keyword"}
+									{$keyword|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}
+								{/foreach}
+							</span>
 						</div>
 					</div>
 				{/if}
@@ -240,7 +238,7 @@
 											</a>
 										</li>
 									{/foreach}
-							  </ul>		
+							  </ul>
 							</div>
 							{if !empty($citationDownloads)}
 							<div class="btn-group">
@@ -257,7 +255,7 @@
 											{$citationDownload.title|escape}
 										</a>
 								{/foreach}
-							</ul>		
+							</ul>
 							</div>
 							{/if}
 						</div>
