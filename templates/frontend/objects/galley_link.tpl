@@ -33,10 +33,17 @@
 {* Get page and parentId for URL *}
 {if $parent instanceOf Issue}
 	{assign var="page" value="issue"}
-	{assign var="parentId" value=$parent->getBestIssueId()|escape}
+	{assign var="parentId" value=$parent->getBestIssueId()}
+	{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId()}
 {else}
 	{assign var="page" value="article"}
-	{assign var="parentId" value=$parent->getBestId()|escape}
+	{assign var="parentId" value=$parent->getBestId()}
+	{* Get a versioned link if we have an older publication *}
+	{if $publication && $publication->getId() !== $parent->getCurrentPublication()->getId()}
+		{assign var="path" value=$parentId|to_array:"version":$publication->getId():$galley->getBestGalleyId()}
+	{else}
+		{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId()}
+	{/if}
 {/if}
 
 {* Get user access flag *}
@@ -49,7 +56,7 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="galley-link btn {if $isSupplementary}btn-default{else}btn-primary{/if} {$type}" role="button" href="{url|escape page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}">
+<a class="galley-link btn {if $isSupplementary}btn-default{else}btn-primary{/if} {$type}" role="button" href="{url page=$page op="view" path=$path}">
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
