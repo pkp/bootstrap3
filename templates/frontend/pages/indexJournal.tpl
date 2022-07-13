@@ -68,7 +68,7 @@
 				{$issue->getIssueIdentification()|strip_unsafe_html}
 			</p>
 			{include file="frontend/objects/issue_toc.tpl"}
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
+			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
 				{translate key="journal.viewAllIssues"}
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
