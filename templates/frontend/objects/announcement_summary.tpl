@@ -12,7 +12,7 @@
 <article class="announcement-summary media">
 	<div class="media-body">
 		<h2 class="media-heading">
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
 				{$announcement->getLocalizedTitle()|escape}
 			</a>
 		</h2>

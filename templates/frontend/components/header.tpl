@@ -65,7 +65,7 @@
 						<div class="site-name">
 					{/if}
 						{capture assign="homeUrl"}
-							{url page="index" router=$smarty.const.ROUTE_PAGE}
+							{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}
 						{/capture}
 						{if $displayPageHeaderLogo}
 							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">

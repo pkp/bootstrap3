@@ -15,7 +15,7 @@
  * @uses $primaryGenreIds array List of file genre ids for primary file types
  *}
 {assign var=articlePath value=$article->getBestId($currentJournal)}
-{if (!$section.hideAuthor && $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
+{if (!$section.hideAuthor && $article->getHideAuthor() == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == \APP\submission\Submission::AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
@@ -46,7 +46,7 @@
 				<div class="meta">
 					{if $showAuthor}
 						<div class="authors">
-							{$article->getAuthorString()|escape}
+							{$article->getCurrentPublication()->getAuthorString()|escape}
 						</div>
 					{/if}
 				</div>
@@ -72,7 +72,7 @@
 					{/if}
 					{assign var=publication value=$article->getCurrentPublication()}
 					{assign var="hasArticleAccess" value=$hasAccess}
-					{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
+					{if $currentContext->getSetting('publishingMode') == \APP\journal\Journal::PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN}
 						{assign var="hasArticleAccess" value=1}
 					{/if}
 					{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
