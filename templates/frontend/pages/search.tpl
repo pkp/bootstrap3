@@ -86,9 +86,9 @@
 			<h2>
 				{translate key="search.searchResults"}
 			</h2>
-			{foreach from=$results item=result}
+			{iterate from=results item=result}
 				{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
-			{/foreach}
+			{/iterate}
 		</div>
 
 		{* No results found *}
