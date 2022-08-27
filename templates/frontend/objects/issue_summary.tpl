@@ -14,6 +14,7 @@
 	{* Retrieve separate entries for $issueTitle and $issueSeries *}
 	{assign var=issueTitle value=$issue->getLocalizedTitle()}
 	{assign var=issueSeries value=$issue->getIssueSeries()}
+	{assign var=issueDescription value=$issue->getLocalizedDescription()}
 
 	{* Show cover image and use cover description *}
 	{if $issue->getLocalizedCoverImage()}
