@@ -33,7 +33,7 @@
 			</label>
 			<select name="typeId" id="typeId" class="form-control" required>
 				{foreach name=types from=$subscriptionTypes item=subscriptionType}
-					<option value="{$subscriptionType->getId()}"{if $typeId == $subscriptionType->getId()} selected{/if}>{$subscriptionType->getLocalizedName()|escape}</option>
+					<option value="{$subscriptionType->getId()}"{if $typeId == $subscriptionType->getId()} selected{/if}>{$subscriptionType->getSummaryString()|escape}</option>
 				{/foreach}
 			</select>
 		</div>
