@@ -42,7 +42,7 @@
 		<div class="author_guidelines">
 			<h2 class="page-header">
 				{translate key="about.authorGuidelines"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission" sectionTitleKey="about.authorGuidelines"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.authorGuidelines"}
 			</h2>
 			{$currentJournal->getLocalizedData('authorGuidelines')}
 		</div>
@@ -54,7 +54,7 @@
 		<div class="submission_checklist">
 			<h2 class="page-header">
 				{translate key="about.submissionPreparationChecklist"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission" sectionTitleKey="about.submissionPreparationChecklist"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.submissionPreparationChecklist"}
 			</h2>
 			{$submissionChecklist}
 		</div>
