@@ -37,42 +37,29 @@
 		</div>
 	{/if}
 
-	{* Submission Checklist *}
-	{if $submissionChecklist}
-		<div class="submission_checklist">
-			<div class="page-header">
-				<h2>
-					{translate key="about.submissionPreparationChecklist"}
-					{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission" sectionTitleKey="about.submissionPreparationChecklist"}
-				</h2>
-			</div>
-			<p class="lead description">
-				{translate key="about.submissionPreparationChecklist.description"}
-			</p>
-			<ul class="list-group">
-				{foreach from=$submissionChecklist item=checklistItem}
-					<li class="list-group-item">
-						<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-						<span class="item-content">{$checklistItem.content|nl2br}</span>
-					</li>
-				{/foreach}
-			</ul>
-
-		</div>
-	{/if}
-	{* /Submission Checklist *}
-
 	{* Author Guidelines *}
 	{if $currentJournal->getLocalizedData('authorGuidelines')}
 		<div class="author_guidelines">
 			<h2 class="page-header">
 				{translate key="about.authorGuidelines"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission" sectionTitleKey="about.authorGuidelines"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.authorGuidelines"}
 			</h2>
 			{$currentJournal->getLocalizedData('authorGuidelines')}
 		</div>
 	{/if}
 	{* /Author Guidelines *}
+
+	{* Submission Checklist *}
+	{if $submissionChecklist}
+		<div class="submission_checklist">
+			<h2 class="page-header">
+				{translate key="about.submissionPreparationChecklist"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.submissionPreparationChecklist"}
+			</h2>
+			{$submissionChecklist}
+		</div>
+	{/if}
+	{* /Submission Checklist *}
 
 	{* Copyright Notice *}
 	{if $currentJournal->getLocalizedData('copyrightNotice')}
