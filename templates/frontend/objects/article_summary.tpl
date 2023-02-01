@@ -8,6 +8,7 @@
  * @brief View of an Article summary which is shown within a list of articles.
  *
  * @uses $article Article The article
+ * @uses $authorUserGroups Traversible The set of author user groups
  * @uses $hasAccess bool Can this user access galleys for this context? The
  *       context may be an issue or an article
  * @uses $showGalleyLinks bool Show galley links to users without access?
@@ -46,7 +47,7 @@
 				<div class="meta">
 					{if $showAuthor}
 						<div class="authors">
-							{$article->getCurrentPublication()->getAuthorString()|escape}
+							{$article->getCurrentPublication()->getAuthorString($authorUserGroups)|escape}
 						</div>
 					{/if}
 				</div>
