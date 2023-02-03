@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2014-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display a breadcrumb nav item showing the location in the catalog.
  *  This only supports one-level of nesting, as does the category hierarchy data.
