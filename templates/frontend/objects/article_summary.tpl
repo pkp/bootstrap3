@@ -15,16 +15,18 @@
  * @uses $hideGalleys bool Hide the article galleys for this article?
  * @uses $primaryGenreIds array List of file genre ids for primary file types
  *}
+{assign var=publication value=$article->getCurrentPublication()}
 {assign var=articlePath value=$article->getBestId($currentJournal)}
 {if (!$section.hideAuthor && $article->getHideAuthor() == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == \APP\submission\Submission::AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
 <div class="article-summary media">
-	{if $article->getLocalizedCoverImage()}
+	{if $publication->getLocalizedData('coverImage')}
+		{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
 		<div class="cover media-left">
 			<a href="{if $journal}{url journal=$journal->getPath() page="article" op="view" path=$articlePath}{else}{url page="article" op="view" path=$articlePath}{/if}" class="file">
-				<img class="media-object" src="{$article->getLocalizedCoverImageUrl()|escape}" alt="{$article->getLocalizedCoverImageAltText()|escape|default:''}">
+				<img class="media-object" src="{$publication->getLocalizedCoverImageUrl($currentContext->getId())|escape}" alt="{$coverImage.altText|escape|default:''}">
 			</a>
 		</div>
 	{/if}

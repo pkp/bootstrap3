@@ -97,3 +97,24 @@ msgstr "United"
 
 msgid "plugins.themes.bootstrap3.options.bootstrapTheme.yeti"
 msgstr "Yeti"
+
+msgid "plugins.themes.bootstrap3.option.displayStats.label"
+msgstr "Usage statistics display options"
+
+msgid "plugins.themes.bootstrap3.option.displayStats.none"
+msgstr "Do not display submission usage statistics chart for reader."
+
+msgid "plugins.themes.bootstrap3.option.displayStats.bar"
+msgstr "Use bar type of the chart for usage statistics display."
+
+msgid "plugins.themes.bootstrap3.option.displayStats.line"
+msgstr "Use line type of the chart for usage statistics display."
+
+msgid "plugins.themes.bootstrap3.displayStats.monthInitials"
+msgstr "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
+
+msgid "plugins.themes.bootstrap3.displayStats.downloads"
+msgstr "Downloads"
+
+msgid "plugins.themes.bootstrap3.displayStats.noStats"
+msgstr "Download data is not yet available."

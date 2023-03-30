@@ -13,7 +13,12 @@
  * @brief Default theme
  */
 
-import('lib.pkp.classes.plugins.ThemePlugin');
+use APP\core\Application;
+use APP\i18n\AppLocale;
+use PKP\config\Config;
+use PKP\facades\Locale;
+use PKP\plugins\ThemePlugin;
+
 class BootstrapThreeThemePlugin extends ThemePlugin {
 	/**
 	 * Initialize the theme
@@ -103,6 +108,27 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 			],
 		]);
 
+		// Add usage stats display options
+		$this->addOption('displayStats', 'FieldOptions', [
+			'type' => 'radio',
+			'label' => __('plugins.themes.bootstrap3.option.displayStats.label'),
+			'options' => [
+				[
+					'value' => 'none',
+					'label' => __('plugins.themes.bootstrap3.option.displayStats.none'),
+				],
+				[
+					'value' => 'bar',
+					'label' => __('plugins.themes.bootstrap3.option.displayStats.bar'),
+				],
+				[
+					'value' => 'line',
+					'label' => __('plugins.themes.bootstrap3.option.displayStats.line'),
+				],
+			],
+			'default' => 'none',
+		]);
+
 		// Determine the path to the glyphicons font in Bootstrap
 		$iconFontPath = Application::get()->getRequest()->getBaseUrl() . '/' . $this->getPluginPath() . '/bootstrap/fonts/';
 
@@ -115,8 +141,9 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 			$this->modifyStyle('bootstrapTheme-' . $bootstrapTheme, ['addLessVariables' => '@icon-font-path:"' . $iconFontPath . '";']);
 		}
 
-		$locale = AppLocale::getLocale();
-		if (AppLocale::getLocaleDirection($locale) === 'rtl') {
+		$locale = Locale::getLocale();
+		$localeMetadata = Locale::getMetadata($locale);
+		if ($localeMetadata->isRightToLeft() === 'rtl') {
 			$this->addStyle('bootstrap-rtl', 'styles/bootstrap-rtl.min.css');
 		}
 
