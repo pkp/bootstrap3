@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file plugins/themes/default/BootstrapThreeThemePlugin.inc.php
+ * @file plugins/themes/bootstrap3/BootstrapThreeThemePlugin.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BootstrapThreeThemePlugin
- * @ingroup plugins_themes_bootstrap3
- *
  * @brief Default theme
  */
+
+namespace APP\plugins\themes\bootstrap3;
 
 use APP\core\Application;
 use APP\i18n\AppLocale;
@@ -180,4 +180,8 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 	function getDescription() {
 		return __('plugins.themes.bootstrap3.description');
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\themes\bootstrap3\BootstrapThreeThemePlugin', '\BootstrapThreeThemePlugin');
 }

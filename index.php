@@ -1,23 +1,17 @@
 <?php
 
 /**
- * @defgroup plugins_themes_bootstrap3 Theme plugin for base Bootstrap 3 theme
- */
-
-/**
- * @file plugins/themes/default/index.php
+ * @file plugins/themes/bootstrap3/index.php
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @ingroup plugins_themes_default
  * @brief Wrapper for default theme plugin.
  *
  */
 
-require_once('BootstrapThreeThemePlugin.inc.php');
+namespace APP\plugins\themes\bootstrap3;
 
 return new BootstrapThreeThemePlugin();
-
-?>
