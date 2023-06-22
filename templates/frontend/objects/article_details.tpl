@@ -122,27 +122,18 @@
 					{/if}
 				{/if}
 
-				{* DOI (requires plugin) *}
-				{foreach from=$pubIdPlugins item=pubIdPlugin}
-					{if $pubIdPlugin->getPubIdType() != 'doi'}
-						{continue}
-					{/if}
-					{if $issue->getPublished()}
-						{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-					{else}
-						{assign var=pubId value=$pubIdPlugin->getPubId($article)}{* Preview pubId *}
-					{/if}
-					{if $pubId}
-						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-						<div class="list-group-item doi">
-							{capture assign=translatedDoi}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
-							<strong>{translate key="semicolon" label=$translatedDoi}</strong>
-							<a href="{$doiUrl}">
-								{$doiUrl}
-							</a>
-						</div>
-					{/if}
-				{/foreach}
+				{* DOI *}
+				{assign var=doiObject value=$article->getCurrentPublication()->getData('doiObject')}
+				{if $doiObject}
+					{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
+					<div class="list-group-item doi">
+						{capture assign=translatedDoi}{translate key="doi.readerDisplayName"}{/capture}
+						<strong>{translate key="semicolon" label=$translatedDoi}</strong>
+						<a href="{$doiUrl}">
+							{$doiUrl}
+						</a>
+					</div>
+				{/if}
 
 				{* Keywords *}
 				{if !empty($publication->getLocalizedData('keywords'))}
