@@ -1,9 +1,9 @@
 {**
  * templates/frontend/objects/galley_link.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of a galley object as a link to view or download the galley, to be used
  *  in a list of galleys.
