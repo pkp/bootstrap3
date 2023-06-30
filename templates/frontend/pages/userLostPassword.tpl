@@ -31,7 +31,7 @@
 			<label for="login-email">
 				{translate key="user.login.registeredEmail"}
 			</label>
-			<input type="email" name="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlenght="32" required>
+			<input type="email" name="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlength="32" required>
 		</div>
 
 		<div class="buttons">
