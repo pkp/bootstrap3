@@ -83,7 +83,10 @@
 					</div>
 				</div>
 			</div>
+			{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
 		</fieldset>
+
+		{call_hook name="Templates::Search::SearchResults::PreResults"}
 
 		{* Search results *}
 		<div class="search-results">
