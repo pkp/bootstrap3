@@ -165,7 +165,7 @@
 							<div class="author">
 								<strong>{$author->getFullName()|escape}</strong>
 								{if $author->getLocalizedAffiliation()}
-									<div class="article-author-affilitation">
+									<div class="article-author-affiliation">
 										{$author->getLocalizedAffiliation()|escape}
 									</div>
 								{/if}
