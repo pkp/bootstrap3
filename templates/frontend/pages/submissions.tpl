@@ -79,7 +79,7 @@
 		<div class="copyright-notice">
 			<h2 class="page-header">
 				{translate key="about.copyrightNotice"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="license" sectionTitleKey="about.copyrightNotice"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission" sectionTitleKey="about.copyrightNotice"}
 			</h2>
 			{$currentJournal->getLocalizedData('copyrightNotice')}
 		</div>
