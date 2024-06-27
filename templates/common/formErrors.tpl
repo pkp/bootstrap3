@@ -18,7 +18,7 @@
 		<ul class="pkp_form_error_list">
 			{foreach key=field item=message from=$errors}
 				<li>
-					<a href="#{$field|escape}">{$message}</a>
+					<a class="alert-link" href="#{$field|escape}">{$message}</a>
 				</li>
 			{/foreach}
 		</ul>
