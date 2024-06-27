@@ -53,4 +53,4 @@ The Ubuntu font is distributed under the terms of the [Ubuntu Font License](http
 
 ## Changelog
 
-Changes are tracked in the [releases notes](https://github.com/NateWr/bootstrap3/releases).
+Changes are tracked in the [releases notes](https://github.com/pkp/bootstrap3/releases).
