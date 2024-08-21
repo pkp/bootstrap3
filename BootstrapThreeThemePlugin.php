@@ -152,8 +152,8 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 		$request = Application::get()->getRequest();
 		// Use an empty `baseUrl` argument to prevent the theme from looking for
 		// the files within the theme directory
-		$jquery = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
-		$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
+		$jquery = $request->getBaseUrl() . '/js/build/jquery/jquery' . $min . '.js';
+		$jqueryUI = $request->getBaseUrl() . '/js/build/jquery-ui/jquery-ui' . $min . '.js';
 		$this->addScript('jQuery', $jquery, array('baseUrl' => ''));
 		$this->addScript('jQueryUI', $jqueryUI, array('baseUrl' => ''));
 		$this->addScript('jQueryTagIt', $request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/jquery.tag-it.js', array('baseUrl' => ''));
