@@ -1,8 +1,8 @@
 {**
  * templates/frontend/components/breadcrumbs_article.tpl
  *
- * Copyright (c) 2014-2023 Simon Fraser University Library
- * Copyright (c) 2003-2023 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University Library
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display a breadcrumb nav item showing the current page. This basic
@@ -27,11 +27,13 @@
 				{translate key="navigation.archives"}
 			</a>
 		</li>
-		<li>
-			<a href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-				{$issue->getIssueIdentification()|escape}
-			</a>
-		</li>
+		{if $issue}
+			<li>
+				<a href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
+					{$issue->getIssueIdentification()|escape}
+				</a>
+			</li>
+		{/if}
 		<li class="active">
 			{if $currentTitleKey}
 				{translate key=$currentTitleKey}

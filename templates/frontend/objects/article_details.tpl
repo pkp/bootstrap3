@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/article_details.tpl
  *
- * Copyright (c) 2014-2023 Simon Fraser University Library
- * Copyright (c) 2003-2023 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University Library
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of an Article which displays all details about the article.
@@ -127,16 +127,12 @@
 					{if $pubIdPlugin->getPubIdType() != 'doi'}
 						{continue}
 					{/if}
-					{if $issue->getPublished()}
-						{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-					{else}
-						{assign var=pubId value=$pubIdPlugin->getPubId($article)}{* Preview pubId *}
-					{/if}
+					{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 					{if $pubId}
 						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
 						<div class="list-group-item doi">
-							{capture assign=translatedDoi}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
-							<strong>{translate key="semicolon" label=$translatedDoi}</strong>
+							{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
+							<strong>{translate key="semicolon" label=$translatedDOI}</strong>
 							<a href="{$doiUrl}">
 								{$doiUrl}
 							</a>
@@ -293,17 +289,18 @@
 				{/foreach}
 
 				{* Issue article appears in *}
-				<div class="panel panel-default issue">
-					<div class="panel-heading">
-						{translate key="issue.issue"}
+				{if $issue}
+					<div class="panel panel-default issue">
+						<div class="panel-heading">
+							{translate key="issue.issue"}
+						</div>
+						<div class="panel-body">
+							<a class="title" href="{url|escape page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
+								{$issue->getIssueIdentification()|escape}
+							</a>
+						</div>
 					</div>
-					<div class="panel-body">
-						<a class="title" href="{url|escape page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-							{$issue->getIssueIdentification()|escape}
-						</a>
-
-					</div>
-				</div>
+				{/if}
 
 				{if $section}
 					<div class="panel panel-default section">
