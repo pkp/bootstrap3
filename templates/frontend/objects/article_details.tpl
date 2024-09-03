@@ -300,17 +300,18 @@
 				{/foreach}
 
 				{* Issue article appears in *}
-				<div class="panel panel-default issue">
-					<div class="panel-heading">
-						{translate key="issue.issue"}
+				{if $issue}
+					<div class="panel panel-default issue">
+						<div class="panel-heading">
+							{translate key="issue.issue"}
+						</div>
+						<div class="panel-body">
+							<a class="title" href="{url|escape page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
+								{$issue->getIssueIdentification()|escape}
+							</a>
+						</div>
 					</div>
-					<div class="panel-body">
-						<a class="title" href="{url|escape page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-							{$issue->getIssueIdentification()|escape}
-						</a>
-
-					</div>
-				</div>
+				{/if}
 
 				{if $section}
 					<div class="panel panel-default section">
