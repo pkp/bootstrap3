@@ -27,11 +27,13 @@
 				{translate key="navigation.archives"}
 			</a>
 		</li>
-		<li>
-			<a href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
-				{$issue->getIssueIdentification()|escape}
-			</a>
-		</li>
+		{if $issue}
+			<li>
+				<a href="{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
+					{$issue->getIssueIdentification()|escape}
+				</a>
+			</li>
+		{/if}
 		<li class="active">
 			{if $currentTitleKey}
 				{translate key=$currentTitleKey}
