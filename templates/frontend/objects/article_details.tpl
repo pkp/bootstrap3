@@ -12,7 +12,6 @@
  * @uses $issue Issue The issue this article is assigned to
  * @uses $section Section The journal section this article is assigned to
  * @uses $keywords array List of keywords assigned to this article
- * @uses $citationFactory @todo
  * @uses $pubIdPlugins @todo
  *}
 <article class="article-details">
@@ -91,7 +90,7 @@
 					<div class="list-group-item date-published">
 						{capture assign=translatedDatePublished}{translate key="submissions.published"}{/capture}
 						<strong>{translate key="semicolon" label=$translatedDatePublished}</strong>
-						{$publication->getData('datePublished')|date_format}
+						{$publication->getData('datePublished')|date_format:$dateFormatShort}
 					</div>
 					{* If this is an updated version *}
 					{if $firstPublication->getID() !== $publication->getId()}
@@ -219,58 +218,6 @@
 				{* Screen-reader heading for easier navigation jumps *}
 				<h2 class="sr-only">{translate key="plugins.themes.bootstrap3.article.details"}</h2>
 
-				{* How to cite *}
-				{if $citation}
-					<div class="panel panel-default how-to-cite">
-						<div class="panel-heading">
-							{translate key="submission.howToCite"}
-						</div>
-						<div class="panel-body">
-							<div id="citationOutput" role="region" aria-live="polite">
-								{$citation}
-							</div>
-							<div class="btn-group">
-							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
-								{translate key="submission.howToCite.citationFormats"}
-									<span class="caret"></span>
-							  </button>
-							  <ul class="dropdown-menu" role="menu">
-									{foreach from=$citationStyles item="citationStyle"}
-										<li>
-											<a
-												aria-controls="citationOutput"
-												href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgs}"
-												data-load-citation
-												data-json-href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgsJson}"
-											>
-												{$citationStyle.title|escape}
-											</a>
-										</li>
-									{/foreach}
-							  </ul>
-							</div>
-							{if !empty($citationDownloads)}
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
-									{translate key="submission.howToCite.downloadCitation"}
-										<span class="caret"></span>
-								</button>
-							{* Download citation formats *}
-							<ul class="dropdown-menu" role="menu">
-								{foreach from=$citationDownloads item="citationDownload"}
-									<li>
-										<a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
-											<span class="fa fa-download"></span>
-											{$citationDownload.title|escape}
-										</a>
-								{/foreach}
-							</ul>
-							</div>
-							{/if}
-						</div>
-					</div>
-				{/if}
-
 				{* PubIds (requires plugins) *}
 				{foreach from=$pubIdPlugins item=pubIdPlugin}
 					{if $pubIdPlugin->getPubIdType() == 'doi'}
@@ -284,7 +231,9 @@
 					{if $pubId}
 						<div class="panel panel-default pub_ids">
 							<div class="panel-heading">
-								{$pubIdPlugin->getPubIdDisplayType()|escape}
+								<h2 class="panel-title">
+									{$pubIdPlugin->getPubIdDisplayType()|escape}
+								</h2>
 							</div>
 							<div class="panel-body">
 								{if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
@@ -303,7 +252,9 @@
 				{if $issue}
 					<div class="panel panel-default issue">
 						<div class="panel-heading">
-							{translate key="issue.issue"}
+							<h2 class="panel-title">
+								{translate key="issue.issue"}
+							</h2>
 						</div>
 						<div class="panel-body">
 							<a class="title" href="{url|escape page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}">
@@ -316,7 +267,9 @@
 				{if $section}
 					<div class="panel panel-default section">
 						<div class="panel-heading">
-							{translate key="section.section"}
+							<h2 class="panel-title">
+								{translate key="section.section"}
+							</h2>
 						</div>
 						<div class="panel-body">
 							{$section->getLocalizedTitle()|escape}
@@ -356,11 +309,13 @@
 				{if $hasBiographies}
 					<div class="panel panel-default author-bios">
 						<div class="panel-heading">
-							{if $hasBiographies > 1}
-								{translate key="submission.authorBiographies"}
-							{else}
-								{translate key="submission.authorBiography"}
-							{/if}
+							<h2 class="panel-title">
+								{if $hasBiographies > 1}
+									{translate key="submission.authorBiographies"}
+								{else}
+									{translate key="submission.authorBiography"}
+								{/if}
+							</h2>
 						</div>
 						<div class="panel-body">
 							{foreach from=$publication->getData('authors') item=author}
