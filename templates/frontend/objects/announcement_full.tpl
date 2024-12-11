@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/announcement_full.tpl
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2003-2023 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the full view of an announcement, when the announcement is
@@ -14,18 +14,18 @@
 <article class="announcement-full">
 	<header class="page-header">
 		<h1>
-			{$announcement->getLocalizedTitle()|escape}
+			{$announcement->getLocalizedData('title')|escape}
 		</h1>
 		<small class="date">
 			<span class="glyphicon glyphicon-calendar"></span>
-			{translate key="announcement.postedOn" postDate=$announcement->getDatePosted()|escape}
+			{translate key="announcement.postedOn" postDate=$announcement->datePosted|escape}
 		</small>
 	</header>
 	<div class="description">
-		{if $announcement->getLocalizedDescription()}
-			{$announcement->getLocalizedDescription()|strip_unsafe_html}
+		{if $announcement->getLocalizedData('description')}
+			{$announcement->getLocalizedData('description')|strip_unsafe_html}
 		{else}
-			{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+			{$announcement->getLocalizedData('descriptionShort')|strip_unsafe_html}
 		{/if}
 	</div>
 </article><!-- .announcement-full" -->

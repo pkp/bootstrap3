@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/article_summary.tpl
  *
- * Copyright (c) 2014-2023 Simon Fraser University Library
- * Copyright (c) 2003-2023 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University Library
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of an Article summary which is shown within a list of articles.
@@ -17,7 +17,7 @@
  *}
 {assign var=publication value=$article->getCurrentPublication()}
 {assign var=articlePath value=$article->getBestId($currentJournal)}
-{if (!$section.hideAuthor && $article->getHideAuthor() == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == \APP\submission\Submission::AUTHOR_TOC_SHOW}
+{if (!$section.hideAuthor && $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
@@ -34,31 +34,31 @@
 	<div class="media-body">
 		<h3 class="media-heading">
             <a href="{if $journal}{url journal=$journal->getPath() page="article" op="view" path=$articlePath}{else}{url page="article" op="view" path=$articlePath}{/if}">
-				{$article->getLocalizedTitle()|strip_unsafe_html}
-				{if $article->getLocalizedSubtitle()}
+				{$publication->getLocalizedTitle()|strip_unsafe_html}
+				{if $publication->getLocalizedSubtitle()}
 					<p>
-						<small>{$article->getLocalizedSubtitle()|escape}</small>
+						<small>{$publication->getLocalizedSubtitle()|escape}</small>
 					</p>
 				{/if}
 			</a>
 		</h3>
 
-		{if $showAuthor || $article->getPages()}
+		{if $showAuthor || $publication->getData('pages')}
 
 			{if $showAuthor}
 				<div class="meta">
 					{if $showAuthor}
 						<div class="authors">
-							{$article->getCurrentPublication()->getAuthorString($authorUserGroups)|escape}
+							{$publication->getAuthorString($authorUserGroups)|escape}
 						</div>
 					{/if}
 				</div>
 			{/if}
 
 			{* Page numbers for this article *}
-			{if $article->getPages()}
+			{if $publication->getData('pages')}
 				<p class="pages">
-					{$article->getPages()|escape}
+					{$publication->getData('pages')|escape}
 				</p>
 			{/if}
 
@@ -69,7 +69,7 @@
 				{foreach from=$article->getGalleys() item=galley}
 					{if $primaryGenreIds}
 						{assign var="file" value=$galley->getFile()}
-						{if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
+						{if !$galley->getData('urlRemote') && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
 							{continue}
 						{/if}
 					{/if}

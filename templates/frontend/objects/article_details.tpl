@@ -16,6 +16,13 @@
  *}
 <article class="article-details">
 
+    {* Indicate if this is only a preview *}
+    {if $publication->getData('status') !== PKP\submission\PKPSubmission::STATUS_PUBLISHED}
+        <div class="alert alert-warning" role="alert">
+            {capture assign="submissionUrl"}{url page="workflow" op="access" path=$article->getId()}{/capture}
+            {translate key="submission.viewingPreview" url=$submissionUrl}
+        </div>
+    {/if}
 	{* Notification that this is an old version *}
 	{if $currentPublication->getId() !== $publication->getId()}
 		<div class="alert alert-warning" role="alert">
@@ -166,6 +173,9 @@
 								{if $author->getLocalizedAffiliation()}
 									<div class="article-author-affiliation">
 										{$author->getLocalizedAffiliation()|escape}
+                                        {if $author->getData('rorId')}
+                                            <a href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
+                                        {/if}
 									</div>
 								{/if}
 								{if $author->getOrcid()}
