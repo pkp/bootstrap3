@@ -314,3 +314,44 @@ footer[role="contentinfo"] {
   -ms-word-break: break-all;
   word-break: break-word;
 }
+
+// Editorial Masthead
+.page_masthead {
+	.user_listing {
+		margin-top: 1em;
+		list-style-type: none;
+		padding: 0;
+
+		li {
+			margin-bottom: 1.5em;
+		}
+
+		li > span {
+			display: block;
+		}
+
+		.name {
+			font-weight: bold;
+		}
+
+		.affiliation {
+			color: @text-muted;
+		}
+
+		.date_start {
+			color: @text-muted;
+		}
+
+		.orcid {
+			font-size: @font-size-small;
+			margin-left: 0.2rem;
+			margin-right: 0.2rem;
+		}
+
+		.orcid_icon {
+			width: 1.4rem;
+			height: 1.4rem;
+			margin: 0;
+		}
+	}
+}
