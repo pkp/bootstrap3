@@ -8,21 +8,21 @@
  * @brief View of an Article which displays all details about the article.
  *  Expected to be primary object on the page.
  *
- * @uses $article Article This article
+ * @uses $article Submission This article
  * @uses $issue Issue The issue this article is assigned to
  * @uses $section Section The journal section this article is assigned to
  * @uses $keywords array List of keywords assigned to this article
- * @uses $pubIdPlugins @todo
+ * @uses $pubIdPlugins Array of pubId plugins which this article may be assigned
  *}
 <article class="article-details">
 
-    {* Indicate if this is only a preview *}
-    {if $publication->getData('status') !== PKP\submission\PKPSubmission::STATUS_PUBLISHED}
-        <div class="alert alert-warning" role="alert">
-            {capture assign="submissionUrl"}{url page="workflow" op="access" path=$article->getId()}{/capture}
-            {translate key="submission.viewingPreview" url=$submissionUrl}
-        </div>
-    {/if}
+	{* Indicate if this is only a preview *}
+	{if $publication->getData('status') !== PKP\submission\PKPSubmission::STATUS_PUBLISHED}
+		<div class="alert alert-warning" role="alert">
+			{capture assign="submissionUrl"}{url page="workflow" op="access" path=$article->getId()}{/capture}
+			{translate key="submission.viewingPreview" url=$submissionUrl}
+		</div>
+	{/if}
 	{* Notification that this is an old version *}
 	{if $currentPublication->getId() !== $publication->getId()}
 		<div class="alert alert-warning" role="alert">
@@ -173,18 +173,18 @@
 								{if $author->getLocalizedAffiliation()}
 									<div class="article-author-affiliation">
 										{$author->getLocalizedAffiliation()|escape}
-                                        {if $author->getData('rorId')}
-                                            <a href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
-                                        {/if}
+										{if $author->getData('rorId')}
+											<a href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
+										{/if}
 									</div>
 								{/if}
-								{if $author->getOrcid()}
+								{if $author->getData('orcid')}
 									<div class="orcid">
 										{if $author->getData('orcidAccessToken')}
 											{$orcidIcon}
 										{/if}
-										<a href="{$author->getOrcid()|escape}" target="_blank">
-											{$author->getOrcid()|escape}
+										<a href="{$author->getData('orcid')|escape}" target="_blank">
+											{$author->getData('orcid')|escape}
 										</a>
 									</div>
 								{/if}

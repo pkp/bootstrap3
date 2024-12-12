@@ -13,11 +13,11 @@
 <div id="main-content" class="page page_masthead">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.editorialMasthead"}
 
-    {* Page Title *}
-    <div class="page-header">
-        <h1>{translate key="common.editorialMasthead"}</h1>
-    </div>
-    {* /Page Title *}
+	{* Page Title *}
+	<div class="page-header">
+		<h1>{translate key="common.editorialMasthead"}</h1>
+	</div>
+	{* /Page Title *}
 
 	{foreach from=$mastheadRoles item="mastheadRole"}
 		{if array_key_exists($mastheadRole->getId(), $mastheadUsers)}
@@ -28,7 +28,7 @@
 					{strip}
 						<span class="date_start">{translate key="common.fromUntil" from=$mastheadUser['dateStart'] until=""}</span>
 						<span class="name">
-                            {$mastheadUser['user']->getFullName()|escape}
+							{$mastheadUser['user']->getFullName()|escape}
 							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->getData('orcidAccessToken')}
 								<span class="orcid">
 									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank" aria-label="{translate key="common.editorialHistory.page.orcidLink" name=$mastheadUser['user']->getFullName()|escape}">

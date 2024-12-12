@@ -13,11 +13,11 @@
 <div id="main-content" class="page page_masthead">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.editorialHistory"}
 
-    {* Page Title *}
-    <div class="page-header">
-        <h1>{translate key="common.editorialHistory.page"}</h1>
-    </div>
-    {* /Page Title *}
+	{* Page Title *}
+	<div class="page-header">
+		<h1>{translate key="common.editorialHistory.page"}</h1>
+	</div>
+	{* /Page Title *}
 
 	<p>{translate key="common.editorialHistory.page.description"}</p>
 	{foreach from=$mastheadRoles item="mastheadRole"}
