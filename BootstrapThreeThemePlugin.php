@@ -106,6 +106,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.yeti'),
 				],
 			],
+            'default' => 'bootstrap3',
 		]);
 
 		// Add usage stats display options
