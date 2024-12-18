@@ -17,7 +17,10 @@
 
 	{* Page Title *}
 	<div class="page-header">
-		<h1>{translate key="about.aboutContext"}</h1>
+		<h1>
+			{translate key="about.aboutContext"}
+		</h1>
+		{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.aboutContext"}
 	</div>
 	{* /Page Title *}
 
