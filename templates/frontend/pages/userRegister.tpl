@@ -9,6 +9,8 @@
 *}
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
 
+{assign var="siteContextId" value=PKP\core\PKPApplication::SITE_CONTEXT_ID|intval}
+
 <div id="main-content" class="page page_register">
 
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
@@ -51,23 +53,28 @@
 			{assign var=contextId value=$currentContext->getId()}
 			{assign var=userCanRegisterReviewer value=0}
 			{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
-				{if $userGroup->getPermitSelfRegistration()}
+				{if $userGroup->permitSelfRegistration}
 					{assign var=userCanRegisterReviewer value=$userCanRegisterReviewer+1}
 				{/if}
 			{/foreach}
 			{if $userCanRegisterReviewer}
 				<fieldset class="reviewer">
-					<legend>
-						{translate key="user.reviewerPrompt"}
-					</legend>
+					{if $userCanRegisterReviewer > 1}
+						<legend>
+							{translate key="user.reviewerPrompt"}
+						</legend>
+						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.userGroup{/capture}
+					{else}
+						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.optin{/capture}
+					{/if}
 					<div class="fields">
 						<div id="reviewerOptinGroup" class="form-group optin">
 							{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
-								{if $userGroup->getPermitSelfRegistration()}
+								{if $userGroup->permitSelfRegistration}
 									<label>
-										{assign var="userGroupId" value=$userGroup->getId()}
+										{assign var="userGroupId" value=$userGroup->id}
 										<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
-										{translate key="user.reviewerPrompt.userGroup" userGroup=$userGroup->getLocalizedName()|escape}
+										{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedData('name')|escape}
 									</label>
 								{/if}
 							{/foreach}
@@ -91,7 +98,7 @@
 				{if $siteWidePrivacyStatement}
 					<div class="form-group optin optin-privacy">
 						<label>
-							<input type="checkbox" name="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]" id="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]" value="1"{if $privacyConsent[\PKP\core\PKPApplication::CONTEXT_ID_NONE]} checked="checked"{/if}>
+							<input type="checkbox" name="privacyConsent[{$siteContextId}]" id="privacyConsent[{$siteContextId}]" value="1"{if $privacyConsent[$siteContextId]} checked="checked"{/if}>
 							{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 						</label>

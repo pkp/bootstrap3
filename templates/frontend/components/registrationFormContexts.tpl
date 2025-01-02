@@ -42,14 +42,14 @@
 							<div class="form-inline">
 								<div class="form-group context_roles">
 									{foreach from=$readerUserGroups[$contextId] item=userGroup}
-										{if $userGroup->getPermitSelfRegistration()}
-											{assign var="userGroupId" value=$userGroup->getId()}
+										{if $userGroup->permitSelfRegistration}
+											{assign var="userGroupId" value=$userGroup->id}
 											<label class="input-group">
 												<span class="input-group-addon">
 													<input type="checkbox" name="readerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 												</span>
 												<span class="form-control">
-													{$userGroup->getLocalizedName()|escape}
+													{$userGroup->getLocalizedData('name')}
 												</span>
 											</label>
 											{if in_array($userGroupId, $userGroupIds)}
@@ -58,14 +58,14 @@
 										{/if}
 									{/foreach}
 									{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
-										{if $userGroup->getPermitSelfRegistration()}
-											{assign var="userGroupId" value=$userGroup->getId()}
+										{if $userGroup->permitSelfRegistration}
+											{assign var="userGroupId" value=$userGroup->id}
 											<label class="input-group">
 												<span class="input-group-addon">
 													<input type="checkbox" name="reviewerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 												</span>
 												<span class="form-control">
-													{$userGroup->getLocalizedName()|escape}
+													{$userGroup->getLocalizedData('name')}
 												</span>
 											</label>
 											{if in_array($userGroupId, $userGroupIds)}
