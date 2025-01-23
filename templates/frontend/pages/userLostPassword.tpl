@@ -34,6 +34,15 @@
 			<input type="email" name="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlength="32" required>
 		</div>
 
+		{* altcha spam blocker *}
+		{if $altchaEnabled}
+			<fieldset class="altcha_wrapper">
+				<div class="fields">
+					<altcha-widget challengejson='{$altchaChallenge|@json_encode}' floating></altcha-widget>
+				</div>
+			</fieldset>
+		{/if}
+
 		<div class="buttons">
 			<button type="submit" class="btn btn-primary">
 				{translate key="user.login.resetPassword"}
