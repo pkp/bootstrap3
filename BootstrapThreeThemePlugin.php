@@ -14,7 +14,6 @@
 namespace APP\plugins\themes\bootstrap3;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\facades\Locale;
 use PKP\plugins\ThemePlugin;
