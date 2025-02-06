@@ -8,14 +8,21 @@
  * @brief View of an Article which displays all details about the article.
  *  Expected to be primary object on the page.
  *
- * @uses $article Article This article
+ * @uses $article Submission This article
  * @uses $issue Issue The issue this article is assigned to
  * @uses $section Section The journal section this article is assigned to
  * @uses $keywords array List of keywords assigned to this article
- * @uses $pubIdPlugins @todo
+ * @uses $pubIdPlugins Array of pubId plugins which this article may be assigned
  *}
 <article class="article-details">
 
+	{* Indicate if this is only a preview *}
+	{if $publication->getData('status') !== PKP\submission\PKPSubmission::STATUS_PUBLISHED}
+		<div class="alert alert-warning" role="alert">
+			{capture assign="submissionUrl"}{url page="workflow" op="access" path=$article->getId()}{/capture}
+			{translate key="submission.viewingPreview" url=$submissionUrl}
+		</div>
+	{/if}
 	{* Notification that this is an old version *}
 	{if $currentPublication->getId() !== $publication->getId()}
 		<div class="alert alert-warning" role="alert">
@@ -163,18 +170,26 @@
 						{foreach from=$publication->getData('authors') item=author}
 							<div class="author">
 								<strong>{$author->getFullName()|escape}</strong>
-								{if $author->getLocalizedAffiliation()}
+								{if count($author->getAffiliations()) > 0}
 									<div class="article-author-affiliation">
-										{$author->getLocalizedAffiliation()|escape}
+										{foreach name="affiliations" from=$author->getAffiliations() item="affiliation"}
+											{$affiliation->getLocalizedName()|escape}
+											{if $affiliation->getRor()}
+												<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>
+											{/if}
+											{if !$smarty.foreach.affiliations.last}{translate key="common.commaListSeparator"}{/if}
+										{/foreach}
 									</div>
 								{/if}
-								{if $author->getOrcid()}
+								{if $author->getData('orcid')}
 									<div class="orcid">
-										{if $author->getData('orcidAccessToken')}
+										{if $author->hasVerifiedOrcid()}
 											{$orcidIcon}
+										{else}
+											{$orcidUnauthenticatedIcon}
 										{/if}
-										<a href="{$author->getOrcid()|escape}" target="_blank">
-											{$author->getOrcid()|escape}
+										<a href="{$author->getData('orcid')|escape}" target="_blank">
+											{$author->getOrcidDisplayValue()|escape}
 										</a>
 									</div>
 								{/if}
@@ -323,10 +338,10 @@
 									<div class="media biography">
 										<div class="media-body">
 											<h3 class="media-heading biography-author">
-												{if $author->getLocalizedAffiliation()}
+												{if $author->getLocalizedAffiliationNamesAsString()}
 													{capture assign="authorName"}{$author->getFullName()|escape}{/capture}
-													{capture assign="authorAffiliation"}<span class="affiliation">{$author->getLocalizedAffiliation()|escape}</span>{/capture}
-													{translate key="submission.authorWithAffiliation" name=$authorName affiliation=$authorAffiliation}
+													{capture assign="authorAffiliations"}<span class="affiliation">{$author->getLocalizedAffiliationNamesAsString(null, ', ')|escape}</span>{/capture}
+													{translate key="submission.authorWithAffiliation" name=$authorName affiliation=$authorAffiliations}
 												{else}
 													{$author->getFullName()|escape}
 												{/if}

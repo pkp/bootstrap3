@@ -14,7 +14,6 @@
 namespace APP\plugins\themes\bootstrap3;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\facades\Locale;
 use PKP\plugins\ThemePlugin;
@@ -106,6 +105,7 @@ class BootstrapThreeThemePlugin extends ThemePlugin {
 					'label' => __('plugins.themes.bootstrap3.options.bootstrapTheme.yeti'),
 				],
 			],
+			'default' => 'bootstrap3',
 		]);
 
 		// Add usage stats display options
