@@ -170,12 +170,15 @@
 						{foreach from=$publication->getData('authors') item=author}
 							<div class="author">
 								<strong>{$author->getFullName()|escape}</strong>
-								{if $author->getLocalizedAffiliation()}
+								{if count($author->getAffiliations()) > 0}
 									<div class="article-author-affiliation">
-										{$author->getLocalizedAffiliation()|escape}
-										{if $author->getData('rorId')}
-											<a href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
-										{/if}
+										{foreach name="affiliations" from=$author->getAffiliations() item="affiliation"}
+											{$affiliation->getLocalizedName()|escape}
+											{if $affiliation->getRor()}
+												<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>
+											{/if}
+											{if !$smarty.foreach.affiliations.last}{translate key="common.commaListSeparator"}{/if}
+										{/foreach}
 									</div>
 								{/if}
 								{if $author->getData('orcid')}
@@ -335,10 +338,10 @@
 									<div class="media biography">
 										<div class="media-body">
 											<h3 class="media-heading biography-author">
-												{if $author->getLocalizedAffiliation()}
+												{if $author->getLocalizedAffiliationNamesAsString()}
 													{capture assign="authorName"}{$author->getFullName()|escape}{/capture}
-													{capture assign="authorAffiliation"}<span class="affiliation">{$author->getLocalizedAffiliation()|escape}</span>{/capture}
-													{translate key="submission.authorWithAffiliation" name=$authorName affiliation=$authorAffiliation}
+													{capture assign="authorAffiliations"}<span class="affiliation">{$author->getLocalizedAffiliationNamesAsString(null, ', ')|escape}</span>{/capture}
+													{translate key="submission.authorWithAffiliation" name=$authorName affiliation=$authorAffiliations}
 												{else}
 													{$author->getFullName()|escape}
 												{/if}
