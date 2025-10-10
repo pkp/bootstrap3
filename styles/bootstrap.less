@@ -214,7 +214,7 @@ footer[role="contentinfo"] {
 
 // Style the PDF and HTML view
 .header_view {
-	z-index: 2;
+	z-index: 0;
 	background: @navbar-default-bg;
   &:extend(.navbar all);
   &:extend(.navbar-default all);
@@ -241,6 +241,13 @@ footer[role="contentinfo"] {
     }
   }
 
+.header_view>.title {
+	overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+	
   .return,
   .download .label {
     &:extend(.sr-only all);
