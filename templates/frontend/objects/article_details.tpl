@@ -169,10 +169,13 @@
 						{foreach from=$publication->getData('authors') item=author}
 							<div class="author">
 								<strong>{$author->getFullName()|escape}</strong>
-								{if $author->getLocalizedAffiliation()}
-									<div class="article-author-affilitation">
-										{$author->getLocalizedAffiliation()|escape}
-									</div>
+							{if $author->getLocalizedData('affiliation')}
+								<span class="affiliation">
+									{$author->getLocalizedData('affiliation')|escape}
+									{if $author->getData('rorId')}
+										<a href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
+									{/if}
+								</span>
 								{/if}
 								{if $author->getOrcid()}
 									<div class="orcid">
