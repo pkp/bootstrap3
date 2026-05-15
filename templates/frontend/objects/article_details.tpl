@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/article_details.tpl
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2003-2023 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of an Article which displays all details about the article.
@@ -13,13 +13,17 @@
  * @uses $section Section The journal section this article is assigned to
  * @uses $keywords array List of keywords assigned to this article
  * @uses $pubIdPlugins Array of pubId plugins which this article may be assigned
+ *
+ * @hook Templates::Article::Main []
+ * @hook Templates::Article::Details []
+ * @hook Templates::Article::Details::Reference []
  *}
 <article class="article-details">
 
 	{* Indicate if this is only a preview *}
 	{if $publication->getData('status') !== PKP\submission\PKPSubmission::STATUS_PUBLISHED}
 		<div class="alert alert-warning" role="alert">
-			{capture assign="submissionUrl"}{url page="workflow" op="access" path=$article->getId()}{/capture}
+			{capture assign="submissionUrl"}{url page="dashboard" op="editorial" workflowSubmissionId=$article->getId()}{/capture}
 			{translate key="submission.viewingPreview" url=$submissionUrl}
 		</div>
 	{/if}
@@ -36,10 +40,10 @@
 
 	<header>
 		<h1 class="page-header">
-			{$publication->getLocalizedTitle()|escape}
+			{$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
 			{if $publication->getLocalizedData('subtitle')}
 				<small>
-					{$publication->getLocalizedData('subtitle')|escape}
+					{$publication->getLocalizedSubTitle(null, 'html')|strip_unsafe_html}
 				</small>
 			{/if}
 		</h1>
@@ -149,7 +153,7 @@
 						<div class="">
 							<span class="value">
 								{foreach name="keywords" from=$publication->getLocalizedData('keywords') item="keyword"}
-									{$keyword|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}
+									{$keyword.name|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}
 								{/foreach}
 							</span>
 						</div>
@@ -263,6 +267,20 @@
 					{/if}
 				{/foreach}
 
+				{* Data Availability Statement *}
+				{if $publication->getLocalizedData('dataAvailability')}
+					<div class="panel panel-default dataAvailability">
+						<div class="panel-heading">
+							<h2 class="panel-title">
+								{translate key="submission.dataAvailability"}
+							</h2>
+						</div>
+						<div class="panel-body">
+							{$publication->getLocalizedData('dataAvailability')|strip_unsafe_html}
+						</div>
+					</div>
+				{/if}
+
 				{* Issue article appears in *}
 				{if $issue}
 					<div class="panel panel-default issue">
@@ -358,11 +376,11 @@
 				{call_hook name="Templates::Article::Details"}
 
 				{* References *}
-				{if $parsedCitations || $publication->getData('citationsRaw')}
+				{if count($parsedCitations) || (string) $publication->getData('citationsRaw')}
 					<div class="article-references">
 						<h2>{translate key="submission.citations"}</h2>
 						<div class="article-references-content">
-							{if $parsedCitations}
+							{if count($parsedCitations)}
 								{foreach from=$parsedCitations item="parsedCitation"}
 									<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
 								{/foreach}
