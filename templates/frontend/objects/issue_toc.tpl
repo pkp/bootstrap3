@@ -68,6 +68,21 @@
 				{/if}
 			{/foreach}
 
+			{* DOI *}
+			{assign var=doiObject value=$issue->getData('doiObject')}
+			{if $doiObject}
+				{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
+				<p class="pub_id doi">
+					<strong>
+						{capture assign=translatedDOI}{translate key="doi.readerDisplayName"}{/capture}
+						{translate key="semicolon" label=$translatedDOI}
+					</strong>
+					<a href="{$doiUrl|escape}">
+						{$doiUrl}
+					</a>
+				</p>
+			{/if}
+
 			{* Published date *}
 			{if $issue->getDatePublished()}
 				<p class="published">

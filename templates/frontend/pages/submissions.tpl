@@ -23,18 +23,24 @@
 	{* /Page Title *}
 
 	{* Login/register prompt *}
-	{if $isUserLoggedIn}
-		{capture assign="newSubmission"}<a class="alert-link" href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
-		{capture assign="viewSubmissions"}<a class="alert-link" href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
+	{if $sections|@count == 0 || $currentContext->getData('disableSubmissions')}
 		<div class="alert alert-info">
-			{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
+			{translate key="author.submit.notAccepting"}
 		</div>
 	{else}
-		{capture assign="login"}<a class="alert-link" href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
-		{capture assign="register"}<a class="alert-link" href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
-		<div class="alert alert-info">
-			{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
-		</div>
+		{if $isUserLoggedIn}
+			{capture assign="newSubmission"}<a class="alert-link" href="{url page="submission"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
+			{capture assign="viewSubmissions"}<a class="alert-link" href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
+			<div class="alert alert-info">
+				{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
+			</div>
+		{else}
+			{capture assign="login"}<a class="alert-link" href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
+			{capture assign="register"}<a class="alert-link" href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
+			<div class="alert alert-info">
+				{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
+			</div>
+		{/if}
 	{/if}
 
 	{* Author Guidelines *}
