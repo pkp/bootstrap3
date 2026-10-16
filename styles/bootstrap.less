@@ -241,13 +241,22 @@ footer[role="contentinfo"] {
     }
   }
 
-  .return,
   .download .label {
     &:extend(.sr-only all);
   }
 
+  .return:before {
+    &:extend(.glyphicon all);
+    content: "\e091"; // glyphicon-arrow-left
+  }
+
   .download {
     &:extend(.pull-right all);
+
+    &:before {
+      &:extend(.glyphicon all);
+      content: "\e025"; // glyphicon-download-alt
+    }
   }
 }
 
@@ -353,5 +362,25 @@ footer[role="contentinfo"] {
 			height: 1.4rem;
 			margin: 0;
 		}
+	}
+}
+
+// ORCID connect button on the registration page (lib/pkp/templates/form/orcidProfile.tpl)
+#connect-orcid-button {
+	.btn;
+	.btn-default;
+	margin-right: 0.5em;
+	margin-bottom: 1.5em;
+
+	.orcid_button_container {
+		padding: 0;
+	}
+
+	.orcid_icon {
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		margin-right: 0.25em;
+		vertical-align: middle;
 	}
 }

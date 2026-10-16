@@ -26,7 +26,7 @@
 
 	{if $homepageImage}
 		<div class="homepage-image">
-			<img class="img-responsive" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
+			<img class="img-responsive" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}"{if $homepageImage.altText} alt="{$homepageImage.altText|escape}"{/if}>
 		</div>
 	{/if}
 
@@ -68,7 +68,7 @@
 				{$issue->getIssueIdentification()|strip_unsafe_html}
 			</p>
 			{include file="frontend/objects/issue_toc.tpl"}
-			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
+			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
 				{translate key="journal.viewAllIssues"}
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
