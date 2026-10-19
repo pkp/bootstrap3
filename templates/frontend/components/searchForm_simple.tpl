@@ -9,7 +9,7 @@
  *
  * @uses $searchQuery string Previously input search query
  *}
-{if !$currentJournal || $currentJournal->getData('publishingMode') != \APP\journal\Journal::PUBLISHING_MODE_NONE}
+{if !$currentJournal || $currentJournal->getData('publishingMode') != APP\journal\Journal::PUBLISHING_MODE_NONE}
 {capture name="searchFormUrl"}{url page="search" op="search" escape=false}{/capture}
 {$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
 <form class="navbar-form navbar-left" role="search" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}">

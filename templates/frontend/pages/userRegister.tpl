@@ -16,6 +16,10 @@
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
 	<form class="pkp_form register" id="register" method="post" action="{url op="register"}">
+		{if $orcidEnabled}
+			{include file="form/orcidProfile.tpl"}
+		{/if}
+
 		{csrf}
 
 		{if $source}
@@ -35,7 +39,7 @@
 					<div class="form-group optin optin-privacy">
 						<label>
 							<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
-							{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
+							{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 						</label>
 					</div>
@@ -99,7 +103,7 @@
 					<div class="form-group optin optin-privacy">
 						<label>
 							<input type="checkbox" name="privacyConsent[{$siteContextId}]" id="privacyConsent[{$siteContextId}]" value="1"{if $privacyConsent[$siteContextId]} checked="checked"{/if}>
-							{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
+							{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 						</label>
 					</div>
@@ -156,5 +160,6 @@
 		</div>
 	</form>
 
+</div><!-- .page -->
 
 {include file="common/frontend/footer.tpl"}

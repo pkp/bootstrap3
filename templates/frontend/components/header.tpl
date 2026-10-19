@@ -22,7 +22,7 @@
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
 {if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
 {include file="frontend/components/headerHead.tpl"}
-<body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}">
+<body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 	<div class="pkp_structure_page">
 
 		<nav id="accessibility-nav" class="sr-only" role="navigation" aria-label="{translate|escape key="plugins.themes.bootstrap3.accessible_menu.label"}">
@@ -51,7 +51,7 @@
 
 					{* Mobile hamburger menu *}
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false" aria-controls="nav-menu">
-						<span class="sr-only">Toggle navigation</span>
+						<span class="sr-only">{translate key="plugins.themes.bootstrap3.accessible_menu.main_navigation"}</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -65,14 +65,14 @@
 						<div class="site-name">
 					{/if}
 						{capture assign="homeUrl"}
-							{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}
+							{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}
 						{/capture}
 						{if $displayPageHeaderLogo}
 							<a href="{$homeUrl}" class="navbar-brand navbar-brand-logo">
 								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if}>
 							</a>
 						{elseif $displayPageHeaderTitle}
-							<a href="{$homeUrl}" class="navbar-brand">{$displayPageHeaderTitle}</a>
+							<a href="{$homeUrl}" class="navbar-brand">{$displayPageHeaderTitle|escape}</a>
 						{else}
 							<a href="{$homeUrl}" class="navbar-brand">
 								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" />

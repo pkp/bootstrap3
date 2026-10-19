@@ -31,7 +31,7 @@
 {/if}
 
 {* Get page and parentId for URL *}
-{if $parent instanceOf Issue}
+{if $parent instanceOf APP\issue\Issue}
 	{assign var="page" value="issue"}
 	{assign var="parentId" value=$parent->getBestIssueId()}
 	{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId()}
@@ -56,7 +56,7 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="galley-link btn {if $isSupplementary}btn-default{else}btn-primary{/if} {$type}" role="button" href="{url page=$page op="view" path=$path}">
+<a class="galley-link btn {if $isSupplementary}btn-default{else}btn-primary{/if} {$type|escape}" role="button" href="{if $currentJournal}{url router=PKP\core\PKPApplication::ROUTE_PAGE journal=$currentJournal->getPath() page=$page op="view" path=$path}{else}{url router=PKP\core\PKPApplication::ROUTE_PAGE page=$page op="view" path=$path}{/if}">
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}

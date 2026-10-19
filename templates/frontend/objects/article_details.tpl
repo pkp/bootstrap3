@@ -26,9 +26,8 @@
 			{capture assign="submissionUrl"}{url page="dashboard" op="editorial" workflowSubmissionId=$article->getId()}{/capture}
 			{translate key="submission.viewingPreview" url=$submissionUrl}
 		</div>
-	{/if}
 	{* Notification that this is an old version *}
-	{if $currentPublication->getId() !== $publication->getId()}
+	{elseif $currentPublication->getId() !== $publication->getId()}
 		<div class="alert alert-warning" role="alert">
 			{capture assign="latestVersionUrl"}{url page="article" op="view" path=$article->getBestId()}{/capture}
 			{translate key="submission.outdatedVersion"
@@ -176,12 +175,18 @@
 								<strong>{$author->getFullName()|escape}</strong>
 								{if count($author->getAffiliations()) > 0}
 									<div class="article-author-affiliation">
-										{foreach name="affiliations" from=$author->getAffiliations() item="affiliation"}
-											{$affiliation->getLocalizedName()|escape}
-											{if $affiliation->getRor()}
-												<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>
+										{assign var="renderedAffiliation" value=false}
+										{foreach from=$author->getAffiliations() item="affiliation"}
+											{if $affiliation->getLocalizedName() || $affiliation->getRor()}
+												{if $renderedAffiliation}{translate key="common.commaListSeparator"}{/if}
+												{if $affiliation->getLocalizedName()}
+													{$affiliation->getLocalizedName()|escape}
+												{/if}
+												{if $affiliation->getRor()}
+													<a href="{$affiliation->getRor()|escape}">{$rorIdIcon|trim}</a>
+												{/if}
+												{assign var="renderedAffiliation" value=true}
 											{/if}
-											{if !$smarty.foreach.affiliations.last}{translate key="common.commaListSeparator"}{/if}
 										{/foreach}
 									</div>
 								{/if}
@@ -242,11 +247,7 @@
 					{if $pubIdPlugin->getPubIdType() == 'doi'}
 						{continue}
 					{/if}
-					{if $issue->getPublished()}
-						{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-					{else}
-						{assign var=pubId value=$pubIdPlugin->getPubId($article)}{* Preview pubId *}
-					{/if}
+					{assign var=pubId value=$publication->getStoredPubId($pubIdPlugin->getPubIdType())}
 					{if $pubId}
 						<div class="panel panel-default pub_ids">
 							<div class="panel-heading">
@@ -269,7 +270,7 @@
 
 				{* Data Availability Statement *}
 				{if $publication->getLocalizedData('dataAvailability')}
-					<div class="panel panel-default dataAvailability">
+					<div class="panel panel-default dataAvailability" id="data-availability-statement">
 						<div class="panel-heading">
 							<h2 class="panel-title">
 								{translate key="submission.dataAvailability"}
@@ -311,23 +312,26 @@
 				{/if}
 
 				{* Licensing info *}
-				{if $licenseTerms || $licenseUrl}
+				{if $currentContext->getLocalizedData('licenseTerms') || $publication->getData('licenseUrl')}
 					<div class="panel panel-default copyright">
 						<div class="panel-body">
-							{if $licenseUrl}
+							{if $publication->getData('licenseUrl')}
 								{if $ccLicenseBadge}
+									{if $publication->getLocalizedData('copyrightHolder')}
+										<p>{translate key="submission.copyrightStatement" copyrightHolder=$publication->getLocalizedData('copyrightHolder') copyrightYear=$publication->getData('copyrightYear')}</p>
+									{/if}
 									{$ccLicenseBadge}
 								{else}
-									<a href="{$licenseUrl|escape}" class="copyright">
-										{if $copyrightHolder}
-											{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
+									<a href="{$publication->getData('licenseUrl')|escape}" class="copyright">
+										{if $publication->getLocalizedData('copyrightHolder')}
+											{translate key="submission.copyrightStatement" copyrightHolder=$publication->getLocalizedData('copyrightHolder') copyrightYear=$publication->getData('copyrightYear')}
 										{else}
 											{translate key="submission.license"}
 										{/if}
 									</a>
 								{/if}
 							{/if}
-							{$licenseTerms}
+							{$currentContext->getLocalizedData('licenseTerms')}
 						</div>
 					</div>
 				{/if}

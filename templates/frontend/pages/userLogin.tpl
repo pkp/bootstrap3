@@ -35,9 +35,9 @@
 
 		<div class="form-group">
 			<label for="login-username">
-				{translate key="user.username"}
+				{translate key="user.usernameOrEmail"}
 			</label>
-			<input type="text" name="username" class="form-control" id="login-username" placeholder="{translate key='user.username'}" value="{$username|default:""|escape}" maxlength="32" required>
+			<input type="text" name="username" class="form-control" id="login-username" placeholder="{translate key='user.usernameOrEmail'}" value="{$username|default:""|escape}" required>
 		</div>
 
 		<div class="form-group">

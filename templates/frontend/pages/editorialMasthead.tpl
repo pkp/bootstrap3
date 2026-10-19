@@ -26,7 +26,9 @@
 			{foreach from=$mastheadUsers[$mastheadRole->id] item="mastheadUser"}
 				<li>
 					{strip}
-						<span class="date_start">{translate key="common.fromUntil" from=$mastheadUser['dateStart'] until=""}</span>
+						{if !empty($mastheadUser['dateStart'])}
+							<span class="date_start">{translate key="common.fromUntil" from=$mastheadUser['dateStart'] until=""}</span>
+						{/if}
 						<span class="name">
 							{$mastheadUser['user']->getFullName()|escape}
 							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->hasVerifiedOrcid()}
@@ -47,12 +49,12 @@
 		{/if}
 	{/foreach}
 	<p>
-		{capture assign=editorialHistoryUrl}{url page="about" op="editorialHistory" router=\PKP\core\PKPApplication::ROUTE_PAGE}{/capture}
+		{capture assign=editorialHistoryUrl}{url page="about" op="editorialHistory" router=PKP\core\PKPApplication::ROUTE_PAGE}{/capture}
 		{translate key="about.editorialMasthead.linkToEditorialHistory" url=$editorialHistoryUrl}
 	</p>
 	<hr>
 
-	{if !empty($reviewers)}
+	{if $reviewers->count()}
 		<h2>{translate key="common.editorialMasthead.peerReviewers"}</h2>
 		<p>{translate key="common.editorialMasthead.peerReviewers.description" year=$previousYear}</p>
 		<ul class="user_listing" role="list">
