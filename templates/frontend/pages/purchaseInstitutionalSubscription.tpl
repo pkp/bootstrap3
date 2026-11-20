@@ -69,10 +69,10 @@
 		</div>
 
 		<div class="form-group">
-			<label for="subscription-ips">
+			<label for="ipRanges">
 				{translate key="user.subscriptions.form.ipRange"}
 			</label>
-			<input type="text" name="ipRanges" class="form-control" id="ipRanges" value="{$ipRanges|escape}" aria-describedby="subscriptionIPDescription">
+			<textarea name="ipRanges" class="form-control" id="ipRanges" aria-describedby="subscriptionIPDescription">{$ipRanges|escape}</textarea>
 			<span class="help-block" id="subscriptionIPDescription">{translate key="user.subscriptions.form.ipRangeInstructions"}</span>
 		</div>
 

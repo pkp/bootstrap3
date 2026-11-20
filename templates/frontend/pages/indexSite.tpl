@@ -67,7 +67,7 @@
 						<div class="media-body">
 							<h3 class="media-heading">
 								<a href="{$url|escape}" rel="bookmark">
-									{$journal->getLocalizedName()}
+									{$journal->getLocalizedName()|escape}
 								</a>
 							</h3>
 							{if $description}

@@ -17,7 +17,7 @@
  *}
 {assign var=publication value=$article->getCurrentPublication()}
 {assign var=articlePath value=$article->getBestId($currentJournal)}
-{if (!$section.hideAuthor && $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_SHOW}
+{if (!$section.hideAuthor && $publication->getData('hideAuthor') == APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $publication->getData('hideAuthor') == APP\submission\Submission::AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
@@ -25,15 +25,15 @@
 	{if $publication->getLocalizedData('coverImage')}
 		{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
 		<div class="cover media-left">
-			<a href="{if $journal}{url journal=$journal->getPath() page="article" op="view" path=$articlePath}{else}{url page="article" op="view" path=$articlePath}{/if}" class="file">
-				<img class="media-object" src="{$publication->getLocalizedCoverImageUrl($currentContext->getId())|escape}" alt="{$coverImage.altText|escape|default:''}">
+			<a href="{if $journal}{url router=PKP\core\PKPApplication::ROUTE_PAGE journal=$journal->getPath() page="article" op="view" path=$articlePath}{else}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="article" op="view" path=$articlePath}{/if}" class="file">
+				<img class="media-object" src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}" alt="{$coverImage.altText|escape|default:''}">
 			</a>
 		</div>
 	{/if}
 
 	<div class="media-body">
 		<h3 class="media-heading">
-            <a href="{if $journal}{url journal=$journal->getPath() page="article" op="view" path=$articlePath}{else}{url page="article" op="view" path=$articlePath}{/if}">
+            <a href="{if $journal}{url router=PKP\core\PKPApplication::ROUTE_PAGE journal=$journal->getPath() page="article" op="view" path=$articlePath}{else}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="article" op="view" path=$articlePath}{/if}">
 				{$publication->getLocalizedTitle()|strip_unsafe_html}
 				{if $publication->getLocalizedSubtitle()}
 					<p>
@@ -75,7 +75,7 @@
 					{/if}
 					{assign var=publication value=$article->getCurrentPublication()}
 					{assign var="hasArticleAccess" value=$hasAccess}
-					{if $currentContext->getSetting('publishingMode') == \APP\journal\Journal::PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN}
+					{if $currentContext->getSetting('publishingMode') == APP\journal\Journal::PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == APP\submission\Submission::ARTICLE_ACCESS_OPEN}
 						{assign var="hasArticleAccess" value=1}
 					{/if}
 					{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
