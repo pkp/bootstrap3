@@ -24,7 +24,7 @@
 		<div class="form-group given_name">
 			<label>
 				{translate key="user.givenName"}
-				<span class="form-control-required">*</span>
+				<span class="form-control-required" aria-hidden="true">*</span>
 				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
 			</label>
@@ -38,7 +38,7 @@
 		<div class="form-group affiliation">
 			<label>
 				{translate key="user.affiliation"}
-				<span class="form-control-required">*</span>
+				<span class="form-control-required" aria-hidden="true">*</span>
 				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
 			</label>
@@ -46,7 +46,7 @@
 		<div class="form-group country">
 			<label>
 				{translate key="common.country"}
-				<span class="form-control-required">*</span>
+				<span class="form-control-required" aria-hidden="true">*</span>
 				<span class="sr-only">{translate key="common.required"}</span>
 				<select class="form-control" name="country" id="country" required>
 					<option></option>
@@ -65,7 +65,7 @@
 		<div class="form-group email">
 			<label>
 				{translate key="user.email"}
-				<span class="form-control-required">*</span>
+				<span class="form-control-required" aria-hidden="true">*</span>
 				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="email" name="email" id="email" value="{$email|escape}" maxlength="90" required>
 			</label>
@@ -73,7 +73,7 @@
 		<div class="form-group username">
 			<label>
 				{translate key="user.username"}
-				<span class="form-control-required">*</span>
+				<span class="form-control-required" aria-hidden="true">*</span>
 				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
 			</label>
@@ -81,7 +81,7 @@
 		<div class="form-group password">
 			<label>
 				{translate key="user.password"}
-				<span class="form-control-required">*</span>
+				<span class="form-control-required" aria-hidden="true">*</span>
 				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="password" name="password" id="password" password="true" maxlength="32" required>
 			</label>
@@ -89,7 +89,7 @@
 		<div class="form-group password">
 			<label>
 				{translate key="user.repeatPassword"}
-				<span class="form-control-required">*</span>
+				<span class="form-control-required" aria-hidden="true">*</span>
 				<span class="sr-only">{translate key="common.required"}</span>
 				<input class="form-control" type="password" name="password2" id="password2" password="true" maxlength="32" required>
 			</label>
