@@ -22,7 +22,7 @@
 		{csrf}
 
 		<div class="form-group">
-			<label for="subscription-type">
+			<label for="typeId">
 				{translate key="user.subscriptions.form.typeId"}
 			</label>
 			<select name="typeId" id="typeId" class="form-control">
@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="subscription-membership">
+			<label for="membership">
 				{translate key="user.subscriptions.form.membership"}
 			</label>
 			<input type="text" class="form-control" name="membership" id="membership" value="{$membership|escape}">

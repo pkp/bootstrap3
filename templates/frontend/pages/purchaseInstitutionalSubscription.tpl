@@ -28,7 +28,7 @@
 		{include file="common/formErrors.tpl"}
 
 		<div class="form-group">
-			<label for="subscription-type">
+			<label for="typeId">
 				{translate key="user.subscriptions.form.typeId"}
 			</label>
 			<select name="typeId" id="typeId" class="form-control" required>
@@ -39,7 +39,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="subscription-membership">
+			<label for="membership">
 				{translate key="user.subscriptions.form.membership"}
 			</label>
 			<input type="text" name="membership" class="form-control" id="membership" value="{$membership|escape}" aria-describedby="subscriptionMembershipDescription">
@@ -47,21 +47,21 @@
 		</div>
 
 		<div class="form-group">
-			<label for="subscription-institution">
+			<label for="institutionName">
 				{translate key="user.subscriptions.form.institutionName"}
 			</label>
 			<input type="text" name="institutionName" class="form-control" id="institutionName" value="{$institutionName|escape}">
 		</div>
 
 		<div class="form-group">
-			<label for="subscription-address">
+			<label for="institutionMailingAddress">
 				{translate key="user.subscriptions.form.institutionMailingAddress"}
 			</label>
 			<textarea name="institutionMailingAddress" class="form-control" id="institutionMailingAddress">{$institutionMailingAddress|escape}</textarea>
 		</div>
 
 		<div class="form-group">
-			<label for="subscription-membership">
+			<label for="domain">
 				{translate key="user.subscriptions.form.domain"}
 			</label>
 			<input type="text" name="domain" class="form-control" id="domain" value="{$domain|escape}" aria-describedby="subscriptionDomainDescription">
@@ -69,10 +69,10 @@
 		</div>
 
 		<div class="form-group">
-			<label for="subscription-ips">
+			<label for="ipRanges">
 				{translate key="user.subscriptions.form.ipRange"}
 			</label>
-			<input type="text" name="ipRanges" class="form-control" id="ipRanges" value="{$ipRanges|escape}" aria-describedby="subscriptionIPDescription">
+			<textarea name="ipRanges" class="form-control" id="ipRanges" aria-describedby="subscriptionIPDescription">{$ipRanges|escape}</textarea>
 			<span class="help-block" id="subscriptionIPDescription">{translate key="user.subscriptions.form.ipRangeInstructions"}</span>
 		</div>
 

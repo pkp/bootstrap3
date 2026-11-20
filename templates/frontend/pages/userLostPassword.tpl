@@ -23,7 +23,7 @@
 
 		{if $error}
 			<div class="alert alert-error" role="alert">
-				{translate key=$error}
+				{translate key=$error reason=$reason}
 			</div>
 		{/if}
 
@@ -31,7 +31,7 @@
 			<label for="login-email">
 				{translate key="user.login.registeredEmail"}
 			</label>
-			<input type="email" name="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlength="32" required>
+			<input type="email" name="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" required>
 		</div>
 
 		{* recaptcha spam blocker *}

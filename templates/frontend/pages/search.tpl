@@ -26,7 +26,7 @@
 
 	{* Main Search From *}
 	{capture name="searchFormUrl"}{url op="search" escape=false}{/capture}
-	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
+	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|default:""|parse_str:$formUrlParameters}
 	<form method="get" id="search-form" class="search-form" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}" role="search">
 		{foreach from=$formUrlParameters key=paramKey item=paramValue}
 			<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
@@ -81,6 +81,21 @@
 						</label>
 						<input class="form-control" type="text" for="authors" name="authors" value="{$authors|escape}">
 					</div>
+					{if $searchableContexts}
+						<div class="form-group">
+							<label for="searchContext">
+								{translate key="search.journal"}
+							</label>
+							<select class="form-control" name="searchContext" id="searchContext">
+								<option></option>
+								{foreach from=$searchableContexts item="searchableContext"}
+									<option value="{$searchableContext->id}" {if $searchContext == $searchableContext->id}selected{/if}>
+										{$searchableContext->name|escape}
+									</option>
+								{/foreach}
+							</select>
+						</div>
+					{/if}
 				</div>
 			</div>
 			{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
