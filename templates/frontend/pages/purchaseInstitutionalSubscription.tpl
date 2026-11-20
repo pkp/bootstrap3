@@ -28,7 +28,7 @@
 		{include file="common/formErrors.tpl"}
 
 		<div class="form-group">
-			<label for="subscription-type">
+			<label for="typeId">
 				{translate key="user.subscriptions.form.typeId"}
 			</label>
 			<select name="typeId" id="typeId" class="form-control" required>
