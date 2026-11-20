@@ -83,13 +83,13 @@
 					</div>
 					{if $searchableContexts}
 						<div class="form-group">
-							<label for="searchJournal">
+							<label for="searchContext">
 								{translate key="search.journal"}
 							</label>
-							<select class="form-control" name="searchJournal" id="searchJournal">
+							<select class="form-control" name="searchContext" id="searchContext">
 								<option></option>
 								{foreach from=$searchableContexts item="searchableContext"}
-									<option value="{$searchableContext->id}" {if $searchJournal == $searchableContext->id}selected{/if}>
+									<option value="{$searchableContext->id}" {if $searchContext == $searchableContext->id}selected{/if}>
 										{$searchableContext->name|escape}
 									</option>
 								{/foreach}
